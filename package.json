@@ -44,5 +44,16 @@
   },
   "devDependencies": {
     "husky": "^7.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.tsx",
+      "src/**/*.ts",
+      "!src/**/*.test.tsx",
+      "!src/reportWebVitals.ts",
+      "!src/setupTests.ts",
+      "!src/index.tsx",
+      "!src/mocks/*"
+    ]
   }
 }
