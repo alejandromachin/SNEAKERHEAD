@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
-    "testCoverage": "react-scripts test --coverage --watchAll"
+    "testCoverage": "react-scripts test --coverage --watchAll",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "^7.0.0"
   }
 }
