@@ -1,4 +1,4 @@
-const NotFoundPage = () => {
+const NotFoundPage = (): JSX.Element => {
   return (
     <>
       <h1>NOT FOUND</h1>

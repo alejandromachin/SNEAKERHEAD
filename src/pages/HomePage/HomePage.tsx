@@ -1,4 +1,4 @@
-const HomePage = () => {
+const HomePage = (): JSX.Element => {
   return (
     <>
       <h1>SNEAKERHEAD</h1>
