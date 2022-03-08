@@ -2,7 +2,10 @@ import { Action } from "../../../Types/Action";
 import { Sneaker } from "../../../Types/Sneaker";
 import actionTypes from "../../actions/actionTypes";
 
-const sneakersReducer = (currentState: Sneaker[] = [], action: Action = {}) => {
+const sneakersReducer = (
+  currentState: Sneaker[] | [] = [],
+  action: Action = {}
+) => {
   let newSneakers: Sneaker[] | Sneaker;
   switch (action.type) {
     case actionTypes.loadSneakers:
