@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Navigation = (): JSX.Element => {
   return (
@@ -11,6 +12,7 @@ const Navigation = (): JSX.Element => {
           alt="burger-menu"
         ></img>
       </Link>
+      <SearchBar action={() => {}} />
       <Link to="/home">LOGO</Link> <Link to="/home">REGISTER</Link> |{" "}
       <Link to="/home">LOGIN</Link>{" "}
     </>
