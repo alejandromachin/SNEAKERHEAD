@@ -11,7 +11,7 @@ const Navigation = (): JSX.Element => {
           alt="burger-menu"
         ></img>
       </Link>
-      <Link to="/home">HOME</Link> <Link to="/home">REGISTER</Link>{" "}
+      <Link to="/home">LOGO</Link> <Link to="/home">REGISTER</Link> |{" "}
       <Link to="/home">LOGIN</Link>{" "}
     </>
   );
