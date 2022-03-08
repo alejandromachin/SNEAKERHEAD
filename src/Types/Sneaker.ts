@@ -1,4 +1,4 @@
-export interface Action {
+export interface Sneaker {
   Brand: String;
   Model: String;
   Colorway: String;
