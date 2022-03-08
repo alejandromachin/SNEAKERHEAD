@@ -8,7 +8,7 @@ interface SearchBarProps {
   action: Function;
 }
 interface searchData {
-  search: String;
+  search: string | ReadonlyArray<string> | number | undefined;
 }
 
 library.add(fas);
@@ -22,6 +22,10 @@ const SearchBar = ({ action }: SearchBarProps): JSX.Element => {
   const blankFields: searchData = { search: "" };
   const [searchData, setFormData] = useState<searchData>(blankFields);
 
+  const resetForm = () => {
+    setFormData(blankFields);
+  };
+
   const changeData = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...searchData,
@@ -31,6 +35,8 @@ const SearchBar = ({ action }: SearchBarProps): JSX.Element => {
 
   const search = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    // fala el thunk
+    resetForm();
   };
 
   return (
@@ -40,6 +46,7 @@ const SearchBar = ({ action }: SearchBarProps): JSX.Element => {
         <input
           type="text"
           id="search"
+          value={searchData.search}
           onChange={changeData}
           placeholder="Search for brand, names..."
         />
