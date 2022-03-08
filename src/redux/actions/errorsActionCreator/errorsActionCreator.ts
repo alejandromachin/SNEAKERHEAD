@@ -9,3 +9,8 @@ export const notFoundErrorAction = (error: string): ErrorAction => ({
   type: errorTypes.notFound,
   error,
 });
+
+export const generalErrorAction = (error: string): ErrorAction => ({
+  type: errorTypes.generalError,
+  error,
+});
