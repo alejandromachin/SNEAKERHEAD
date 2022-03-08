@@ -23,7 +23,7 @@ export const deleteAdAction = (id: string): DeleteAdAction => ({
   id,
 });
 
-export const editAddAction = (ad: Ad): AdAction => ({
+export const editAdAction = (ad: Ad): AdAction => ({
   type: actionTypes.editAd,
   ad,
 });

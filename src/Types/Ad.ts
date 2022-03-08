@@ -1,4 +1,5 @@
 export interface Ad {
+  id: string;
   Brand: string;
   Model: string;
   Colorway: string;
