@@ -1,15 +1,25 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { IconLookup } from "@fortawesome/fontawesome-svg-core";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 
 interface SearchBarProps {
   action: Function;
 }
-
 interface searchData {
-  input: String;
+  search: String;
 }
 
+library.add(fas);
+
+const magnifyingGlassLookup: IconLookup = {
+  prefix: "fas",
+  iconName: "magnifying-glass",
+};
+
 const SearchBar = ({ action }: SearchBarProps): JSX.Element => {
-  const blankFields: searchData = { input: "" };
+  const blankFields: searchData = { search: "" };
   const [searchData, setFormData] = useState<searchData>(blankFields);
 
   const changeData = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,11 +40,12 @@ const SearchBar = ({ action }: SearchBarProps): JSX.Element => {
         <input
           type="text"
           id="search"
-          // value={searchData.input}
           onChange={changeData}
           placeholder="Search for brand, names..."
         />
-        <button type="submit">SEARCH</button>
+        <button type="submit">
+          <FontAwesomeIcon icon={magnifyingGlassLookup} />
+        </button>
       </form>
     </>
   );
