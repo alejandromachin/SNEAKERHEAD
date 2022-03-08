@@ -4,9 +4,6 @@ import { IconLookup } from "@fortawesome/fontawesome-svg-core";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
-interface SearchBarProps {
-  action: Function;
-}
 interface searchData {
   search: string | ReadonlyArray<string> | number | undefined;
 }
@@ -18,7 +15,7 @@ const magnifyingGlassLookup: IconLookup = {
   iconName: "magnifying-glass",
 };
 
-const SearchBar = ({ action }: SearchBarProps): JSX.Element => {
+const SearchBar = (): JSX.Element => {
   const blankFields: searchData = { search: "" };
   const [searchData, setFormData] = useState<searchData>(blankFields);
 
@@ -42,7 +39,7 @@ const SearchBar = ({ action }: SearchBarProps): JSX.Element => {
   return (
     <>
       <form onSubmit={search} noValidate autoComplete="off">
-        <label htmlFor="search"></label>
+        <label htmlFor="search">Search</label>
         <input
           type="text"
           id="search"
