@@ -1,6 +1,6 @@
-const actionsTypes = {
+const actionTypes = {
   loadSneakers: "load-sneakers",
   loadSneakerInfo: "load-sneaker-info",
 };
 
-export default actionsTypes;
+export default actionTypes;
