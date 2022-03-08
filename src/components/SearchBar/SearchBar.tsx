@@ -1,10 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { IconLookup } from "@fortawesome/fontawesome-svg-core";
-import { library } from "@fortawesome/fontawesome-svg-core";
+import { IconLookup, library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
-interface searchData {
+interface SearchData {
   search: string | ReadonlyArray<string> | number | undefined;
 }
 
@@ -16,8 +15,8 @@ const magnifyingGlassLookup: IconLookup = {
 };
 
 const SearchBar = (): JSX.Element => {
-  const blankFields: searchData = { search: "" };
-  const [searchData, setFormData] = useState<searchData>(blankFields);
+  const blankFields: SearchData = { search: "" };
+  const [searchData, setFormData] = useState<SearchData>(blankFields);
 
   const resetForm = () => {
     setFormData(blankFields);
