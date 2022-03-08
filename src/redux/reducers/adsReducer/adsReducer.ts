@@ -10,6 +10,11 @@ const adsReducer = (currentState: Ad[] = [], action: Action = {}) => {
         return (newAds = [...action.ads]);
       }
       break;
+    case actionTypes.loadAd:
+      if (action.ad) {
+        return (newAds = { ...action.ad });
+      }
+      break;
     default:
       newAds = [...currentState];
       break;
