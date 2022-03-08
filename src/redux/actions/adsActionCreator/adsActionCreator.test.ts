@@ -3,6 +3,7 @@ import {
   createAdAction,
   deleteAdAction,
   editAdAction,
+  loadAdsAction,
 } from "./adsActionCreator";
 
 describe("Given a createAdAction function", () => {
@@ -69,6 +70,31 @@ describe("Given a deleteAdAction function", () => {
       };
 
       const action = deleteAdAction(ad.id);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+describe("Given a loadAdAction function", () => {
+  describe("When it is called with an array of ads", () => {
+    test("Then it should return an object with the type and the ads", () => {
+      const ads = [
+        {
+          id: "test",
+          Brand: "test",
+          Model: "test",
+          Colorway: "test",
+          Images: ["test"],
+          Price: "test",
+          Likes: 1,
+        },
+      ];
+      const expectedAction = {
+        type: actionTypes.loadAds,
+        ads,
+      };
+
+      const action = loadAdsAction(ads);
 
       expect(action).toEqual(expectedAction);
     });
