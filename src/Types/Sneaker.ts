@@ -5,5 +5,5 @@ export interface Sneaker {
   releaseDate: String;
   Image: String;
   AveragePrice: String;
-  Adds: [];
+  Adds: String;
 }
