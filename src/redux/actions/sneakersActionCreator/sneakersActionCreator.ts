@@ -1,6 +1,6 @@
-import { Action } from "../../Types/Action";
-import { Sneaker } from "../../Types/Sneaker";
-import actionTypes from "./actionTypes";
+import { Action } from "../../../Types/Action";
+import { Sneaker } from "../../../Types/Sneaker";
+import actionTypes from "../actionTypes";
 
 interface loadSneakers extends Action {
   sneakers: Sneaker[];
