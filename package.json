@@ -60,7 +60,8 @@
       "!src/setupTests.ts",
       "!src/index.tsx",
       "!src/mocks/*",
-      "!src/react-app-env.d.ts"
+      "!src/react-app-env.d.ts",
+      "!src/Types/*.ts"
     ]
   }
 }
