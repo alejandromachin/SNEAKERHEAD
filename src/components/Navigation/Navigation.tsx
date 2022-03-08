@@ -12,7 +12,7 @@ const Navigation = (): JSX.Element => {
           alt="burger-menu"
         ></img>
       </Link>
-      <SearchBar action={() => {}} />
+      <SearchBar />
       <Link to="/home">LOGO</Link> <Link to="/home">REGISTER</Link> |{" "}
       <Link to="/home">LOGIN</Link>{" "}
     </>
