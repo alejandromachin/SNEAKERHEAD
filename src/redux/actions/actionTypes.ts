@@ -3,10 +3,10 @@ const actionTypes = {
   loadSneakerInfo: "load-sneaker-info",
   login: "login-user",
   register: "register-user",
-  loadAdds: "load-adds",
-  createAdd: "create-add",
-  deleteAdd: "delete-add",
-  editAdd: "edit-add",
+  loadAds: "load-ads",
+  createAd: "create-ad",
+  deleteAd: "delete-ad",
+  editAd: "edit-ad",
 };
 
 export default actionTypes;

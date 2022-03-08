@@ -1,4 +1,4 @@
-export interface Add {
+export interface Ad {
   Brand: string;
   Model: string;
   Colorway: string;
