@@ -1,9 +1,9 @@
 export interface Sneaker {
-  Brand: String;
-  Model: String;
-  Colorway: String;
-  releaseDate: String;
-  Image: String;
-  AveragePrice: String;
-  Adds: String;
+  Brand: string;
+  Model: string;
+  Colorway: string;
+  releaseDate: string;
+  Image: string;
+  AveragePrice: string;
+  Adds: string;
 }

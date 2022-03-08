@@ -2,19 +2,23 @@ import { Action } from "../../../Types/Action";
 import { Sneaker } from "../../../Types/Sneaker";
 import actionTypes from "../actionTypes";
 
-interface loadSneakers extends Action {
+interface LoadSneakersAction extends Action {
   sneakers: Sneaker[];
 }
-interface loadSneakerInfo extends Action {
+interface LoadSneakerInfoAction extends Action {
   sneaker: Sneaker;
 }
 
-export const loadSneakersAction = (sneakers: Sneaker[]): loadSneakers => ({
+export const loadSneakersAction = (
+  sneakers: Sneaker[]
+): LoadSneakersAction => ({
   type: actionTypes.loadSneakers,
   sneakers,
 });
 
-export const loadSneakerInfoAction = (sneaker: Sneaker): loadSneakerInfo => ({
+export const loadSneakerInfoAction = (
+  sneaker: Sneaker
+): LoadSneakerInfoAction => ({
   type: actionTypes.loadSneakerInfo,
   sneaker,
 });
