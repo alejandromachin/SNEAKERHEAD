@@ -15,6 +15,11 @@ const adsReducer = (currentState: Ad[] = [], action: Action = {}) => {
         return (newAds = { ...action.ad });
       }
       break;
+    case actionTypes.deleteAd:
+      if (action.id) {
+        return (newAds = currentState.filter((ad: Ad) => ad.id !== action.id));
+      }
+      break;
     default:
       newAds = [...currentState];
       break;

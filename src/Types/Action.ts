@@ -7,4 +7,5 @@ export interface Action {
   sneaker?: Sneaker;
   ad?: Ad;
   ads?: Ad[];
+  id?: string;
 }
