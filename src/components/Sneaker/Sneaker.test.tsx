@@ -6,6 +6,7 @@ describe("Given a Sneaker component", () => {
   describe("When it is rendered with a sneaker", () => {
     test("Then it should show the image, brand, style, colorway and averageprice of it", () => {
       const sneaker: sneakerType = {
+        id: "123",
         brand: "Jordan",
         style: "1 high",
         colorway: "Chicago",

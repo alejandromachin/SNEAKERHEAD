@@ -8,7 +8,7 @@ const SneakersList = ({ sneakers }: SneakersListProps): JSX.Element => {
   return (
     <>
       {sneakers.map((sneaker: sneakerType) => (
-        <Sneaker sneaker={sneaker} />
+        <Sneaker sneaker={sneaker} key={sneaker.id} />
       ))}
     </>
   );
