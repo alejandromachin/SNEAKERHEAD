@@ -1,13 +1,9 @@
-import { Action } from "../../../Types/Action";
+import {
+  LoadSneakerInfoAction,
+  LoadSneakersAction,
+} from "../../../Types/Action";
 import { Sneaker } from "../../../Types/Sneaker";
 import actionTypes from "../actionTypes";
-
-interface LoadSneakersAction extends Action {
-  sneakers: Sneaker[];
-}
-interface LoadSneakerInfoAction extends Action {
-  sneaker: Sneaker;
-}
 
 export const loadSneakersAction = (
   sneakers: Sneaker[]
