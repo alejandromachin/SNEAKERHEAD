@@ -1,9 +1,16 @@
-import { Sneaker } from "../../Types/Sneaker";
+import { Sneaker as sneakerType } from "../../Types/Sneaker";
+import Sneaker from "../Sneaker/Sneaker";
 
 interface SneakersListProps {
-  sneakers: Sneaker[];
+  sneakers: sneakerType[];
 }
 const SneakersList = ({ sneakers }: SneakersListProps): JSX.Element => {
-  return <></>;
+  return (
+    <>
+      {sneakers.map((sneaker: sneakerType) => (
+        <Sneaker sneaker={sneaker} />
+      ))}
+    </>
+  );
 };
 export default SneakersList;

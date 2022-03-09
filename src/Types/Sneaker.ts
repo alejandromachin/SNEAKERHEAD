@@ -1,6 +1,7 @@
 import { Ad } from "./Ad";
 
 export interface Sneaker {
+  id: string;
   brand: string;
   style: string;
   colorway: string;
