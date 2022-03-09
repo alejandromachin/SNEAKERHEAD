@@ -1,4 +1,8 @@
-import { Action } from "../../../Types/Action";
+import {
+  Action,
+  LoadSneakerInfoAction,
+  LoadSneakersAction,
+} from "../../../Types/Action";
 import { Sneaker } from "../../../Types/Sneaker";
 import actionTypes from "../../actions/actionTypes";
 
@@ -6,21 +10,17 @@ const sneakersReducer = (
   currentState: Sneaker[] | [] = [],
   action: Action = {}
 ) => {
-  let newSneakers: Sneaker[] | Sneaker;
+  let newSneakers;
+
   switch (action.type) {
     case actionTypes.loadSneakers:
-      if (action.sneakers) {
-        newSneakers = [...action.sneakers];
-      } else {
-        newSneakers = [...currentState];
+      if ((action as LoadSneakersAction).sneakers) {
+        return (newSneakers = [...(action as LoadSneakersAction).sneakers]);
       }
       break;
-
     case actionTypes.loadSneakerInfo:
-      if (action.sneaker) {
-        newSneakers = { ...action.sneaker };
-      } else {
-        newSneakers = [...currentState];
+      if ((action as LoadSneakerInfoAction).sneaker) {
+        return (newSneakers = { ...(action as LoadSneakerInfoAction).sneaker });
       }
       break;
     default:
