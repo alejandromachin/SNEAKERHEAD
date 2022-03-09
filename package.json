@@ -61,7 +61,8 @@
       "!src/index.tsx",
       "!src/mocks/*",
       "!src/react-app-env.d.ts",
-      "!src/Types/*.ts"
+      "!src/Types/*.ts",
+      "!src/App.tsx"
     ]
   }
 }
