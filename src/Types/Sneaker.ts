@@ -1,9 +1,11 @@
+import { Ad } from "./Ad";
+
 export interface Sneaker {
-  Brand: string;
-  Model: string;
-  Colorway: string;
+  brand: string;
+  style: string;
+  colorway: string;
   releaseDate: string;
-  Image: string;
-  AveragePrice: string;
-  Adds: string;
+  image: string;
+  averagePrice: string;
+  ads?: Ad[];
 }
