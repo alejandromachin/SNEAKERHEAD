@@ -9,13 +9,12 @@ describe("Given a loadSneakersAction function", () => {
     test("Then it should return an object with the type and the array", () => {
       const sneakers = [
         {
-          Brand: "Jordan",
-          Model: "1",
-          Colorway: "Chicago",
+          brand: "Jordan",
+          style: "1",
+          colorway: "Chicago",
           releaseDate: "april 1990",
-          Image: "image",
-          AveragePrice: "5.000€",
-          Adds: "adds",
+          image: "image",
+          averagePrice: "5.000€",
         },
       ];
       const expectedAction = {
@@ -34,13 +33,12 @@ describe("Given a loadSneakerInfoAction function", () => {
   describe("When it is called with a sneaker", () => {
     test("Then it should return an object with the type and the sneaker", () => {
       const sneaker = {
-        Brand: "Jordan",
-        Model: "1",
-        Colorway: "Chicago",
+        brand: "Jordan",
+        style: "1",
+        colorway: "Chicago",
         releaseDate: "april 1990",
-        Image: "image",
-        AveragePrice: "5.000€",
-        Adds: "adds",
+        image: "image",
+        averagePrice: "5.000€",
       };
       const expectedAction = {
         type: actionTypes.loadSneakerInfo,

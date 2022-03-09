@@ -7,12 +7,12 @@ interface SneakerProps {
 const Sneaker = ({ sneaker }: SneakerProps): JSX.Element => {
   return (
     <>
-      <img src={sneaker.Image} alt={sneaker.Colorway} />
+      <img src={sneaker.image} alt={sneaker.colorway} />
       <p>
-        {sneaker.Brand} {sneaker.Model}
+        {sneaker.brand} {sneaker.style}
       </p>
-      <p>{sneaker.Colorway}</p>
-      <p>{sneaker.AveragePrice}</p>
+      <p>{sneaker.colorway}</p>
+      <p>{sneaker.averagePrice}</p>
     </>
   );
 };
