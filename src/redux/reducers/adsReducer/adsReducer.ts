@@ -7,17 +7,24 @@ import {
 import { Ad } from "../../../Types/Ad";
 import actionTypes from "../../actions/actionTypes";
 
-const adsReducer = (currentState: Ad[] = [], action: Action = {}) => {
+const adsReducer = (
+  currentState: Ad[] = [],
+  action: Action = {}
+): Ad[] | Ad => {
   let newAds;
   switch (action.type) {
     case actionTypes.loadAds:
       if ((action as LoadAdsAction).ads) {
         return (newAds = [...(action as LoadAdsAction).ads]);
+      } else {
+        newAds = [...currentState];
       }
       break;
     case actionTypes.loadAd:
       if ((action as AdAction).ad) {
         return (newAds = { ...(action as AdAction).ad });
+      } else {
+        newAds = [...currentState];
       }
       break;
     case actionTypes.deleteAd:
@@ -25,6 +32,8 @@ const adsReducer = (currentState: Ad[] = [], action: Action = {}) => {
         return (newAds = currentState.filter(
           (ad: Ad) => ad.id !== (action as DeleteAdAction).id
         ));
+      } else {
+        newAds = [...currentState];
       }
       break;
     case actionTypes.editAd:
@@ -37,11 +46,15 @@ const adsReducer = (currentState: Ad[] = [], action: Action = {}) => {
           }
           return { ...ad };
         }));
+      } else {
+        newAds = [...currentState];
       }
       break;
     case actionTypes.createAd:
       if ((action as AdAction).ad) {
         return (newAds = [...currentState, (action as AdAction).ad]);
+      } else {
+        newAds = [...currentState];
       }
       break;
     default:
