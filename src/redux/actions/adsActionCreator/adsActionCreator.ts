@@ -1,17 +1,6 @@
-import { Action } from "../../../Types/Action";
+import { AdAction, DeleteAdAction, LoadAdsAction } from "../../../Types/Action";
 import { Ad } from "../../../Types/Ad";
 import actionTypes from "../actionTypes";
-
-interface AdAction extends Action {
-  ad: Ad;
-}
-interface DeleteAdAction extends Action {
-  id: string;
-}
-
-interface LoadAdsAction extends Action {
-  ads: Ad[];
-}
 
 export const createAdAction = (ad: Ad): AdAction => ({
   type: actionTypes.createAd,
