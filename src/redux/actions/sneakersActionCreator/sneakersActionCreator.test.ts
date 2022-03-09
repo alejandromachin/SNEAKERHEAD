@@ -9,6 +9,7 @@ describe("Given a loadSneakersAction function", () => {
     test("Then it should return an object with the type and the array", () => {
       const sneakers = [
         {
+          id: "123",
           brand: "Jordan",
           style: "1",
           colorway: "Chicago",
@@ -33,6 +34,7 @@ describe("Given a loadSneakerInfoAction function", () => {
   describe("When it is called with a sneaker", () => {
     test("Then it should return an object with the type and the sneaker", () => {
       const sneaker = {
+        id: "123",
         brand: "Jordan",
         style: "1",
         colorway: "Chicago",
