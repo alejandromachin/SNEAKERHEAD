@@ -1,4 +1,3 @@
-import { Action } from "../../../Types/Action";
 import { Ad } from "../../../Types/Ad";
 import actionTypes from "../../actions/actionTypes";
 import adsReducer from "./adsReducer";
@@ -27,7 +26,7 @@ describe("Given an adsReducer function", () => {
           Likes: 0,
         },
       ];
-      const action: Action = {
+      const action = {
         type: actionTypes.loadAds,
         ads,
       };
@@ -49,7 +48,7 @@ describe("Given an adsReducer function", () => {
         Likes: 0,
       };
 
-      const action: Action = {
+      const action = {
         type: actionTypes.loadAd,
         ad,
       };
@@ -72,7 +71,7 @@ describe("Given an adsReducer function", () => {
         },
       ];
 
-      const action: Action = {
+      const action = {
         type: actionTypes.deleteAd,
         id: "test",
       };

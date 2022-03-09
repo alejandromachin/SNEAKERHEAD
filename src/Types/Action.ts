@@ -1,11 +1,16 @@
 import { Ad } from "./Ad";
-import { Sneaker } from "./Sneaker";
 
 export interface Action {
   type?: string;
-  sneakers?: Sneaker[];
-  sneaker?: Sneaker;
-  ad?: Ad;
-  ads?: Ad[];
-  id?: string;
+}
+
+export interface AdAction extends Action {
+  ad: Ad;
+}
+export interface DeleteAdAction extends Action {
+  id: string;
+}
+
+export interface LoadAdsAction extends Action {
+  ads: Ad[];
 }
