@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { IconLookup, library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 interface SearchData {
   search: string | ReadonlyArray<string> | number | undefined;
@@ -17,6 +18,7 @@ const magnifyingGlassLookup: IconLookup = {
 const SearchBar = (): JSX.Element => {
   const blankFields: SearchData = { search: "" };
   const [searchData, setFormData] = useState<SearchData>(blankFields);
+  const navigate = useNavigate();
 
   const resetForm = () => {
     setFormData(blankFields);
@@ -31,7 +33,7 @@ const SearchBar = (): JSX.Element => {
 
   const search = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // fala el thunk
+    navigate("/sneakers");
     resetForm();
   };
 
