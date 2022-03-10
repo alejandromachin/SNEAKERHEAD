@@ -20,13 +20,13 @@ describe("Given a Sneaker component", () => {
 
       const image = screen.getByRole("img", { name: sneaker.colorway });
       const brand = screen.getByText(`${sneaker.brand} ${sneaker.style}`);
-      const colorway = screen.getByText(sneaker.colorway);
-      const price = screen.getByText(sneaker.averagePrice);
+      const colorwayAndPrice = screen.getByText(
+        `${sneaker.colorway} | ${sneaker.averagePrice}`
+      );
 
       expect(image).toBeInTheDocument();
       expect(brand).toBeInTheDocument();
-      expect(colorway).toBeInTheDocument();
-      expect(price).toBeInTheDocument();
+      expect(colorwayAndPrice).toBeInTheDocument();
     });
   });
 });
