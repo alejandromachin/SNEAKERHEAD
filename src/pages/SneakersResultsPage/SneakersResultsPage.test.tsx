@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import store from "../../redux/store";
-import SneakerResultsPage from "./SneakersResultsPage";
+import SneakersResultsPage from "./SneakersResultsPage";
 
 describe("Given a SneakerResultsPage component", () => {
   describe("When it is instantiated", () => {
@@ -10,7 +10,7 @@ describe("Given a SneakerResultsPage component", () => {
 
       render(
         <Provider store={store}>
-          <SneakerResultsPage />
+          <SneakersResultsPage />
         </Provider>
       );
 
