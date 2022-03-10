@@ -15,17 +15,14 @@ const adsReducer = (
   switch (action.type) {
     case actionTypes.loadAds:
       newAds = [...(action as LoadAdsAction).ads];
-
       break;
     case actionTypes.loadAd:
       newAds = { ...(action as AdAction).ad };
-
       break;
     case actionTypes.deleteAd:
       newAds = currentState.filter(
         (ad: Ad) => ad.id !== (action as DeleteAdAction).id
       );
-
       break;
     case actionTypes.editAd:
       newAds = currentState.map((ad: Ad) => {
@@ -36,11 +33,9 @@ const adsReducer = (
         }
         return { ...ad };
       });
-
       break;
     case actionTypes.createAd:
       newAds = [...currentState, (action as AdAction).ad];
-
       break;
     default:
       newAds = [...currentState];
