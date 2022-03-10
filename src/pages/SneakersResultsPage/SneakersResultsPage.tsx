@@ -13,7 +13,6 @@ const SneakerResultsPage = (): JSX.Element => {
     dispatch(loadAllSneakersThunk);
   }, [dispatch]);
 
-  console.log(sneakers);
   return (
     <>
       <h1>RESULTS:</h1>
