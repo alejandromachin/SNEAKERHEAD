@@ -2,7 +2,10 @@ import styled from "styled-components";
 
 export const SneakersResultsListContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  width: 100vw;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 40px;
 
