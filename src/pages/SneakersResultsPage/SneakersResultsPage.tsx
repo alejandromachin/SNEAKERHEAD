@@ -16,8 +16,8 @@ const SneakersResultsPage = (): JSX.Element => {
 
   return (
     <>
+      <h1 className="sneakerResults_tittle">RESULTS:</h1>
       <SneakersResultsListContainer>
-        <h1 className="sneakerResults_tittle">RESULTS:</h1>
         <SneakersList sneakers={sneakers} />
       </SneakersResultsListContainer>
     </>

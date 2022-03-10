@@ -16,7 +16,7 @@ export const SneakerCardText = styled.div`
   display: flex;
   flex-direction: column;
   height: 150px;
-  width: 145px;
+  width: 150px;
   & p {
     font-size: 12px;
     margin: 2px;
