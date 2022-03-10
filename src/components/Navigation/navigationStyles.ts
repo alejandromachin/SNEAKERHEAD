@@ -4,12 +4,12 @@ export const NavigationContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 10px;
+  margin-top: 15px;
 
   & form {
     & input {
       height: 20px;
-      width: 35vw;
+      width: 33vw;
       border: 1px solid #b2b1b1;
       border-top-left-radius: 2px;
       border-bottom-left-radius: 2px;
@@ -33,8 +33,9 @@ export const NavigationContainer = styled.div`
   }
 `;
 export const UserAreaContainer = styled.div`
-  width: 30vw;
+  width: 35vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  font-size: 18px;
 `;
