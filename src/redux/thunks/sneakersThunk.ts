@@ -6,7 +6,8 @@ import { loadSneakersAction } from "../actions/sneakersActionCreator/sneakersAct
 export const loadAllSneakersThunk = async (
   dispatch: Dispatch<LoadSneakersAction>
 ) => {
-  const url = `{process.env.URL}sneakers`;
+  const url = "https://finalprojectback.onrender.com/sneakers";
+  // `${process.env.URL}sneakers`;
   const { data } = await axios.get(url as string);
   dispatch(loadSneakersAction(data));
 };
