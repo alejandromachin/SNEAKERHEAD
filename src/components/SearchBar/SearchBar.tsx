@@ -40,7 +40,9 @@ const SearchBar = (): JSX.Element => {
   return (
     <>
       <form onSubmit={search} noValidate autoComplete="off">
-        <label htmlFor="search">Search</label>
+        <label className="SearchLabel" htmlFor="search">
+          Search
+        </label>
         <input
           type="text"
           id="search"

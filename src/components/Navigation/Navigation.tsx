@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
+import { NavigationContainer, UserAreaContainer } from "./navigationStyles";
 
 const Navigation = (): JSX.Element => {
   return (
-    <>
+    <NavigationContainer>
       <Link to="/home">
         <img
           src="https://uxwing.com/wp-content/themes/uxwing/download/07-web-app-development/hamburger-menu.png"
@@ -12,10 +13,12 @@ const Navigation = (): JSX.Element => {
           alt="burger-menu"
         ></img>
       </Link>
+      <Link to="/home">LOGO</Link>
       <SearchBar />
-      <Link to="/home">LOGO</Link> <Link to="/home">REGISTER</Link> |{" "}
-      <Link to="/home">LOGIN</Link>{" "}
-    </>
+      <UserAreaContainer>
+        <Link to="/home">Register</Link> | <Link to="/home">Login</Link>{" "}
+      </UserAreaContainer>
+    </NavigationContainer>
   );
 };
 export default Navigation;
