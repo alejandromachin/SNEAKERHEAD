@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import SneakersList from "../../components/SneakersList/SneakersList";
 import { loadAllSneakersThunk } from "../../redux/thunks/sneakersThunk";
 import { Sneaker } from "../../Types/Sneaker";
-import { SneakersResultsListContainer } from "./SneakerResultsList";
+import { SneakersResultsListContainer } from "./SneakersResultsList";
 
-const SneakerResultsPage = (): JSX.Element => {
+const SneakersResultsPage = (): JSX.Element => {
   const sneakers: Sneaker[] = useSelector((state: RootState) => state.sneakers);
   const dispatch = useDispatch();
 
@@ -24,4 +24,4 @@ const SneakerResultsPage = (): JSX.Element => {
   );
 };
 
-export default SneakerResultsPage;
+export default SneakersResultsPage;
