@@ -48,7 +48,7 @@ describe("Given an adsReducer function", () => {
           price: "test",
           likes: 0,
           size: 40,
-          condition: "10/10",
+          condition: 10,
         },
       ];
 
@@ -73,7 +73,7 @@ describe("Given an adsReducer function", () => {
           price: "test",
           likes: 0,
           size: 40,
-          condition: "10/10",
+          condition: 10,
         },
       ];
 
@@ -94,7 +94,7 @@ describe("Given an adsReducer function", () => {
           price: "test",
           likes: 0,
           size: 40,
-          condition: "10/10",
+          condition: 10,
         },
         {
           id: "test",
@@ -105,7 +105,7 @@ describe("Given an adsReducer function", () => {
           price: "test",
           likes: 0,
           size: 40,
-          condition: "10/10",
+          condition: 10,
         },
       ];
 
@@ -118,7 +118,7 @@ describe("Given an adsReducer function", () => {
         price: "test",
         likes: 0,
         size: 40,
-        condition: "10/10",
+        condition: 10,
       };
 
       const action: AdAction = {
@@ -143,7 +143,7 @@ describe("Given an adsReducer function", () => {
           price: "test",
           likes: 0,
           size: 40,
-          condition: "10/10",
+          condition: 10,
         },
         {
           id: "test",
@@ -154,7 +154,7 @@ describe("Given an adsReducer function", () => {
           price: "test",
           likes: 0,
           size: 40,
-          condition: "10/10",
+          condition: 10,
         },
       ];
 
@@ -167,7 +167,7 @@ describe("Given an adsReducer function", () => {
         price: "test",
         likes: 0,
         size: 40,
-        condition: "10/10",
+        condition: 10,
       };
 
       const action: AdAction = {

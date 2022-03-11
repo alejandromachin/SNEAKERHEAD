@@ -15,7 +15,7 @@ describe("Given a adReducer function", () => {
         price: "test",
         likes: 0,
         size: 40,
-        condition: "10/10",
+        condition: 10,
       };
       const action = {
         type: actionTypes.loadAd,

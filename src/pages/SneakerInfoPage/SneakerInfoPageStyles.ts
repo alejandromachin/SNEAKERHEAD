@@ -5,10 +5,10 @@ export const SneakerInfoContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 360px;
   width: 100vw;
   & img {
-    height: 180px;
+    height: 170px;
     object-fit: cover;
   }
 `;
@@ -17,7 +17,8 @@ export const SneakerCardName = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  margin-top: 0px;
+  height: 80px;
   width: 250px;
   & p {
     font-size: 20px;
@@ -34,7 +35,7 @@ export const SneakerCardInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   font-size: 17px;
-  width: 300px;
+  width: 325px;
   height: 60px;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
