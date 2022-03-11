@@ -41,7 +41,7 @@ const SneakerInfoPage = (): JSX.Element => {
           <p>Average price: {(sneaker as Sneaker).averagePrice}</p>
         </SneakerCardInfo>
       </SneakerInfoContainer>
-      <SneakerAdList />
+      <SneakerAdList ads={ads} />
     </>
   );
 };

@@ -17,7 +17,6 @@ describe("Given a adReducer function", () => {
         size: 40,
         condition: "10/10",
       };
-
       const action = {
         type: actionTypes.loadAd,
         ad,
