@@ -1,10 +1,18 @@
-import { Action, AdAction, DeleteAdAction } from "../../../Types/Action";
+import {
+  Action,
+  AdAction,
+  DeleteAdAction,
+  LoadAdsAction,
+} from "../../../Types/Action";
 import { Ad } from "../../../Types/Ad";
 import actionTypes from "../../actions/actionTypes";
 
 const adsReducer = (currentState: Ad[] = [], action: Action = {}): Ad[] => {
   let newAds;
   switch (action.type) {
+    case actionTypes.loadAds:
+      newAds = [...(action as LoadAdsAction).ads];
+      break;
     case actionTypes.deleteAd:
       newAds = currentState.filter(
         (ad: Ad) => ad.id !== (action as DeleteAdAction).id
