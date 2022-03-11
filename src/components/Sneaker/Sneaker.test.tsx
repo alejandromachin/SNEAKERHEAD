@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import { Sneaker as sneakerType } from "../../Types/Sneaker";
 import Sneaker from "./Sneaker";
 
@@ -16,7 +17,11 @@ describe("Given a Sneaker component", () => {
         ads: [],
       };
 
-      render(<Sneaker sneaker={sneaker} />);
+      render(
+        <BrowserRouter>
+          <Sneaker sneaker={sneaker} />
+        </BrowserRouter>
+      );
 
       const image = screen.getByRole("img", { name: sneaker.colorway });
       const brand = screen.getByText(`${sneaker.brand} ${sneaker.style}`);

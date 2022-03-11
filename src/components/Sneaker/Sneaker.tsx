@@ -1,3 +1,5 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Sneaker as SneakerType } from "../../Types/Sneaker";
 import { SneakerCard, SneakerCardText } from "./SneakerStyles";
 
@@ -6,9 +8,16 @@ interface SneakerProps {
 }
 
 const Sneaker = ({ sneaker }: SneakerProps): JSX.Element => {
+  const navigate = useNavigate();
+
+  const moreInfo = (event: React.MouseEvent<HTMLImageElement>) => {
+    event.preventDefault();
+    navigate(`${sneaker.id}`);
+  };
+
   return (
     <SneakerCard>
-      <img src={sneaker.image} alt={sneaker.colorway} />
+      <img onClick={moreInfo} src={sneaker.image} alt={sneaker.colorway} />
       <SneakerCardText>
         <p className="sneaker_name">
           {sneaker.brand} {sneaker.style}
