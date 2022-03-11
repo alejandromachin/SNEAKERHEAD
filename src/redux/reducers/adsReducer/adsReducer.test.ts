@@ -36,30 +36,6 @@ describe("Given an adsReducer function", () => {
       expect(newState).toEqual(ads);
     });
   });
-  describe("When it is called with an empty state and a loadAd action with an ad", () => {
-    test("then it should return the ad as the new state", () => {
-      const currentState: Ad[] = [];
-      const ad: Ad = {
-        id: "test",
-        brand: "test",
-        style: "test",
-        colorway: "test",
-        images: ["test"],
-        price: "test",
-        likes: 0,
-        size: 40,
-        condition: "10/10",
-      };
-
-      const action = {
-        type: actionTypes.loadAd,
-        ad,
-      };
-      const newState = adsReducer(currentState, action);
-
-      expect(newState).toEqual(ad);
-    });
-  });
   describe("When it is called with an state of one ad and a deleteAd action with the id of the ad", () => {
     test("then it should return the new state without the ad", () => {
       const currentState: Ad[] = [

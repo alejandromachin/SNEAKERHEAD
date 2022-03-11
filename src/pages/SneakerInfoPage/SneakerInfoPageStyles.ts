@@ -34,7 +34,6 @@ export const SneakerCardInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   font-size: 17px;
-
   width: 300px;
   height: 60px;
   border-top: 1px solid #000;
