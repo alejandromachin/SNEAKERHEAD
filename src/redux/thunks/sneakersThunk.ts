@@ -9,13 +9,13 @@ import {
 export const loadAllSneakersThunk = async (
   dispatch: Dispatch<LoadSneakersAction>
 ) => {
-  const url = "https://finalprojectback.onrender.com/sneakers";
+  const url = process.env.REACT_APP_URL;
   const { data } = await axios.get(url as string);
   dispatch(loadSneakersAction(data));
 };
 export const moreInfoSneakerThunk =
   (id: string) => async (dispatch: Dispatch<LoadSneakerInfoAction>) => {
-    const url = `https://finalprojectback.onrender.com/sneakers/${id}`;
+    const url = `${process.env.REACT_APP_URL}${id}`;
     const { data } = await axios.get(url as string);
     dispatch(loadSneakerInfoAction(data));
   };
