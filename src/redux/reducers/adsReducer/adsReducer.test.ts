@@ -41,12 +41,14 @@ describe("Given an adsReducer function", () => {
       const currentState: Ad[] = [];
       const ad: Ad = {
         id: "test",
-        Brand: "test",
-        Model: "test",
-        Colorway: "test",
-        Images: ["test"],
-        Price: "test",
-        Likes: 0,
+        brand: "test",
+        style: "test",
+        colorway: "test",
+        images: ["test"],
+        price: "test",
+        likes: 0,
+        size: 40,
+        condition: "10/10",
       };
 
       const action = {
@@ -63,12 +65,14 @@ describe("Given an adsReducer function", () => {
       const currentState: Ad[] = [
         {
           id: "test",
-          Brand: "test",
-          Model: "test",
-          Colorway: "test",
-          Images: ["test"],
-          Price: "test",
-          Likes: 0,
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: "10/10",
         },
       ];
 
@@ -86,12 +90,14 @@ describe("Given an adsReducer function", () => {
       const currentState: Ad[] = [
         {
           id: "test",
-          Brand: "test",
-          Model: "test",
-          Colorway: "test",
-          Images: ["test"],
-          Price: "test",
-          Likes: 0,
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: "10/10",
         },
       ];
 
@@ -105,32 +111,38 @@ describe("Given an adsReducer function", () => {
       const currentState: Ad[] = [
         {
           id: "test",
-          Brand: "test",
-          Model: "test",
-          Colorway: "test",
-          Images: ["test"],
-          Price: "test",
-          Likes: 0,
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: "10/10",
         },
         {
-          id: "test2",
-          Brand: "test",
-          Model: "test",
-          Colorway: "test",
-          Images: ["test"],
-          Price: "test",
-          Likes: 0,
+          id: "test",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: "10/10",
         },
       ];
 
       const editedAd = {
         id: "test",
-        Brand: "modified",
-        Model: "test",
-        Colorway: "test",
-        Images: ["test"],
-        Price: "test",
-        Likes: 0,
+        brand: "modified",
+        style: "test",
+        colorway: "test",
+        images: ["test"],
+        price: "test",
+        likes: 0,
+        size: 40,
+        condition: "10/10",
       };
 
       const action: AdAction = {
@@ -140,7 +152,7 @@ describe("Given an adsReducer function", () => {
 
       const newState = adsReducer(currentState, action);
 
-      expect((newState as Ad[])[0]).toHaveProperty("Brand", "modified");
+      expect((newState as Ad[])[0]).toHaveProperty("brand", "modified");
     });
   });
   describe("When it is called with an state of two ads and a createAd action with a new ad", () => {
@@ -148,32 +160,38 @@ describe("Given an adsReducer function", () => {
       const currentState: Ad[] = [
         {
           id: "test",
-          Brand: "test",
-          Model: "test",
-          Colorway: "test",
-          Images: ["test"],
-          Price: "test",
-          Likes: 0,
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: "10/10",
         },
         {
-          id: "test2",
-          Brand: "test",
-          Model: "test",
-          Colorway: "test",
-          Images: ["test"],
-          Price: "test",
-          Likes: 0,
+          id: "test",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: "10/10",
         },
       ];
 
       const newAd = {
-        id: "test3",
-        Brand: "test",
-        Model: "test",
-        Colorway: "test",
-        Images: ["test"],
-        Price: "test",
-        Likes: 0,
+        id: "test",
+        brand: "test",
+        style: "test",
+        colorway: "test",
+        images: ["test"],
+        price: "test",
+        likes: 0,
+        size: 40,
+        condition: "10/10",
       };
 
       const action: AdAction = {
