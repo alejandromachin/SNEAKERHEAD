@@ -1,5 +1,6 @@
 import { Ad } from "../../Types/Ad";
 import SneakerAd from "../SneakerAd/SneakerAd";
+import { SneakerAdListContainer } from "../SneakersList/SneakerListStyles";
 
 interface SneakerAdListProps {
   ads: Ad[];
@@ -7,11 +8,11 @@ interface SneakerAdListProps {
 
 const SneakerAdList = ({ ads }: SneakerAdListProps): JSX.Element => {
   return (
-    <>
+    <SneakerAdListContainer>
       {ads.map((ad) => (
         <SneakerAd ad={ad} key={ad.id} />
       ))}
-    </>
+    </SneakerAdListContainer>
   );
 };
 
