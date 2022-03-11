@@ -18,7 +18,7 @@ describe("Given a createAdAction function", () => {
         price: "test",
         likes: 0,
         size: 40,
-        condition: "10/10",
+        condition: 10,
       };
       const expectedAction = {
         type: actionTypes.createAd,
@@ -43,7 +43,7 @@ describe("Given a editAdAction function", () => {
         price: "test",
         likes: 0,
         size: 40,
-        condition: "10/10",
+        condition: 10,
       };
       const expectedAction = {
         type: actionTypes.editAd,
@@ -68,7 +68,7 @@ describe("Given a deleteAdAction function", () => {
         price: "test",
         likes: 0,
         size: 40,
-        condition: "10/10",
+        condition: 10,
       };
       const expectedAction = {
         type: actionTypes.deleteAd,
@@ -94,7 +94,7 @@ describe("Given a loadAdAction function", () => {
           price: "test",
           likes: 0,
           size: 40,
-          condition: "10/10",
+          condition: 10,
         },
       ];
       const expectedAction = {

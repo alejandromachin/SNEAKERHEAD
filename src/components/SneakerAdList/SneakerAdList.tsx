@@ -1,6 +1,6 @@
 import { Ad } from "../../Types/Ad";
 import SneakerAd from "../SneakerAd/SneakerAd";
-import { SneakerAdListContainer } from "../SneakersList/SneakerListStyles";
+import { SneakerAdListContainer } from "./SneakerListStyles";
 
 interface SneakerAdListProps {
   ads: Ad[];

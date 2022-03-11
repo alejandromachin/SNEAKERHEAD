@@ -9,7 +9,7 @@ describe("Given a SneakerAd component", () => {
         brand: "test",
         style: "test",
         colorway: "test",
-        condition: "10/10",
+        condition: 10,
         images: ["test"],
         price: "10.000",
         size: 40,

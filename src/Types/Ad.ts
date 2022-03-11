@@ -3,7 +3,7 @@ export interface Ad {
   brand: string;
   style: string;
   colorway: string;
-  condition: string;
+  condition: number;
   images: string[];
   price: string;
   likes: number;
