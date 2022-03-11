@@ -30,8 +30,17 @@ export const SneakerCardName = styled.div`
   }
 `;
 export const SneakerCardInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 17px;
+
   width: 300px;
   height: 60px;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
+
+  & p {
+    margin: 0px;
+  }
 `;

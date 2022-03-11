@@ -32,7 +32,8 @@ const SneakerInfoPage = (): JSX.Element => {
         <p>{(sneaker as Sneaker).colorway}</p>
       </SneakerCardName>
       <SneakerCardInfo>
-        <p>{(sneaker as Sneaker).averagePrice}</p>
+        <p>Release date: {(sneaker as Sneaker).releaseDate}</p>
+        <p>Average price: {(sneaker as Sneaker).averagePrice}</p>
       </SneakerCardInfo>
     </SneakerInfoContainer>
   );
