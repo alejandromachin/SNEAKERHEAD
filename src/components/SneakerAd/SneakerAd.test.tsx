@@ -18,7 +18,7 @@ describe("Given a SneakerAd component", () => {
       render(<SneakerAd ad={ad} />);
 
       const image = screen.getByRole("img", { name: ad.colorway });
-      const condition = screen.getByText(ad.condition);
+      const condition = screen.getByText(`Condition: ${ad.condition}/10`);
       const price = screen.getByText(ad.price);
 
       expect(image).toBeInTheDocument();
