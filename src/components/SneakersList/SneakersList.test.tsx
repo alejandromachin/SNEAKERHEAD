@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import { Sneaker } from "../../Types/Sneaker";
 import SneakersList from "./SneakersList";
 
@@ -18,7 +19,11 @@ describe("Given a SneakersList component", () => {
         },
       ];
 
-      render(<SneakersList sneakers={sneakerArray} />);
+      render(
+        <BrowserRouter>
+          <SneakersList sneakers={sneakerArray} />
+        </BrowserRouter>
+      );
 
       const images = screen.getAllByRole("img").length;
 
