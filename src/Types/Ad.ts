@@ -7,4 +7,5 @@ export interface Ad {
   images: string[];
   price: string;
   likes: number;
+  size: number;
 }

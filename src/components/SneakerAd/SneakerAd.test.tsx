@@ -12,6 +12,7 @@ describe("Given a SneakerAd component", () => {
         condition: "10/10",
         images: ["test"],
         price: "10.000",
+        size: "test",
         likes: 0,
       };
       render(<SneakerAd ad={ad} />);
