@@ -1,9 +1,10 @@
 export interface Ad {
   id: string;
-  Brand: string;
-  Model: string;
-  Colorway: string;
-  Images: string[];
-  Price: string;
-  Likes: number;
+  brand: string;
+  style: string;
+  colorway: string;
+  condition: string;
+  images: string[];
+  price: string;
+  likes: number;
 }

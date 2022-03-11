@@ -5,6 +5,12 @@ interface SneakerAdProps {
 }
 
 const SneakerAd = ({ ad }: SneakerAdProps): JSX.Element => {
-  return <></>;
+  return (
+    <>
+      <img src={ad.images[0]} alt={ad.colorway} />
+      <p>{ad.condition}</p>
+      <p>{ad.price}</p>
+    </>
+  );
 };
 export default SneakerAd;
