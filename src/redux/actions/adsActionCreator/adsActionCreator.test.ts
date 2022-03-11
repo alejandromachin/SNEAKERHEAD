@@ -11,12 +11,14 @@ describe("Given a createAdAction function", () => {
     test("Then it should return an object with the type and the ad", () => {
       const ad = {
         id: "test",
-        Brand: "test",
-        Model: "test",
-        Colorway: "test",
-        Images: ["test"],
-        Price: "test",
-        Likes: 1,
+        brand: "test",
+        style: "test",
+        colorway: "test",
+        images: ["test"],
+        price: "test",
+        likes: 0,
+        size: 40,
+        condition: "10/10",
       };
       const expectedAction = {
         type: actionTypes.createAd,
@@ -34,12 +36,14 @@ describe("Given a editAdAction function", () => {
     test("Then it should return an object with the type and the ad", () => {
       const ad = {
         id: "test",
-        Brand: "test",
-        Model: "test",
-        Colorway: "test",
-        Images: ["test"],
-        Price: "test",
-        Likes: 1,
+        brand: "test",
+        style: "test",
+        colorway: "test",
+        images: ["test"],
+        price: "test",
+        likes: 0,
+        size: 40,
+        condition: "10/10",
       };
       const expectedAction = {
         type: actionTypes.editAd,
@@ -57,12 +61,14 @@ describe("Given a deleteAdAction function", () => {
     test("Then it should return an object with the type and the id", () => {
       const ad = {
         id: "test",
-        Brand: "test",
-        Model: "test",
-        Colorway: "test",
-        Images: ["test"],
-        Price: "test",
-        Likes: 1,
+        brand: "test",
+        style: "test",
+        colorway: "test",
+        images: ["test"],
+        price: "test",
+        likes: 0,
+        size: 40,
+        condition: "10/10",
       };
       const expectedAction = {
         type: actionTypes.deleteAd,
@@ -81,12 +87,14 @@ describe("Given a loadAdAction function", () => {
       const ads = [
         {
           id: "test",
-          Brand: "test",
-          Model: "test",
-          Colorway: "test",
-          Images: ["test"],
-          Price: "test",
-          Likes: 1,
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: "10/10",
         },
       ];
       const expectedAction = {
