@@ -10,7 +10,7 @@ export const loadAllSneakersThunk = async (
   dispatch: Dispatch<LoadSneakersAction>
 ) => {
   const url = `${process.env.REACT_APP_URL}sneakers`;
-  console.log(url);
+
   const { data } = await axios.get(url as string);
   dispatch(loadSneakersAction(data));
 };
