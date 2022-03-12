@@ -26,4 +26,13 @@ describe("Given a adReducer function", () => {
       expect(newState).toEqual(ad);
     });
   });
+  describe("When it is called without action or state", () => {
+    test("Then it should return the same current state", () => {
+      const currentState = {};
+
+      const newState = adReducer(undefined, undefined);
+
+      expect(newState).toEqual(currentState);
+    });
+  });
 });
