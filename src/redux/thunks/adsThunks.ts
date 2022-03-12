@@ -8,5 +8,6 @@ export const loadAllSneakerAdsThunk =
     const url = `${process.env.REACT_APP_URL}ads/${id}`;
 
     const { data } = await axios.get(url as string);
+
     dispatch(loadAdsAction(data));
   };
