@@ -31,6 +31,23 @@ export const handlers = [
       );
     }
   ),
+  rest.get(`${process.env.REACT_APP_URL}sneakers/test`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          id: "123",
+          brand: "Jordan",
+          style: "1 high",
+          colorway: "Chicago",
+          releaseDate: "1/2/1980",
+          image: "image",
+          averagePrice: "4.000€",
+          ads: [],
+        },
+      ])
+    );
+  }),
   rest.get(`${process.env.REACT_APP_URL}ads/test`, (req, res, ctx) => {
     return res(
       ctx.status(200),

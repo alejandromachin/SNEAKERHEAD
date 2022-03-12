@@ -44,7 +44,7 @@ describe("Given a moreInfoSneakerThunk inner function", () => {
   describe("When it is called with an id", () => {
     test("Then it should call the dispatch function", async () => {
       const sneaker = {
-        id: "123",
+        id: "test",
         brand: "Jordan",
         style: "1 high",
         colorway: "Chicago",
