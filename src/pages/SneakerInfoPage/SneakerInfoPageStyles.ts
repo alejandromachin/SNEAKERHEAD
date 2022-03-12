@@ -44,3 +44,21 @@ export const SneakerCardInfo = styled.div`
     margin: 0px;
   }
 `;
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  background-color: #d3e2ff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  & button {
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+    color: #ff0000;
+    border: none;
+    background-color: #d3e2ff;
+  }
+`;
