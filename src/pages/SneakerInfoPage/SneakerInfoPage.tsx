@@ -17,6 +17,8 @@ import {
 let holdingAds: Ad[] = [];
 
 const SneakerInfoPage = (): JSX.Element => {
+  const sizes: number[] = [37, 38, 39, 40, 41, 42, 43, 44, 45];
+
   const adsPerPage = 2;
 
   const { id } = useParams();
@@ -68,6 +70,9 @@ const SneakerInfoPage = (): JSX.Element => {
           <p>Average price: {(sneaker as Sneaker).averagePrice}</p>
         </SneakerCardInfo>
       </SneakerInfoContainer>
+      {sizes.map((size) => (
+        <p key={size}>{size}</p>
+      ))}
       <SneakerAdList ads={adsToShow} />
       <ButtonContainer>
         <Button actionOnClick={loadMoreAds} text={"LOAD MORE"} />
