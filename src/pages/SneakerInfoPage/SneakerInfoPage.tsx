@@ -73,7 +73,7 @@ const SneakerInfoPage = (): JSX.Element => {
       </SneakerInfoContainer>
       <SizeContainer>
         {sizes.map((size) => (
-          <p key={size}>{size}</p>
+          <span key={size}>{size}</span>
         ))}
       </SizeContainer>
       <SneakerAdList ads={adsToShow} />
