@@ -18,5 +18,6 @@ export const moreInfoSneakerThunk =
   (id: string) => async (dispatch: Dispatch<LoadSneakerInfoAction>) => {
     const url = `${process.env.REACT_APP_URL}sneakers/${id}`;
     const { data } = await axios.get(url as string);
+
     dispatch(loadSneakerInfoAction(data));
   };
