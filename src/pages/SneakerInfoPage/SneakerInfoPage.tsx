@@ -10,6 +10,7 @@ import { Ad } from "../../Types/Ad";
 import { Sneaker } from "../../Types/Sneaker";
 import {
   ButtonContainer,
+  SizeContainer,
   SneakerCardInfo,
   SneakerCardName,
   SneakerInfoContainer,
@@ -70,9 +71,11 @@ const SneakerInfoPage = (): JSX.Element => {
           <p>Average price: {(sneaker as Sneaker).averagePrice}</p>
         </SneakerCardInfo>
       </SneakerInfoContainer>
-      {sizes.map((size) => (
-        <p key={size}>{size}</p>
-      ))}
+      <SizeContainer>
+        {sizes.map((size) => (
+          <p key={size}>{size}</p>
+        ))}
+      </SizeContainer>
       <SneakerAdList ads={adsToShow} />
       <ButtonContainer>
         <Button actionOnClick={loadMoreAds} text={"LOAD MORE"} />

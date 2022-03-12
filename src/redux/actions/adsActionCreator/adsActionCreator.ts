@@ -26,3 +26,8 @@ export const loadAdAction = (ad: Ad): AdAction => ({
   type: actionTypes.loadAd,
   ad,
 });
+
+export const filterAdsBySizeAction = (ads: Ad[]): LoadAdsAction => ({
+  type: actionTypes.filterAdsBySize,
+  ads,
+});

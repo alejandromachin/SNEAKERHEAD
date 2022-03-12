@@ -8,6 +8,7 @@ const actionTypes = {
   deleteAd: "delete-ad",
   editAd: "edit-ad",
   loadAd: "load-ad",
+  filterAdsBySize: "filter-adsBySize",
 };
 
 export default actionTypes;

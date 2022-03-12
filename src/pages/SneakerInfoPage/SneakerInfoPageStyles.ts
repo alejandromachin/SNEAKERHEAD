@@ -5,7 +5,7 @@ export const SneakerInfoContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 360px;
+  height: 340px;
   width: 100vw;
   & img {
     height: 170px;
@@ -61,4 +61,14 @@ export const ButtonContainer = styled.div`
     border: none;
     background-color: #d3e2ff;
   }
+`;
+
+export const SizeContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  background-color: #d3e2ff;
+  font-size: 20px;
+  margin-bottom: 15px;
 `;
