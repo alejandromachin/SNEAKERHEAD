@@ -3,6 +3,7 @@ import {
   createAdAction,
   deleteAdAction,
   editAdAction,
+  filterAdsBySizeAction,
   loadAdsAction,
 } from "./adsActionCreator";
 
@@ -103,6 +104,33 @@ describe("Given a loadAdAction function", () => {
       };
 
       const action = loadAdsAction(ads);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+describe("Given a filterAdsBySizeAction function", () => {
+  describe("When it is called with an array of ads", () => {
+    test("Then it should return an object with the type and the ads", () => {
+      const ads = [
+        {
+          id: "test",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
+        },
+      ];
+      const expectedAction = {
+        type: actionTypes.filterAdsBySize,
+        ads,
+      };
+
+      const action = filterAdsBySizeAction(ads);
 
       expect(action).toEqual(expectedAction);
     });
