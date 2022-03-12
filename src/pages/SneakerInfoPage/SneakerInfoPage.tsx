@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Button from "../../components/Button/Button";
 import SneakerAdList from "../../components/SneakerAdList/SneakerAdList";
 import { RootState } from "../../redux/store";
 import { loadAllSneakerAdsThunk } from "../../redux/thunks/adsThunks";
@@ -8,6 +9,7 @@ import { moreInfoSneakerThunk } from "../../redux/thunks/sneakersThunk";
 import { Ad } from "../../Types/Ad";
 import { Sneaker } from "../../Types/Sneaker";
 import {
+  ButtonContainer,
   SneakerCardInfo,
   SneakerCardName,
   SneakerInfoContainer,
@@ -67,7 +69,9 @@ const SneakerInfoPage = (): JSX.Element => {
         </SneakerCardInfo>
       </SneakerInfoContainer>
       <SneakerAdList ads={adsToShow} />
-      <button onClick={loadMoreAds}>LOAD MORE</button>
+      <ButtonContainer>
+        <Button actionOnClick={loadMoreAds} text={"LOAD MORE"} />
+      </ButtonContainer>
     </>
   );
 };
