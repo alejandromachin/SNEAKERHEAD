@@ -1,4 +1,4 @@
-import { AdAction } from "../../../Types/Action";
+import { AdAction, LoadAdsAction } from "../../../Types/Action";
 import { Ad } from "../../../Types/Ad";
 import actionTypes from "../../actions/actionTypes";
 import adsReducer from "./adsReducer";
@@ -7,24 +7,28 @@ describe("Given an adsReducer function", () => {
   describe("When it is called with an empty state and a loadAds action with some ads", () => {
     test("then it should return the ads as the new state", () => {
       const currentState: Ad[] = [];
-      const ads = [
+      const ads: Ad[] = [
         {
           id: "test",
-          Brand: "test",
-          Model: "test",
-          Colorway: "test",
-          Images: ["test"],
-          Price: "test",
-          Likes: 0,
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
         },
         {
           id: "test",
-          Brand: "test",
-          Model: "test",
-          Colorway: "test",
-          Images: ["test"],
-          Price: "test",
-          Likes: 0,
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
         },
       ];
       const action = {
@@ -178,6 +182,54 @@ describe("Given an adsReducer function", () => {
       const newState = adsReducer(currentState, action);
 
       expect(newState).toHaveLength(3);
+    });
+  });
+  describe("When it is called with a state of an array of one ad and a filterAdsBySize action with two ads", () => {
+    test("then it should return the ads as the new state", () => {
+      const currentState: Ad[] = [
+        {
+          id: "test",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
+        },
+      ];
+      const filteredAds: Ad[] = [
+        {
+          id: "test1",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
+        },
+        {
+          id: "test2",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
+        },
+      ];
+      const action: LoadAdsAction = {
+        type: actionTypes.filterAdsBySize,
+        ads: filteredAds,
+      };
+      const newState = adsReducer(currentState, action);
+
+      expect(newState).toEqual(filteredAds);
     });
   });
 });
