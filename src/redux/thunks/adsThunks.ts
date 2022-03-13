@@ -3,7 +3,6 @@ import { Dispatch } from "react";
 import { AdAction, LoadAdsAction } from "../../Types/Action";
 import { Ad } from "../../Types/Ad";
 import {
-  filterAdsBySizeAction,
   loadAdAction,
   loadAdsAction,
 } from "../actions/adsActionCreator/adsActionCreator";
@@ -24,14 +23,14 @@ export const loadAllSneakerAdsThunk =
     dispatch(loadAdsAction(data));
   };
 
-export const filterAdsBySizeThunk =
-  (size: number) => async (dispatch: Dispatch<LoadAdsAction>) => {
-    const url = `${process.env.REACT_APP_URL}ads/?size=${size}`;
+// export const filterAdsBySizeThunk =
+//   (size: number) => async (dispatch: Dispatch<LoadAdsAction>) => {
+//     const url = `${process.env.REACT_APP_URL}ads/?size=${size}`;
 
-    const { data }: AdsData = await axios.get(url as string);
+//     const { data }: AdsData = await axios.get(url as string);
 
-    dispatch(filterAdsBySizeAction(data));
-  };
+//     dispatch(filterAdsBySizeAction(data));
+//   };
 
 export const moreInfoAdThunk =
   (id: string) => async (dispatch: Dispatch<AdAction>) => {
