@@ -18,8 +18,10 @@ const AdinfoPage = (): JSX.Element => {
       <img src={(ad as Ad).images[0]} alt={(ad as Ad).colorway}></img>
       <h1>{(ad as Ad).brand}</h1>
       <h2>{(ad as Ad).colorway}</h2>
+      <h3>{(ad as Ad).state}</h3>
       <p className="adInfo__condition">Condition: {(ad as Ad).condition}/10</p>
-      <p>{(ad as Ad).box}</p>
+      <p>Box: {(ad as Ad).box}</p>
+      <p>Size: {(ad as Ad).size}</p>
     </>
   );
 };
