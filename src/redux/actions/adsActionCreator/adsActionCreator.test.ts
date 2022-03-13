@@ -20,6 +20,8 @@ describe("Given a createAdAction function", () => {
         likes: 0,
         size: 40,
         condition: 10,
+        box: "good",
+        state: "new",
       };
       const expectedAction = {
         type: actionTypes.createAd,
@@ -45,6 +47,8 @@ describe("Given a editAdAction function", () => {
         likes: 0,
         size: 40,
         condition: 10,
+        box: "good",
+        state: "new",
       };
       const expectedAction = {
         type: actionTypes.editAd,
@@ -96,6 +100,8 @@ describe("Given a loadAdAction function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
       ];
       const expectedAction = {
@@ -123,6 +129,8 @@ describe("Given a filterAdsBySizeAction function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
       ];
       const expectedAction = {
