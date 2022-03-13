@@ -16,6 +16,8 @@ describe("Given a SneakerAdList component", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
         {
           id: "test2",
@@ -27,6 +29,8 @@ describe("Given a SneakerAdList component", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
       ];
 
