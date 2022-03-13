@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { moreInfoAdThunk } from "../../redux/thunks/adsThunks";
+import { Ad } from "../../Types/Ad";
 
 const AdinfoPage = (): JSX.Element => {
   const { id } = useParams();
@@ -12,6 +13,14 @@ const AdinfoPage = (): JSX.Element => {
   useEffect(() => {
     dispatch(moreInfoAdThunk(id as string));
   });
-  return <></>;
+  return (
+    <>
+      <img src={(ad as Ad).images[0]} alt={(ad as Ad).colorway}></img>
+      <h1>{(ad as Ad).brand}</h1>
+      <h2>{(ad as Ad).colorway}</h2>
+      <p className="adInfo__condition">Condition: {(ad as Ad).condition}/10</p>
+      <p>{(ad as Ad).box}</p>
+    </>
+  );
 };
 export default AdinfoPage;

@@ -8,4 +8,6 @@ export interface Ad {
   price: string;
   likes: number;
   size: number;
+  state: string;
+  box: string;
 }

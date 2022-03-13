@@ -6,13 +6,13 @@ describe("Given a sneakerReducer function", () => {
     test("Then it should return the new state with the sneaker", () => {
       const currentState = {};
       const sneaker = {
-        Brand: "Jordan",
-        Model: "1",
-        Colorway: "Chicago",
+        brand: "Jordan",
+        model: "1",
+        colorway: "Chicago",
         releaseDate: "april 1990",
-        Image: "image",
-        AveragePrice: "5.000€",
-        Adds: "adds",
+        image: "image",
+        averagePrice: "5.000€",
+        ads: "ads",
       };
 
       const action = {

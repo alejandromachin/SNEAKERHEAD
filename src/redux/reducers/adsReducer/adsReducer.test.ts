@@ -18,6 +18,8 @@ describe("Given an adsReducer function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
         {
           id: "test",
@@ -29,6 +31,8 @@ describe("Given an adsReducer function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
       ];
       const action = {
@@ -53,6 +57,8 @@ describe("Given an adsReducer function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
       ];
 
@@ -78,6 +84,8 @@ describe("Given an adsReducer function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
       ];
 
@@ -99,6 +107,8 @@ describe("Given an adsReducer function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
         {
           id: "test",
@@ -110,10 +120,12 @@ describe("Given an adsReducer function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
       ];
 
-      const editedAd = {
+      const editedAd: Ad = {
         id: "test",
         brand: "modified",
         style: "test",
@@ -123,6 +135,8 @@ describe("Given an adsReducer function", () => {
         likes: 0,
         size: 40,
         condition: 10,
+        box: "good",
+        state: "new",
       };
 
       const action: AdAction = {
@@ -148,6 +162,8 @@ describe("Given an adsReducer function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
         {
           id: "test",
@@ -159,10 +175,12 @@ describe("Given an adsReducer function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
       ];
 
-      const newAd = {
+      const newAd: Ad = {
         id: "test",
         brand: "test",
         style: "test",
@@ -172,6 +190,8 @@ describe("Given an adsReducer function", () => {
         likes: 0,
         size: 40,
         condition: 10,
+        box: "good",
+        state: "new",
       };
 
       const action: AdAction = {
@@ -197,6 +217,8 @@ describe("Given an adsReducer function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
       ];
       const filteredAds: Ad[] = [
@@ -210,6 +232,8 @@ describe("Given an adsReducer function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
         {
           id: "test2",
@@ -221,6 +245,8 @@ describe("Given an adsReducer function", () => {
           likes: 0,
           size: 40,
           condition: 10,
+          box: "good",
+          state: "new",
         },
       ];
       const action: LoadAdsAction = {
