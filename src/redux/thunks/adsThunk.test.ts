@@ -1,4 +1,8 @@
-import { loadAllSneakerAdsThunk, moreInfoAdThunk } from "./adsThunks";
+import {
+  deleteAdThunk,
+  loadAllSneakerAdsThunk,
+  moreInfoAdThunk,
+} from "./adsThunks";
 
 describe("Given a loadAllSneakerAdsThunk inner function", () => {
   describe("When it is called with an id", () => {
@@ -19,6 +23,20 @@ describe("Given a moreInfoAdThunk inner function", () => {
       const dispatch = jest.fn();
       const ad = { id: "test" };
       const thunkFunction = moreInfoAdThunk(ad.id);
+
+      await thunkFunction(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given a deleteAdThunk inner function", () => {
+  describe("When it is called with an id", () => {
+    test("Then it should call the dispatch function", async () => {
+      const dispatch = jest.fn();
+      const ad = { id: "test" };
+      const thunkFunction = deleteAdThunk(ad.id);
 
       await thunkFunction(dispatch);
 
