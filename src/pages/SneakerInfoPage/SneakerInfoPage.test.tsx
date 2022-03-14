@@ -15,7 +15,7 @@ jest.mock("react-router-dom", () => {
 
 describe("Given a SneakerInfoPage component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show an image and a button", async () => {
+    test("Then it should show an image and a button to sell and a button to load more", async () => {
       render(
         <Provider store={store}>
           <SneakerInfoPage />
@@ -23,10 +23,12 @@ describe("Given a SneakerInfoPage component", () => {
       );
 
       const image = screen.getByRole("img");
-      const button = screen.getByRole("button");
+      const buttonSell = screen.getByRole("button", { name: "SELL" });
+      const buttonLoad = screen.getByRole("button", { name: "LOAD MORE" });
 
       expect(image).toBeInTheDocument();
-      expect(button).toBeInTheDocument();
+      expect(buttonSell).toBeInTheDocument();
+      expect(buttonLoad).toBeInTheDocument();
     });
   });
   describe("When its button is clicked", () => {
@@ -37,9 +39,9 @@ describe("Given a SneakerInfoPage component", () => {
         </Provider>
       );
 
-      const button = screen.getByRole("button");
+      const buttonLoad = screen.getByRole("button", { name: "LOAD MORE" });
 
-      userEvent.click(button);
+      userEvent.click(buttonLoad);
     });
   });
 });
