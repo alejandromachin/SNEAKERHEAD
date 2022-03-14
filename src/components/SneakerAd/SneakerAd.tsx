@@ -9,8 +9,9 @@ interface SneakerAdProps {
 const SneakerAd = ({ ad }: SneakerAdProps): JSX.Element => {
   const navigation = useNavigate();
 
-  const goToMoreInfoAd = () => {
-    navigation("/ads/:id");
+  const goToMoreInfoAd = (event: React.MouseEvent<HTMLImageElement>) => {
+    event.preventDefault();
+    navigation(`/ads/${ad.id}`);
   };
   return (
     <SneakerAdContainer>
