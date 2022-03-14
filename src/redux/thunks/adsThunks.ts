@@ -1,9 +1,10 @@
 import axios from "axios";
 import { Dispatch } from "react";
-import { AdAction, LoadAdsAction } from "../../Types/Action";
+import { AdAction, DeleteAdAction, LoadAdsAction } from "../../Types/Action";
 import { Ad } from "../../Types/Ad";
 import {
   createAdAction,
+  deleteAdAction,
   loadAdAction,
   loadAdsAction,
 } from "../actions/adsActionCreator/adsActionCreator";
@@ -53,4 +54,13 @@ export const createAdThunk =
     });
 
     dispatch(createAdAction(data));
+  };
+
+export const deleteAdThunk =
+  (id: string) => async (dispatch: Dispatch<DeleteAdAction>) => {
+    const url = `${process.env.REACT_APP_URL}ads/${id}`;
+
+    const { data }: AdData = await axios.delete(url as string);
+
+    dispatch(deleteAdAction(data.id));
   };

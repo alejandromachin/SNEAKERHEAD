@@ -102,7 +102,10 @@ const SneakerInfoPage = (): JSX.Element => {
         </>
       )}
       {showSellForm && (
-        <CreateAdForm userId="1234" sneaker={sneaker as Sneaker} />
+        <CreateAdForm
+          userId="622f4fa5fb6b3a28843dd391"
+          sneaker={sneaker as Sneaker}
+        />
       )}
     </>
   );
