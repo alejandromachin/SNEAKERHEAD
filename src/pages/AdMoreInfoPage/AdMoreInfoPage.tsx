@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { RootState } from "../../redux/store";
-import { moreInfoAdThunk } from "../../redux/thunks/adsThunks";
+import { deleteAdThunk, moreInfoAdThunk } from "../../redux/thunks/adsThunks";
 import { Ad } from "../../Types/Ad";
 import { AdMoreInfoContainer, AdMoreInfoText } from "./AdMoreInfoPageStyles";
 
@@ -15,6 +15,10 @@ const AdInfoPage = (): JSX.Element => {
   useEffect(() => {
     dispatch(moreInfoAdThunk(id as string));
   });
+
+  const deleteAd = () => {
+    dispatch(deleteAdThunk(id as string));
+  };
 
   return (
     <AdMoreInfoContainer>
@@ -31,7 +35,7 @@ const AdInfoPage = (): JSX.Element => {
         <p>Condition: {(ad as Ad).condition}/10</p>
         <p>Box: {(ad as Ad).box}</p>
         <p>Size: {(ad as Ad).size}</p>
-        <Button actionOnClick={} text={"DELETE"} />
+        <Button actionOnClick={deleteAd} text={"DELETE"} />
       </AdMoreInfoText>
     </AdMoreInfoContainer>
   );
