@@ -11,7 +11,10 @@ interface CreateAdFormProps {
 const CreateAdForm = ({ userId, sneaker }: CreateAdFormProps): JSX.Element => {
   const blankFields = {
     condition: "",
-    images: "",
+    image1: "",
+    image2: "",
+    image3: "",
+    image4: "",
     price: "",
     size: "",
     state: "",
@@ -32,8 +35,10 @@ const CreateAdForm = ({ userId, sneaker }: CreateAdFormProps): JSX.Element => {
     adDataFinal.append("style", sneaker.style);
     adDataFinal.append("colorway", sneaker.colorway);
     adDataFinal.append("condition", adData.condition);
-    adDataFinal.append("condition", adData.condition);
-    adDataFinal.append("images", adData.images);
+    adDataFinal.append("image1", adData.image1);
+    adDataFinal.append("image2", adData.image2);
+    adDataFinal.append("image3", adData.image3);
+    adDataFinal.append("image4", adData.image4);
     adDataFinal.append("price", adData.price);
     adDataFinal.append("size", adData.size);
     adDataFinal.append("state", adData.state);
@@ -42,6 +47,7 @@ const CreateAdForm = ({ userId, sneaker }: CreateAdFormProps): JSX.Element => {
     dispatch(createAdThunk(adDataFinal));
     resetForm();
   };
+
   const changeData = (
     event:
       | React.ChangeEvent<HTMLSelectElement>
