@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { createAdThunk } from "../../redux/thunks/adsThunks";
 import { Sneaker } from "../../Types/Sneaker";
 
 interface CreateAdFormProps {
@@ -8,6 +9,7 @@ interface CreateAdFormProps {
 }
 
 const CreateAdForm = ({ id, sneaker }: CreateAdFormProps): JSX.Element => {
+  const userId = "1234";
   const blankFields = {
     condition: "",
     images: "",
@@ -38,7 +40,7 @@ const CreateAdForm = ({ id, sneaker }: CreateAdFormProps): JSX.Element => {
     adDataFinal.append("state", adData.state);
     adDataFinal.append("box", adData.box);
     adDataFinal.append("owner", id);
-    // dispatch(thunk(adDataFinal));
+    dispatch(createAdThunk(userId, adDataFinal));
     resetForm();
   };
   const changeData = (
