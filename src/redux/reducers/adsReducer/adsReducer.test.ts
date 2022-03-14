@@ -20,6 +20,7 @@ describe("Given an adsReducer function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
         {
           id: "test",
@@ -33,6 +34,7 @@ describe("Given an adsReducer function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
       ];
       const action = {
@@ -59,6 +61,7 @@ describe("Given an adsReducer function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
       ];
 
@@ -86,6 +89,7 @@ describe("Given an adsReducer function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
       ];
 
@@ -109,6 +113,7 @@ describe("Given an adsReducer function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
         {
           id: "test",
@@ -122,6 +127,7 @@ describe("Given an adsReducer function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
       ];
 
@@ -137,6 +143,7 @@ describe("Given an adsReducer function", () => {
         condition: 10,
         box: "good",
         state: "new",
+        owner: "622b15710695a90af3e56a20",
       };
 
       const action: AdAction = {
@@ -164,6 +171,7 @@ describe("Given an adsReducer function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
         {
           id: "test",
@@ -177,6 +185,7 @@ describe("Given an adsReducer function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
       ];
 
@@ -192,6 +201,7 @@ describe("Given an adsReducer function", () => {
         condition: 10,
         box: "good",
         state: "new",
+        owner: "622b15710695a90af3e56a20",
       };
 
       const action: AdAction = {
@@ -219,6 +229,7 @@ describe("Given an adsReducer function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
       ];
       const filteredAds: Ad[] = [
@@ -234,6 +245,7 @@ describe("Given an adsReducer function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
         {
           id: "test2",
@@ -247,6 +259,7 @@ describe("Given an adsReducer function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
       ];
       const action: LoadAdsAction = {

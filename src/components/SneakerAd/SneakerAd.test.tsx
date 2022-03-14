@@ -27,6 +27,7 @@ describe("Given a SneakerAd component", () => {
         likes: 0,
         box: "good",
         state: "new",
+        owner: "622b15710695a90af3e56a20",
       };
       render(
         <BrowserRouter>
@@ -57,6 +58,7 @@ describe("Given a SneakerAd component", () => {
         likes: 0,
         box: "good",
         state: "new",
+        owner: "622b15710695a90af3e56a20",
       };
       render(
         <BrowserRouter>

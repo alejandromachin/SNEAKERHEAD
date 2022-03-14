@@ -18,6 +18,7 @@ describe("Given a adReducer function", () => {
         condition: 10,
         box: "good",
         state: "new",
+        owner: "622b15710695a90af3e56a20",
       };
       const action = {
         type: actionTypes.loadAd,

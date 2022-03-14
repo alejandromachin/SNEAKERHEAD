@@ -10,4 +10,5 @@ export interface Ad {
   size: number;
   state: string;
   box: string;
+  owner: string;
 }
