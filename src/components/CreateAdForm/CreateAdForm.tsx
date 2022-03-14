@@ -66,13 +66,25 @@ const CreateAdForm = ({ id, sneaker }: CreateAdFormProps): JSX.Element => {
           <option value="NEW">new</option>
           <option value="USED">used</option>
         </select>
-        <label htmlFor="condition">Condition</label>
-        <input
-          type="text"
+        <label htmlFor="condition">Condition:</label>
+        <select
           id="condition"
           value={adData.condition}
           onChange={changeData}
-        />
+          required
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+
         <label htmlFor="image1">Image:</label>
         <input
           type="file"
@@ -134,7 +146,12 @@ const CreateAdForm = ({ id, sneaker }: CreateAdFormProps): JSX.Element => {
           <option value="44.5">44.5</option>
           <option value="45">45</option>
         </select>
-
+        <label htmlFor="box">Box condition:</label>
+        <select id="box" value={adData.box} onChange={changeData} required>
+          <option value="Good">Good</option>
+          <option value="Damaged">Damaged</option>
+          <option value="NoBox">No box</option>
+        </select>
         <button type="submit">LIST</button>
       </form>
     </>
