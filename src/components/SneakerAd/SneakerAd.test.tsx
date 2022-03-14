@@ -1,6 +1,16 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 import SneakerAd from "./SneakerAd";
+
+const mockUseNavigate = jest.fn();
+
+jest.mock("react-router-dom", () => {
+  return {
+    ...jest.requireActual("react-router-dom"),
+    useNavigate: () => mockUseNavigate,
+  };
+});
 
 describe("Given a SneakerAd component", () => {
   describe("When it is rendered with an ad", () => {
@@ -31,6 +41,34 @@ describe("Given a SneakerAd component", () => {
       expect(image).toBeInTheDocument();
       expect(condition).toBeInTheDocument();
       expect(price).toBeInTheDocument();
+    });
+  });
+  describe("When it is rendered with an ad and its clicked on its image", () => {
+    test("Then it should call the navigate method", () => {
+      const ad = {
+        id: "test",
+        brand: "test",
+        style: "test",
+        colorway: "test",
+        condition: 10,
+        images: ["test"],
+        price: "10.000",
+        size: 40,
+        likes: 0,
+        box: "good",
+        state: "new",
+      };
+      render(
+        <BrowserRouter>
+          <SneakerAd ad={ad} />
+        </BrowserRouter>
+      );
+
+      const image = screen.getByRole("img", { name: ad.colorway });
+      userEvent.click(image);
+
+      expect(image).toBeInTheDocument();
+      expect(mockUseNavigate).toHaveBeenCalled();
     });
   });
 });
