@@ -3,6 +3,7 @@ import { Dispatch } from "react";
 import { AdAction, LoadAdsAction } from "../../Types/Action";
 import { Ad } from "../../Types/Ad";
 import {
+  createAdAction,
   loadAdAction,
   loadAdsAction,
 } from "../actions/adsActionCreator/adsActionCreator";
@@ -39,4 +40,17 @@ export const moreInfoAdThunk =
     const { data }: AdData = await axios.get(url as string);
 
     dispatch(loadAdAction(data));
+  };
+
+export const createAdThunk =
+  (adData: FormData) => async (dispatch: Dispatch<AdAction>) => {
+    const url = `${process.env.REACT_APP_URL}ads/new`;
+
+    const { data }: AdData = await axios.post(url as string, adData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    dispatch(createAdAction(data));
   };

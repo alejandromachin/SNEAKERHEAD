@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { SellButton } from "../../components/Button/ButtonStyles";
+import CreateAdForm from "../../components/CreateAdForm/CreateAdForm";
 import SneakerAdList from "../../components/SneakerAdList/SneakerAdList";
 import { RootState } from "../../redux/store";
 import { loadAllSneakerAdsThunk } from "../../redux/thunks/adsThunks";
@@ -99,6 +100,9 @@ const SneakerInfoPage = (): JSX.Element => {
             <Button actionOnClick={loadMoreAds} text={"LOAD MORE"} />
           </ButtonContainer>{" "}
         </>
+      )}
+      {showSellForm && (
+        <CreateAdForm userId="1234" sneaker={sneaker as Sneaker} />
       )}
     </>
   );
