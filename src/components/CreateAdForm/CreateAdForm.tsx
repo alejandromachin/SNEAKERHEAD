@@ -38,7 +38,7 @@ const CreateAdForm = ({ id, sneaker }: CreateAdFormProps): JSX.Element => {
     adDataFinal.append("state", adData.state);
     adDataFinal.append("box", adData.box);
     adDataFinal.append("owner", id);
-    dispatch(thunk(adDataFinal));
+    // dispatch(thunk(adDataFinal));
     resetForm();
   };
   const changeData = (
@@ -62,7 +62,8 @@ const CreateAdForm = ({ id, sneaker }: CreateAdFormProps): JSX.Element => {
     <>
       <form onSubmit={listItem} noValidate autoComplete="off">
         <label htmlFor="state">Are they used or new? </label>
-        <select value={adData.state} onChange={changeData} required>
+        <select id="state" value={adData.state} onChange={changeData} required>
+          <option value="">-</option>
           <option value="NEW">new</option>
           <option value="USED">used</option>
         </select>
@@ -126,6 +127,7 @@ const CreateAdForm = ({ id, sneaker }: CreateAdFormProps): JSX.Element => {
         />
         <label htmlFor="size">Size:</label>
         <select id="size" value={adData.size} onChange={changeData} required>
+          <option value="">-</option>
           <option value="35">35</option>
           <option value="35.5">35.5</option>
           <option value="36">36</option>
@@ -148,6 +150,7 @@ const CreateAdForm = ({ id, sneaker }: CreateAdFormProps): JSX.Element => {
         </select>
         <label htmlFor="box">Box condition:</label>
         <select id="box" value={adData.box} onChange={changeData} required>
+          <option value="">-</option>
           <option value="Good">Good</option>
           <option value="Damaged">Damaged</option>
           <option value="NoBox">No box</option>
