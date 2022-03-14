@@ -15,7 +15,7 @@ jest.mock("react-router-dom", () => {
 
 describe("Given a AdInfoPage component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show an image, 3 headins and 3 textboxes", () => {
+    test("Then it should show an image, 3 headins and 3 textboxes and a button with the text 'DELETE'", () => {
       render(
         <Provider store={store}>
           <AdInfoPage />
@@ -23,8 +23,10 @@ describe("Given a AdInfoPage component", () => {
       );
 
       const headings = screen.getAllByRole("heading");
+      const button = screen.getByRole("button", { name: /delete/i });
 
       expect(headings).toHaveLength(3);
+      expect(button).toBeInTheDocument();
     });
   });
 });
