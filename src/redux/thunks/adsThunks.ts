@@ -44,7 +44,8 @@ export const moreInfoAdThunk =
 
 export const createAdThunk =
   (adData: FormData) => async (dispatch: Dispatch<AdAction>) => {
-    const url = `${process.env.REACT_APP_URL}ads/new`;
+    // const url = `${process.env.REACT_APP_URL}ads/new`;
+    const url = "http://localhost:4000/ads/new";
 
     const { data }: AdData = await axios.post(url as string, adData, {
       headers: {
