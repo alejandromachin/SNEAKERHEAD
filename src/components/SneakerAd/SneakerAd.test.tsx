@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import SneakerAd from "./SneakerAd";
 
 describe("Given a SneakerAd component", () => {
@@ -17,7 +18,11 @@ describe("Given a SneakerAd component", () => {
         box: "good",
         state: "new",
       };
-      render(<SneakerAd ad={ad} />);
+      render(
+        <BrowserRouter>
+          <SneakerAd ad={ad} />
+        </BrowserRouter>
+      );
 
       const image = screen.getByRole("img", { name: ad.colorway });
       const condition = screen.getByText(`Condition: ${ad.condition}/10`);

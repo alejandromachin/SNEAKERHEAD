@@ -9,7 +9,7 @@ const AdInfoPage = (): JSX.Element => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const ad = useSelector((state: RootState) => state.ad);
-  console.log(ad);
+
   useEffect(() => {
     dispatch(moreInfoAdThunk(id as string));
   });
