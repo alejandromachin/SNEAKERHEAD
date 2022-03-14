@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { moreInfoAdThunk } from "../../redux/thunks/adsThunks";
 import { Ad } from "../../Types/Ad";
+import { AdMoreInfoContainer } from "./AdMoreInfoPageStyles";
 
 const AdInfoPage = (): JSX.Element => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ const AdInfoPage = (): JSX.Element => {
     dispatch(moreInfoAdThunk(id as string));
   });
   return (
-    <>
+    <AdMoreInfoContainer>
       {(ad as Ad).images && (
         <img src={(ad as Ad).images[0]} alt={(ad as Ad).colorway}></img>
       )}
@@ -24,7 +25,7 @@ const AdInfoPage = (): JSX.Element => {
       <p className="adInfo__condition">Condition: {(ad as Ad).condition}/10</p>
       <p>Box: {(ad as Ad).box}</p>
       <p>Size: {(ad as Ad).size}</p>
-    </>
+    </AdMoreInfoContainer>
   );
 };
 export default AdInfoPage;
