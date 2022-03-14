@@ -4,12 +4,11 @@ import { createAdThunk } from "../../redux/thunks/adsThunks";
 import { Sneaker } from "../../Types/Sneaker";
 
 interface CreateAdFormProps {
-  id: string;
+  userId: string;
   sneaker: Sneaker;
 }
 
-const CreateAdForm = ({ id, sneaker }: CreateAdFormProps): JSX.Element => {
-  const userId = "1234";
+const CreateAdForm = ({ userId, sneaker }: CreateAdFormProps): JSX.Element => {
   const blankFields = {
     condition: "",
     images: "",
@@ -39,8 +38,8 @@ const CreateAdForm = ({ id, sneaker }: CreateAdFormProps): JSX.Element => {
     adDataFinal.append("size", adData.size);
     adDataFinal.append("state", adData.state);
     adDataFinal.append("box", adData.box);
-    adDataFinal.append("owner", id);
-    dispatch(createAdThunk(userId, adDataFinal));
+    adDataFinal.append("owner", userId);
+    dispatch(createAdThunk(adDataFinal));
     resetForm();
   };
   const changeData = (

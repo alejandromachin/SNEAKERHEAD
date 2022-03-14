@@ -19,7 +19,7 @@ describe("Given a CreateAdForm component", () => {
       };
       render(
         <Provider store={store}>
-          <CreateAdForm sneaker={sneaker} id={"userID"} />
+          <CreateAdForm sneaker={sneaker} userId={"userID"} />
         </Provider>
       );
 

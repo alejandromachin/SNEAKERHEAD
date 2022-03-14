@@ -101,7 +101,9 @@ const SneakerInfoPage = (): JSX.Element => {
           </ButtonContainer>{" "}
         </>
       )}
-      {showSellForm && <CreateAdForm id="1234" sneaker={sneaker as Sneaker} />}
+      {showSellForm && (
+        <CreateAdForm userId="1234" sneaker={sneaker as Sneaker} />
+      )}
     </>
   );
 };
