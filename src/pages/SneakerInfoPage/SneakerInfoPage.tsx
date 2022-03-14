@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Button from "../../components/Button/Button";
+import { SellButton } from "../../components/Button/ButtonStyles";
 import SneakerAdList from "../../components/SneakerAdList/SneakerAdList";
 import { RootState } from "../../redux/store";
 import { loadAllSneakerAdsThunk } from "../../redux/thunks/adsThunks";
@@ -12,6 +13,7 @@ import {
   ButtonContainer,
   SizeContainer,
   SneakerCardInfo,
+  SneakerCardInfoText,
   SneakerCardName,
   SneakerInfoContainer,
 } from "./SneakerInfoPageStyles";
@@ -29,6 +31,7 @@ const SneakerInfoPage = (): JSX.Element => {
 
   const [adsToShow, setAdsToShow] = useState<Ad[]>([]);
   const [next, setNext] = useState(2);
+  const [showSellForm, setShowSellForm] = useState<boolean>(false);
 
   const sliceAds = useCallback(
     (start: number, end: number) => {
@@ -53,6 +56,10 @@ const SneakerInfoPage = (): JSX.Element => {
     dispatch(loadAllSneakerAdsThunk(id as string));
   }, [dispatch, id]);
 
+  const openSellForm = () => {
+    setShowSellForm(!showSellForm);
+  };
+
   return (
     <>
       <SneakerInfoContainer>
@@ -67,19 +74,32 @@ const SneakerInfoPage = (): JSX.Element => {
           <p>{(sneaker as Sneaker).colorway}</p>
         </SneakerCardName>
         <SneakerCardInfo>
-          <p>Release date: {(sneaker as Sneaker).releaseDate}</p>
-          <p>Average price: {(sneaker as Sneaker).averagePrice}</p>
+          <SneakerCardInfoText>
+            <p>Release date: {(sneaker as Sneaker).releaseDate}</p>
+            <p>Average price: {(sneaker as Sneaker).averagePrice}</p>
+          </SneakerCardInfoText>
+          <SellButton>
+            <Button
+              actionOnClick={openSellForm}
+              text={showSellForm ? "BUY" : "SELL"}
+            />
+          </SellButton>
         </SneakerCardInfo>
       </SneakerInfoContainer>
-      <SizeContainer>
-        {sizes.map((size) => (
-          <span key={size}>{size}</span>
-        ))}
-      </SizeContainer>
-      <SneakerAdList ads={adsToShow} />
-      <ButtonContainer>
-        <Button actionOnClick={loadMoreAds} text={"LOAD MORE"} />
-      </ButtonContainer>
+
+      {!showSellForm && (
+        <>
+          <SizeContainer>
+            {sizes.map((size) => (
+              <span key={size}>{size}</span>
+            ))}
+          </SizeContainer>
+          <SneakerAdList ads={adsToShow} />
+          <ButtonContainer>
+            <Button actionOnClick={loadMoreAds} text={"LOAD MORE"} />
+          </ButtonContainer>{" "}
+        </>
+      )}
     </>
   );
 };

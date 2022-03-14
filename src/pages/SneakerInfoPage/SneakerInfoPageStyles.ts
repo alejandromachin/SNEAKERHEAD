@@ -32,8 +32,9 @@ export const SneakerCardName = styled.div`
 `;
 export const SneakerCardInfo = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   font-size: 17px;
   width: 325px;
   height: 60px;
@@ -44,6 +45,11 @@ export const SneakerCardInfo = styled.div`
     margin: 0px;
   }
 `;
+export const SneakerCardInfoText = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
