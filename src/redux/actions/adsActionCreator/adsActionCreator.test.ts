@@ -1,3 +1,4 @@
+import { Ad } from "../../../Types/Ad";
 import actionTypes from "../actionTypes";
 import {
   createAdAction,
@@ -22,6 +23,7 @@ describe("Given a createAdAction function", () => {
         condition: 10,
         box: "good",
         state: "new",
+        owner: "622b15710695a90af3e56a20",
       };
       const expectedAction = {
         type: actionTypes.createAd,
@@ -49,6 +51,7 @@ describe("Given a editAdAction function", () => {
         condition: 10,
         box: "good",
         state: "new",
+        owner: "622b15710695a90af3e56a20",
       };
       const expectedAction = {
         type: actionTypes.editAd,
@@ -64,7 +67,7 @@ describe("Given a editAdAction function", () => {
 describe("Given a deleteAdAction function", () => {
   describe("When it is called with an ad id", () => {
     test("Then it should return an object with the type and the id", () => {
-      const ad = {
+      const ad: Ad = {
         id: "test",
         brand: "test",
         style: "test",
@@ -73,7 +76,10 @@ describe("Given a deleteAdAction function", () => {
         price: "test",
         likes: 0,
         size: 40,
+        box: "good",
+        state: "new",
         condition: 10,
+        owner: "622b15710695a90af3e56a20",
       };
       const expectedAction = {
         type: actionTypes.deleteAd,
@@ -102,6 +108,7 @@ describe("Given a loadAdAction function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
       ];
       const expectedAction = {
@@ -131,6 +138,7 @@ describe("Given a filterAdsBySizeAction function", () => {
           condition: 10,
           box: "good",
           state: "new",
+          owner: "622b15710695a90af3e56a20",
         },
       ];
       const expectedAction = {
