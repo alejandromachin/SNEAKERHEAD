@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import { Ad } from "../../Types/Ad";
 import SneakerAdList from "./SneakerAdList";
 
@@ -34,7 +35,11 @@ describe("Given a SneakerAdList component", () => {
         },
       ];
 
-      render(<SneakerAdList ads={ads} />);
+      render(
+        <BrowserRouter>
+          <SneakerAdList ads={ads} />
+        </BrowserRouter>
+      );
 
       const images = screen.getAllByRole("img");
 
