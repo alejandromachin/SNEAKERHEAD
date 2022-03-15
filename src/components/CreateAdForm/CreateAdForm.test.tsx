@@ -1,8 +1,18 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import store from "../../redux/store";
 import { Sneaker } from "../../Types/Sneaker";
 import CreateAdForm from "./CreateAdForm";
+
+const mockUseDispatch = jest.fn();
+
+jest.mock("react-redux", () => {
+  return {
+    ...jest.requireActual("react-redux"),
+    useDispatch: () => mockUseDispatch,
+  };
+});
 
 describe("Given a CreateAdForm component", () => {
   describe("When it is rendered with a user id and a sneaker", () => {
@@ -30,6 +40,32 @@ describe("Given a CreateAdForm component", () => {
       expect(selects).toHaveLength(4);
       expect(text).toBeInTheDocument();
       expect(button).toBeInTheDocument();
+    });
+  });
+
+  describe("When it is clicked on its 'LIST' button", () => {
+    test("Then it should call the dispatch function", () => {
+      const sneaker: Sneaker = {
+        id: "123",
+        brand: "Jordan",
+        style: "1 high",
+        colorway: "Chicago",
+        releaseDate: "1/2/1980",
+        image: "image",
+        averagePrice: "4.000€",
+        ads: [],
+      };
+      render(
+        <Provider store={store}>
+          <CreateAdForm sneaker={sneaker} userId={"userID"} />
+        </Provider>
+      );
+
+      const button = screen.getByRole("button", { name: /list/i });
+
+      userEvent.click(button);
+
+      expect(mockUseDispatch).toHaveBeenCalled();
     });
   });
 });
