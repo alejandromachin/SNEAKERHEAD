@@ -47,7 +47,7 @@ export const createAdThunk =
   (adData: FormData) => async (dispatch: Dispatch<AdAction>) => {
     const url = `${process.env.REACT_APP_URL}ads/new`;
 
-    const { data }: AdData = await axios.post(url as string, adData, {
+    const { data }: AdData = await axios.patch(url as string, adData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
