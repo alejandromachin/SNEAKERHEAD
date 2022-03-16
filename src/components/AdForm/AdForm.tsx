@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createAdThunk } from "../../redux/thunks/adsThunks";
 import { Sneaker } from "../../Types/Sneaker";
+import { AdFormContainer } from "./AdFormStyles";
 
-interface CreateAdFormProps {
+interface AdFormProps {
   userId: string;
   sneaker: Sneaker;
 }
 
-const CreateAdForm = ({ userId, sneaker }: CreateAdFormProps): JSX.Element => {
+const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
   const blankFields = {
     condition: "",
     image1: "",
@@ -44,6 +45,7 @@ const CreateAdForm = ({ userId, sneaker }: CreateAdFormProps): JSX.Element => {
     adDataFinal.append("state", adData.state);
     adDataFinal.append("box", adData.box);
     adDataFinal.append("owner", userId);
+    adDataFinal.append("sneakerId", sneaker.id);
     dispatch(createAdThunk(adDataFinal));
     resetForm();
   };
@@ -66,7 +68,7 @@ const CreateAdForm = ({ userId, sneaker }: CreateAdFormProps): JSX.Element => {
   };
 
   return (
-    <>
+    <AdFormContainer>
       <form onSubmit={listItem} noValidate autoComplete="off">
         <label htmlFor="state">Are they used or new? </label>
         <select id="state" value={adData.state} onChange={changeData} required>
@@ -92,8 +94,10 @@ const CreateAdForm = ({ userId, sneaker }: CreateAdFormProps): JSX.Element => {
           <option value="9">9</option>
           <option value="10">10</option>
         </select>
-
-        <label htmlFor="image1">Image:</label>
+        <div>Photos:</div>
+        <label className="adForm__fileUpload" htmlFor="image1">
+          Click to add a photo
+        </label>
         <input
           type="file"
           name="file"
@@ -101,7 +105,9 @@ const CreateAdForm = ({ userId, sneaker }: CreateAdFormProps): JSX.Element => {
           onChange={changeData}
           required
         />
-        <label htmlFor="image2">Image:</label>
+        <label className="adForm__fileUpload" htmlFor="image2">
+          Click to add a photo
+        </label>
         <input
           type="file"
           name="file"
@@ -109,7 +115,9 @@ const CreateAdForm = ({ userId, sneaker }: CreateAdFormProps): JSX.Element => {
           onChange={changeData}
           required
         />
-        <label htmlFor="image3">Image:</label>
+        <label className="adForm__fileUpload" htmlFor="image3">
+          Click to add a photo
+        </label>
         <input
           type="file"
           name="file"
@@ -117,7 +125,9 @@ const CreateAdForm = ({ userId, sneaker }: CreateAdFormProps): JSX.Element => {
           onChange={changeData}
           required
         />
-        <label htmlFor="image4">Image:</label>
+        <label className="adForm__fileUpload" htmlFor="image4">
+          Click to add a photo
+        </label>
         <input
           type="file"
           name="file"
@@ -164,8 +174,8 @@ const CreateAdForm = ({ userId, sneaker }: CreateAdFormProps): JSX.Element => {
         </select>
         <button type="submit">LIST</button>
       </form>
-    </>
+    </AdFormContainer>
   );
 };
 
-export default CreateAdForm;
+export default AdForm;

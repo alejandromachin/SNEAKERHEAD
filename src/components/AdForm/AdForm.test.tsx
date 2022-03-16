@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import store from "../../redux/store";
 import { Sneaker } from "../../Types/Sneaker";
-import CreateAdForm from "./CreateAdForm";
+import AdForm from "./AdForm";
 
 const mockUseDispatch = jest.fn();
 
@@ -14,7 +14,7 @@ jest.mock("react-redux", () => {
   };
 });
 
-describe("Given a CreateAdForm component", () => {
+describe("Given a AdForm component", () => {
   describe("When it is rendered with a user id and a sneaker", () => {
     test("Then it should show 4 select boxes, 1 textbox and 1 button with the text 'LIST'", () => {
       const sneaker: Sneaker = {
@@ -29,7 +29,7 @@ describe("Given a CreateAdForm component", () => {
       };
       render(
         <Provider store={store}>
-          <CreateAdForm sneaker={sneaker} userId={"userID"} />
+          <AdForm sneaker={sneaker} userId={"userID"} />
         </Provider>
       );
 
@@ -57,7 +57,7 @@ describe("Given a CreateAdForm component", () => {
       };
       render(
         <Provider store={store}>
-          <CreateAdForm sneaker={sneaker} userId={"userID"} />
+          <AdForm sneaker={sneaker} userId={"userID"} />
         </Provider>
       );
 
