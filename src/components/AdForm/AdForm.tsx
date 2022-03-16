@@ -74,6 +74,7 @@ const AdForm = ({ userId, sneaker, text, ad }: AdFormProps): JSX.Element => {
     <AdFormContainer>
       <form onSubmit={listItem} noValidate autoComplete="off">
         <label htmlFor="state">Are they used or new? </label>
+
         <select id="state" value={adData.state} onChange={changeData} required>
           <option value="">-</option>
           <option value="NEW">new</option>
@@ -144,6 +145,7 @@ const AdForm = ({ userId, sneaker, text, ad }: AdFormProps): JSX.Element => {
           id="price"
           value={adData.price}
           onChange={changeData}
+          placeholder={ad ? (ad as Ad).price : ""}
         />
         <label htmlFor="size">Size:</label>
         <select id="size" value={adData.size} onChange={changeData} required>
