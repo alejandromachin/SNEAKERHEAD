@@ -16,7 +16,7 @@ const Navigation = (): JSX.Element => {
       <Link to="/home">LOGO</Link>
       <SearchBar />
       <UserAreaContainer>
-        <Link to="/home">Register</Link> | <Link to="/home">Login</Link>{" "}
+        <Link to="/register">Register</Link> | <Link to="/home">Login</Link>{" "}
       </UserAreaContainer>
     </NavigationContainer>
   );

@@ -108,4 +108,20 @@ export const handlers = [
       ])
     );
   }),
+  rest.post(`${process.env.REACT_APP_URL}user/register`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          name: "test",
+          lastname: "test",
+          username: "test",
+          password: "test",
+          email: "test",
+          city: "test",
+          ads: ["test"],
+        },
+      ])
+    );
+  }),
 ];

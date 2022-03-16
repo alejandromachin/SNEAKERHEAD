@@ -62,7 +62,6 @@ describe("Given a AdForm component", () => {
       );
 
       const button = screen.getByRole("button", { name: /list/i });
-
       userEvent.click(button);
 
       expect(mockUseDispatch).toHaveBeenCalled();
