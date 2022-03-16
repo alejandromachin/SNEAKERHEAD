@@ -20,7 +20,11 @@ export const loginThunk = (userData: LoginData) => async () => {
     data: { token },
   } = await axios.post(url, userData);
 
-  const userInfo = jwtDecode(token);
+  const userInfo: User = jwtDecode(token);
 
   localStorage.setItem("tokenKey", token);
+  localStorage.setItem("name", userInfo.name);
+  localStorage.setItem("lastname", userInfo.lastname);
+  localStorage.setItem("email", userInfo.email);
+  localStorage.setItem("id", userInfo.id);
 };
