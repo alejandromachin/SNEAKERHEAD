@@ -5,6 +5,7 @@ import { Ad } from "../../Types/Ad";
 import {
   createAdAction,
   deleteAdAction,
+  editAdAction,
   loadAdAction,
   loadAdsAction,
 } from "../actions/adsActionCreator/adsActionCreator";
@@ -47,7 +48,7 @@ export const createAdThunk =
   (adData: FormData) => async (dispatch: Dispatch<AdAction>) => {
     const url = `${process.env.REACT_APP_URL}ads/new`;
 
-    const { data }: AdData = await axios.patch(url as string, adData, {
+    const { data }: AdData = await axios.post(url as string, adData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -63,4 +64,18 @@ export const deleteAdThunk =
     const { data }: AdData = await axios.delete(url as string);
 
     dispatch(deleteAdAction(data.id));
+  };
+
+export const editAdThunk =
+  (adData: FormData, adId: string) => async (dispatch: Dispatch<AdAction>) => {
+    // const url = `${process.env.REACT_APP_URL}ads/${adId}`;
+    const url = `http://localhost:4000/ads/${adId}`;
+
+    const { data }: AdData = await axios.patch(url as string, adData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    dispatch(editAdAction(data));
   };

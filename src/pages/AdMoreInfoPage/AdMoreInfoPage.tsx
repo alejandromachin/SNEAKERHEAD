@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import AdForm from "../../components/AdForm/AdForm";
 import Button from "../../components/Button/Button";
+import EditAdForm from "../../components/EditAdForm/EditAdForm";
 import { RootState } from "../../redux/store";
 import { deleteAdThunk, moreInfoAdThunk } from "../../redux/thunks/adsThunks";
 import { Ad } from "../../Types/Ad";
-import { Sneaker } from "../../Types/Sneaker";
 import { ButtonContainer } from "../SneakerInfoPage/SneakerInfoPageStyles";
 import {
   AdMoreInfoContainer,
@@ -19,7 +18,6 @@ const AdInfoPage = (): JSX.Element => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const ad = useSelector((state: RootState) => state.ad);
-  const sneaker = useSelector((state: RootState) => state.sneaker);
   const [showEditForm, setShowEditForm] = useState<boolean>(false);
 
   useEffect(() => {
@@ -42,12 +40,7 @@ const AdInfoPage = (): JSX.Element => {
         {showEditForm ? (
           <>
             <FormContainer>
-              <AdForm
-                sneaker={sneaker as Sneaker}
-                text="EDIT"
-                userId={(ad as Ad).owner}
-                ad={ad as Ad}
-              />
+              <EditAdForm ad={ad as Ad} />
               <DeleteButton>
                 <Button actionOnClick={deleteAd} text={"DELETE"} />
               </DeleteButton>
