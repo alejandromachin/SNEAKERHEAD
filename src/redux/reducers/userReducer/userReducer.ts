@@ -1,15 +1,15 @@
-import { Action, RegisterAndLoginAction } from "../../../Types/Action";
+import { Action, LoginAction } from "../../../Types/Action";
 import { User } from "../../../Types/User";
 import actionTypes from "../../actions/actionTypes";
 
-const loginReducer = (
+const userReducer = (
   currentUser: User | {} = {},
-  action: Action | RegisterAndLoginAction = {}
+  action: Action | LoginAction = {}
 ) => {
   let newUser;
   switch (action.type) {
     case actionTypes.login:
-      newUser = { ...(action as RegisterAndLoginAction).user };
+      newUser = { ...(action as LoginAction).login };
       break;
     default:
       newUser = { ...currentUser };
@@ -17,4 +17,4 @@ const loginReducer = (
   return newUser;
 };
 
-export default loginReducer;
+export default userReducer;

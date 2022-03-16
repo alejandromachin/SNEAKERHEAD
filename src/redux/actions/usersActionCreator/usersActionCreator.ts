@@ -1,13 +1,14 @@
-import { RegisterAndLoginAction } from "../../../Types/Action";
+import { LoginAction, RegisterAction } from "../../../Types/Action";
+import { LoginData } from "../../../Types/LoginData";
 import { User } from "../../../Types/User";
 import actionTypes from "../actionTypes";
 
-export const loginAction = (user: User): RegisterAndLoginAction => ({
+export const loginAction = (login: LoginData): LoginAction => ({
   type: actionTypes.login,
-  user,
+  login,
 });
 
-export const registerAction = (user: User): RegisterAndLoginAction => ({
+export const registerAction = (user: User): RegisterAction => ({
   type: actionTypes.register,
   user,
 });

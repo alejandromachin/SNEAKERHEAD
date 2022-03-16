@@ -1,11 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { LoginData } from "../../Types/LoginData";
 import { AdFormContainer } from "../AdForm/AdFormStyles";
-
-interface LoginData {
-  username: string;
-  password: string;
-}
 
 const LoginForm = (): JSX.Element => {
   const blankFields = {
