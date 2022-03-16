@@ -5,6 +5,7 @@ import AdInfoPage from "./pages/AdMoreInfoPage/AdMoreInfoPage";
 
 import HomePage from "./pages/HomePage/HomePage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import SneakerInfoPage from "./pages/SneakerInfoPage/SneakerInfoPage";
 import SneakerResultsPage from "./pages/SneakersResultsPage/SneakersResultsPage";
 
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/sneakers" element={<SneakerResultsPage />} />
         <Route path="/sneakers/:id" element={<SneakerInfoPage />} />
         <Route path="/ads/:id" element={<AdInfoPage />} />
