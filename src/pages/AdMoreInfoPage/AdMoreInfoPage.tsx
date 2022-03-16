@@ -40,7 +40,7 @@ const AdInfoPage = (): JSX.Element => {
         {showEditForm ? (
           <>
             <FormContainer>
-              <EditAdForm ad={ad as Ad} />
+              <EditAdForm ad={ad as Ad} actionOnEdit={editForm} />
               <DeleteButton>
                 <Button actionOnClick={deleteAd} text={"DELETE"} />
               </DeleteButton>

@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { editAdThunk } from "../../redux/thunks/adsThunks";
 import { Ad } from "../../Types/Ad";
 import { AdFormContainer } from "../AdForm/AdFormStyles";
 
 interface EditAdFormProps {
   ad: Ad;
+  actionOnEdit: () => void;
 }
 
-const EditAdForm = ({ ad }: EditAdFormProps): JSX.Element => {
+const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
   const blankFields = {
     condition: "",
     image1: "",
@@ -21,7 +23,7 @@ const EditAdForm = ({ ad }: EditAdFormProps): JSX.Element => {
     box: "",
   };
   const dispatch = useDispatch();
-
+  const navigation = useNavigate();
   const [adData, setAdData] = useState(blankFields);
 
   const resetForm = () => {
@@ -40,9 +42,10 @@ const EditAdForm = ({ ad }: EditAdFormProps): JSX.Element => {
     adDataFinal.append("size", adData.size);
     adDataFinal.append("state", adData.state);
     adDataFinal.append("box", adData.box);
-
+    actionOnEdit();
     dispatch(editAdThunk(adDataFinal, ad.id));
     resetForm();
+    navigation(`/ads/${ad.id}`);
   };
 
   const changeData = (
