@@ -27,6 +27,7 @@ const RegisterForm = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const [userData, setUserData] = useState<User>(blankFields);
+  const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
 
   const resetForm = () => {
     setUserData(blankFields);
@@ -34,14 +35,7 @@ const RegisterForm = (): JSX.Element => {
 
   const registerUser = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const adDataFinal = new FormData();
-    adDataFinal.append("name", userData.name);
-    adDataFinal.append("lastname", userData.lastname);
-    adDataFinal.append("username", userData.username);
-    adDataFinal.append("password", userData.password);
-    adDataFinal.append("email", userData.email);
-    adDataFinal.append("city", userData.city);
-    dispatch(registerThunk(adDataFinal));
+    dispatch(registerThunk(userData));
     resetForm();
   };
 
@@ -52,24 +46,64 @@ const RegisterForm = (): JSX.Element => {
     });
   };
 
+  const showPassword = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
   return (
     <AdFormContainer>
       <form onSubmit={registerUser} noValidate autoComplete="off">
         <label htmlFor="name">Name: </label>
-        <input type="text" id="name" onChange={changeData} required />
+        <input
+          type="text"
+          id="name"
+          onChange={changeData}
+          value={userData.name}
+          required
+        />
         <label htmlFor="lastname">Lastname: </label>
-        <input type="text" id="lastname" onChange={changeData} required />
+        <input
+          type="text"
+          id="lastname"
+          onChange={changeData}
+          value={userData.lastname}
+          required
+        />
         <label htmlFor="username">Username: </label>
-        <input type="text" id="username" onChange={changeData} required />
+        <input
+          type="text"
+          id="username"
+          onChange={changeData}
+          value={userData.username}
+          required
+        />
         <label htmlFor="password">Password: </label>
-        <input type="password" id="username" onChange={changeData} required>
-          <FontAwesomeIcon icon={eyeLookup} />
-        </input>
+        <input
+          type={passwordVisible ? "text" : "password"}
+          id="password"
+          onChange={changeData}
+          value={userData.password}
+          required
+        />
+        <FontAwesomeIcon icon={eyeLookup} onClick={showPassword} />
+
         <label htmlFor="email">Email: </label>
-        <input type="email" id="email" onChange={changeData} required />
+        <input
+          type="email"
+          id="email"
+          onChange={changeData}
+          value={userData.email}
+          required
+        />
         <label htmlFor="city">City: </label>
-        <input type="text" id="city" onChange={changeData} required />
-        <button type="submit">LIST</button>
+        <input
+          type="text"
+          id="city"
+          onChange={changeData}
+          value={userData.city}
+          required
+        />
+        <button type="submit">REGISTER</button>
       </form>
     </AdFormContainer>
   );
