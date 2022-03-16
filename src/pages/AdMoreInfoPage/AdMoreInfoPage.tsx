@@ -37,7 +37,7 @@ const AdInfoPage = (): JSX.Element => {
         <p>Box: {(ad as Ad).box}</p>
         <p>Size: {(ad as Ad).size}</p>
         <ButtonContainer>
-          <Button actionOnClick={deleteAd} text={"DELETE"} />
+          <Button actionOnClick={deleteAd} text={"EDIT"} />
         </ButtonContainer>
       </AdMoreInfoText>
     </AdMoreInfoContainer>

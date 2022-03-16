@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createAdThunk } from "../../redux/thunks/adsThunks";
+import { Ad } from "../../Types/Ad";
 import { Sneaker } from "../../Types/Sneaker";
 import { AdFormContainer } from "./AdFormStyles";
 
 interface AdFormProps {
   userId: string;
-  sneaker: Sneaker;
+  sneaker?: Sneaker;
   text: string;
+  ad?: Ad;
 }
 
-const AdForm = ({ userId, sneaker, text }: AdFormProps): JSX.Element => {
+const AdForm = ({ userId, sneaker, text, ad }: AdFormProps): JSX.Element => {
   const blankFields = {
     condition: "",
     image1: "",
@@ -33,9 +35,9 @@ const AdForm = ({ userId, sneaker, text }: AdFormProps): JSX.Element => {
   const listItem = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const adDataFinal = new FormData();
-    adDataFinal.append("brand", sneaker.brand);
-    adDataFinal.append("style", sneaker.style);
-    adDataFinal.append("colorway", sneaker.colorway);
+    adDataFinal.append("brand", (sneaker as Sneaker).brand);
+    adDataFinal.append("style", (sneaker as Sneaker).style);
+    adDataFinal.append("colorway", (sneaker as Sneaker).colorway);
     adDataFinal.append("condition", adData.condition);
     adDataFinal.append("image1", adData.image1);
     adDataFinal.append("image2", adData.image2);
@@ -46,7 +48,7 @@ const AdForm = ({ userId, sneaker, text }: AdFormProps): JSX.Element => {
     adDataFinal.append("state", adData.state);
     adDataFinal.append("box", adData.box);
     adDataFinal.append("owner", userId);
-    adDataFinal.append("sneakerId", sneaker.id);
+    adDataFinal.append("sneakerId", (sneaker as Sneaker).id);
     dispatch(createAdThunk(adDataFinal));
     resetForm();
   };
