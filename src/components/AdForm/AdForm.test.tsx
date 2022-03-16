@@ -29,7 +29,7 @@ describe("Given a AdForm component", () => {
       };
       render(
         <Provider store={store}>
-          <AdForm sneaker={sneaker} userId={"userID"} />
+          <AdForm sneaker={sneaker} userId={"userID"} text="LIST" />
         </Provider>
       );
 
@@ -57,7 +57,7 @@ describe("Given a AdForm component", () => {
       };
       render(
         <Provider store={store}>
-          <AdForm sneaker={sneaker} userId={"userID"} />
+          <AdForm sneaker={sneaker} userId={"userID"} text="LIST" />
         </Provider>
       );
 

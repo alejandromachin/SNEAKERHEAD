@@ -7,9 +7,10 @@ import { AdFormContainer } from "./AdFormStyles";
 interface AdFormProps {
   userId: string;
   sneaker: Sneaker;
+  text: string;
 }
 
-const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
+const AdForm = ({ userId, sneaker, text }: AdFormProps): JSX.Element => {
   const blankFields = {
     condition: "",
     image1: "",
@@ -172,7 +173,7 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
           <option value="Damaged">Damaged</option>
           <option value="NoBox">No box</option>
         </select>
-        <button type="submit">LIST</button>
+        <button type="submit">{text}</button>
       </form>
     </AdFormContainer>
   );

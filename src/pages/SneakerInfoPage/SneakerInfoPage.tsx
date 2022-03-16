@@ -105,6 +105,7 @@ const SneakerInfoPage = (): JSX.Element => {
         <AdForm
           userId="622f4fa5fb6b3a28843dd391"
           sneaker={sneaker as Sneaker}
+          text="LIST"
         />
       )}
     </>
