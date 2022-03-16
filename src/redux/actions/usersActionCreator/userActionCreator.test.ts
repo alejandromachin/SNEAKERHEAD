@@ -28,6 +28,7 @@ describe("Given a registerAction function", () => {
   describe("When it is called with a user", () => {
     test("Then it should return an object with the type and the user", () => {
       const user: User = {
+        id: "test",
         name: "test",
         lastname: "test",
         username: "test",

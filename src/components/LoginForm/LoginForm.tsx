@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { loginThunk } from "../../redux/thunks/userThunk";
 import { LoginData } from "../../Types/LoginData";
 import { AdFormContainer } from "../AdForm/AdFormStyles";
 

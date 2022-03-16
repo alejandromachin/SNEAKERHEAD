@@ -16,6 +16,7 @@ const eyeLookup: IconLookup = {
 
 const RegisterForm = (): JSX.Element => {
   const blankFields = {
+    id: "",
     name: "",
     lastname: "",
     username: "",
