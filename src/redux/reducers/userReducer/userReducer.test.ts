@@ -19,7 +19,7 @@ describe("Given a userReducer function", () => {
 
       const newState = userReducer(currentState, action);
 
-      expect(newState).toEqual(currentState);
+      expect(newState).toEqual(userData);
     });
   });
 });
