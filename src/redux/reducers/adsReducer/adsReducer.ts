@@ -20,17 +20,6 @@ const adsReducer = (currentState: Ad[] = [], action: Action = {}): Ad[] => {
       );
       break;
 
-    case actionTypes.editAd:
-      newAds = currentState.map((ad: Ad) => {
-        if (ad.id === (action as AdAction).ad.id) {
-          return {
-            ...(action as AdAction).ad,
-          };
-        }
-        return { ...ad };
-      });
-      break;
-
     case actionTypes.createAd:
       newAds = [...currentState, (action as AdAction).ad];
       break;

@@ -4,7 +4,10 @@ export interface Ad {
   style: string;
   colorway: string;
   condition: number;
-  images: string[];
+  image1: string;
+  image2: string;
+  image3: string;
+  image4: string;
   price: string;
   likes: number;
   size: number;

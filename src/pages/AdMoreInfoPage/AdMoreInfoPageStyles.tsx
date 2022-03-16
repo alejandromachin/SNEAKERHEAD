@@ -34,3 +34,29 @@ export const AdMoreInfoText = styled.div`
     margin-bottom: 3px;
   }
 `;
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+`;
+export const DeleteButton = styled.div`
+  margin-top: 5px;
+
+  & button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: #ff0000;
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 25px;
+    color: #d3e2ff;
+  }
+`;

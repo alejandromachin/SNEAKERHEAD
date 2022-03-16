@@ -8,6 +8,9 @@ const adReducer = (currentState: Ad | {} = {}, action: Action = {}) => {
     case actionTypes.loadAd:
       newAd = { ...(action as AdAction).ad };
       break;
+    case actionTypes.editAd:
+      newAd = { ...(action as AdAction).ad };
+      break;
     default:
       newAd = { ...currentState };
       break;

@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createAdThunk } from "../../redux/thunks/adsThunks";
-import { Sneaker } from "../../Types/Sneaker";
-import { AdFormContainer } from "./AdFormStyles";
+import { useNavigate } from "react-router-dom";
+import { editAdThunk } from "../../redux/thunks/adsThunks";
+import { Ad } from "../../Types/Ad";
+import { AdFormContainer } from "../AdForm/AdFormStyles";
 
-interface AdFormProps {
-  userId: string;
-  sneaker: Sneaker;
+interface EditAdFormProps {
+  ad: Ad;
+  actionOnEdit: () => void;
 }
 
-const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
+const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
   const blankFields = {
     condition: "",
     image1: "",
@@ -22,7 +23,7 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
     box: "",
   };
   const dispatch = useDispatch();
-
+  const navigation = useNavigate();
   const [adData, setAdData] = useState(blankFields);
 
   const resetForm = () => {
@@ -32,9 +33,6 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
   const listItem = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const adDataFinal = new FormData();
-    adDataFinal.append("brand", (sneaker as Sneaker).brand);
-    adDataFinal.append("style", (sneaker as Sneaker).style);
-    adDataFinal.append("colorway", (sneaker as Sneaker).colorway);
     adDataFinal.append("condition", adData.condition);
     adDataFinal.append("image1", adData.image1);
     adDataFinal.append("image2", adData.image2);
@@ -44,11 +42,10 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
     adDataFinal.append("size", adData.size);
     adDataFinal.append("state", adData.state);
     adDataFinal.append("box", adData.box);
-    adDataFinal.append("owner", userId);
-    adDataFinal.append("sneakerId", (sneaker as Sneaker).id);
-
-    dispatch(createAdThunk(adDataFinal));
+    actionOnEdit();
+    dispatch(editAdThunk(adDataFinal, ad.id));
     resetForm();
+    navigation(`/ads/${ad.id}`);
   };
 
   const changeData = (
@@ -143,6 +140,7 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
           id="price"
           value={adData.price}
           onChange={changeData}
+          placeholder={(ad as Ad).price}
         />
         <label htmlFor="size">Size:</label>
         <select id="size" value={adData.size} onChange={changeData} required>
@@ -174,10 +172,10 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
           <option value="Damaged">Damaged</option>
           <option value="No box">No box</option>
         </select>
-        <button type="submit">LIST</button>
+        <button type="submit">EDIT</button>
       </form>
     </AdFormContainer>
   );
 };
 
-export default AdForm;
+export default EditAdForm;
