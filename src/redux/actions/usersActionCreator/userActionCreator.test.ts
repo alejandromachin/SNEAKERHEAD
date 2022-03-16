@@ -7,6 +7,7 @@ describe("Given a loginAction function", () => {
     test("Then it should return an object with the type and the user", () => {
       const user: User = {
         name: "test",
+        lastname: "test",
         username: "test",
         password: "test",
         city: "test",
@@ -48,6 +49,7 @@ describe("Given a registerAction function", () => {
     test("Then it should return an object with the type and the user", () => {
       const user: User = {
         name: "test",
+        lastname: "test",
         username: "test",
         password: "test",
         city: "test",
