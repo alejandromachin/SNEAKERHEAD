@@ -16,7 +16,10 @@ describe("Given a createAdAction function", () => {
         brand: "test",
         style: "test",
         colorway: "test",
-        images: ["test"],
+        image1: "test",
+        image2: "test",
+        image3: "test",
+        image4: "test",
         price: "test",
         likes: 0,
         size: 40,
@@ -39,12 +42,15 @@ describe("Given a createAdAction function", () => {
 describe("Given a editAdAction function", () => {
   describe("When it is called with an ad", () => {
     test("Then it should return an object with the type and the ad", () => {
-      const ad = {
+      const ad: Ad = {
         id: "test",
         brand: "test",
         style: "test",
         colorway: "test",
-        images: ["test"],
+        image1: "test",
+        image2: "test",
+        image3: "test",
+        image4: "test",
         price: "test",
         likes: 0,
         size: 40,
@@ -72,7 +78,10 @@ describe("Given a deleteAdAction function", () => {
         brand: "test",
         style: "test",
         colorway: "test",
-        images: ["test"],
+        image1: "test",
+        image2: "test",
+        image3: "test",
+        image4: "test",
         price: "test",
         likes: 0,
         size: 40,
@@ -95,13 +104,16 @@ describe("Given a deleteAdAction function", () => {
 describe("Given a loadAdAction function", () => {
   describe("When it is called with an array of ads", () => {
     test("Then it should return an object with the type and the ads", () => {
-      const ads = [
+      const ads: Ad[] = [
         {
           id: "test",
           brand: "test",
           style: "test",
           colorway: "test",
-          images: ["test"],
+          image1: "test",
+          image2: "test",
+          image3: "test",
+          image4: "test",
           price: "test",
           likes: 0,
           size: 40,
@@ -125,13 +137,16 @@ describe("Given a loadAdAction function", () => {
 describe("Given a filterAdsBySizeAction function", () => {
   describe("When it is called with an array of ads", () => {
     test("Then it should return an object with the type and the ads", () => {
-      const ads = [
+      const ads: Ad[] = [
         {
           id: "test",
           brand: "test",
           style: "test",
           colorway: "test",
-          images: ["test"],
+          image1: "test",
+          image2: "test",
+          image3: "test",
+          image4: "test",
           price: "test",
           likes: 0,
           size: 40,

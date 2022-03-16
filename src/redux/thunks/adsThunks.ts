@@ -68,8 +68,7 @@ export const deleteAdThunk =
 
 export const editAdThunk =
   (adData: FormData, adId: string) => async (dispatch: Dispatch<AdAction>) => {
-    // const url = `${process.env.REACT_APP_URL}ads/${adId}`;
-    const url = `http://localhost:4000/ads/${adId}`;
+    const url = `${process.env.REACT_APP_URL}ads/${adId}`;
 
     const { data }: AdData = await axios.patch(url as string, adData, {
       headers: {

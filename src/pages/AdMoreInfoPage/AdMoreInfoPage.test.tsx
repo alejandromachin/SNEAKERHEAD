@@ -1,12 +1,13 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store";
 
-import AdInfoPage from "./AdMoreInfoPage";
+import AdMoreInfoPage from "./AdMoreInfoPage";
 
 const mockUseParams = { id: "test" };
 const mockUseDispatch = jest.fn();
+
 jest.mock("react-router-dom", () => {
   return {
     ...jest.requireActual("react-router-dom"),
@@ -23,31 +24,20 @@ jest.mock("react-redux", () => {
 
 describe("Given a AdInfoPage component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show an image, 3 headins and 3 textboxes and a button with the text 'DELETE'", () => {
+    test("Then it should show an image, 3 headins and 3 textboxes and a button with the text 'EDIT'", () => {
       render(
-        <Provider store={store}>
-          <AdInfoPage />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <AdMoreInfoPage />
+          </Provider>
+        </BrowserRouter>
       );
 
       const headings = screen.getAllByRole("heading");
-      const button = screen.getByRole("button", { name: /delete/i });
+      const button = screen.getByRole("button", { name: /edit/i });
 
       expect(headings).toHaveLength(3);
       expect(button).toBeInTheDocument();
-    });
-  });
-  describe("When it is clicked on delete button", () => {
-    test("Then ii should call the dispatch function'", () => {
-      render(
-        <Provider store={store}>
-          <AdInfoPage />
-        </Provider>
-      );
-
-      const button = screen.getByRole("button", { name: /delete/i });
-      userEvent.click(button);
-      expect(mockUseDispatch).toHaveBeenCalled();
     });
   });
 });

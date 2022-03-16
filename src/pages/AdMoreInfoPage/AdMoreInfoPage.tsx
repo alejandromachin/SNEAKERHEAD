@@ -14,7 +14,7 @@ import {
   FormContainer,
 } from "./AdMoreInfoPageStyles";
 
-const AdInfoPage = (): JSX.Element => {
+const AdMoreInfoPage = (): JSX.Element => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const ad = useSelector((state: RootState) => state.ad);
@@ -33,8 +33,8 @@ const AdInfoPage = (): JSX.Element => {
   };
   return (
     <AdMoreInfoContainer>
-      {(ad as Ad).images && (
-        <img src={(ad as Ad).images[0]} alt={(ad as Ad).colorway}></img>
+      {(ad as Ad).image1 && (
+        <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
       )}
       <AdMoreInfoText>
         {showEditForm ? (
@@ -69,4 +69,4 @@ const AdInfoPage = (): JSX.Element => {
     </AdMoreInfoContainer>
   );
 };
-export default AdInfoPage;
+export default AdMoreInfoPage;

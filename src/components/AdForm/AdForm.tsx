@@ -172,7 +172,7 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
           <option value="">-</option>
           <option value="Good">Good</option>
           <option value="Damaged">Damaged</option>
-          <option value="NoBox">No box</option>
+          <option value="No box">No box</option>
         </select>
         <button type="submit">LIST</button>
       </form>
