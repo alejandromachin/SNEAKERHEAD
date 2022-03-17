@@ -38,6 +38,8 @@ describe("Given a loginThunk inner function", () => {
       const thunkFunction = loginThunk(userData);
 
       await thunkFunction(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 });
