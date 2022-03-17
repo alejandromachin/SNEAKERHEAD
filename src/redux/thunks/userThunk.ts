@@ -1,10 +1,13 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import { Dispatch } from "react";
-import { LoginAction } from "../../Types/Action";
+import { LoadUserAdsAction, LoginAction } from "../../Types/Action";
 import { LoginData } from "../../Types/LoginData";
 import { User } from "../../Types/User";
-import { loginAction } from "../actions/usersActionCreator/usersActionCreator";
+import {
+  loadUserAdsAction,
+  loginAction,
+} from "../actions/usersActionCreator/usersActionCreator";
 
 export const registerThunk = (userData: User) => async () => {
   const url = `${process.env.REACT_APP_URL}user/register`;
@@ -30,10 +33,10 @@ export const loginThunk =
   };
 
 export const userAdsThunk =
-  (userId: string) => async (dispatch: Dispatch<LoginAction>) => {
+  (userId: string) => async (dispatch: Dispatch<LoadUserAdsAction>) => {
     const url = `${process.env.REACT_APP_URL}user/ads/${userId}`;
 
     const { data } = await axios.get(url);
 
-    dispatch(userAdsAction(data));
+    dispatch(loadUserAdsAction(data));
   };
