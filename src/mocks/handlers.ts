@@ -124,4 +124,14 @@ export const handlers = [
       ])
     );
   }),
+  rest.post(`${process.env.REACT_APP_URL}user/login`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          data: { token: "token" },
+        },
+      ])
+    );
+  }),
 ];
