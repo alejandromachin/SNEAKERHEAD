@@ -11,6 +11,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import SneakerInfoPage from "./pages/SneakerInfoPage/SneakerInfoPage";
 import SneakerResultsPage from "./pages/SneakersResultsPage/SneakersResultsPage";
+import UserInfoPage from "./pages/UserInfoPage/UserInfoPage";
 import { loginAction } from "./redux/actions/usersActionCreator/usersActionCreator";
 import { User } from "./Types/User";
 
@@ -31,6 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/privateArea" element={<UserInfoPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/sneakers" element={<SneakerResultsPage />} />
