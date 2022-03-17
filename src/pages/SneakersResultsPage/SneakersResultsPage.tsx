@@ -18,7 +18,7 @@ const SneakersResultsPage = (): JSX.Element => {
   return (
     <>
       <h1 className="sneakerResults_tittle">RESULTS:</h1>
-      {sneakers.length !== 0 ? (
+      {sneakers.length === 0 ? (
         <Spinner />
       ) : (
         <SneakersResultsListContainer>
