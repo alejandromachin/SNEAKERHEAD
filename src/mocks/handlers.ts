@@ -134,4 +134,44 @@ export const handlers = [
       ])
     );
   }),
+  rest.post(`${process.env.REACT_APP_URL}ads/new`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          id: "ad test",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
+          box: "good",
+          state: "new",
+        },
+      ])
+    );
+  }),
+  rest.patch(`${process.env.REACT_APP_URL}ads/test`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          id: "ad test",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
+          box: "good",
+          state: "new",
+        },
+      ])
+    );
+  }),
 ];
