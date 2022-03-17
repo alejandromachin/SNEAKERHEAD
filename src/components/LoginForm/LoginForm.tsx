@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginThunk } from "../../redux/thunks/userThunk";
 import { LoginData } from "../../Types/LoginData";
-import { AdFormContainer } from "../AdForm/AdFormStyles";
+import { LoginFormContainer } from "./LoginFormStyles";
 
 const LoginForm = (): JSX.Element => {
   const blankFields = {
@@ -36,7 +36,7 @@ const LoginForm = (): JSX.Element => {
   };
 
   return (
-    <AdFormContainer>
+    <LoginFormContainer>
       <form onSubmit={registerUser} noValidate autoComplete="off">
         <label htmlFor="username">Username: </label>
         <input
@@ -57,7 +57,7 @@ const LoginForm = (): JSX.Element => {
 
         <button type="submit">LOG IN</button>
       </form>
-    </AdFormContainer>
+    </LoginFormContainer>
   );
 };
 export default LoginForm;

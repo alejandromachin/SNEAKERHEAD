@@ -1,22 +1,25 @@
 import styled from "styled-components";
 
-export const AdFormContainer = styled.div`
+export const LoginFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
   width: 100vw;
-  height: 100vh;
+  min-height: 50vh;
   align-items: center;
-  justify-content: center;
   font-size: 20px;
   & form {
-    width: 85%;
+    width: 80%;
     height: 100%;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
+    padding: 20px;
+    padding-bottom: 40px;
     gap: 5px;
-
+    background-color: #d3e2ff;
+    border: 2px solid #b2b1b1;
+    border-radius: 10px;
     & select,
     input {
       padding-left: 10px;
@@ -46,7 +49,7 @@ export const AdFormContainer = styled.div`
       align-items: center;
       height: 40px;
       background-color: #d3e2ff;
-      position: absolute;
+      position: fixed;
       bottom: 0px;
       left: 0px;
       width: 100%;
@@ -57,4 +60,12 @@ export const AdFormContainer = styled.div`
       color: #ff0000;
     }
   }
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 85%;
+  height: 100%;
 `;
