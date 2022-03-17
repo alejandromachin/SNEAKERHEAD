@@ -1,5 +1,10 @@
-import { useSelector } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import {
+  loginAction,
+  logOutAction,
+} from "../../redux/actions/usersActionCreator/usersActionCreator";
 import { RootState } from "../../redux/store";
 import {
   UserInfo,
@@ -9,6 +14,11 @@ import {
 } from "./UserInfoPageStyles";
 
 const UserPage = (): JSX.Element => {
+  const dispatch = useDispatch();
+  const logOut = (event: React.MouseEvent) => {
+    event.preventDefault();
+    dispatch(logOutAction());
+  };
   const user = useSelector((state: RootState) => state.user);
 
   return (
@@ -29,7 +39,9 @@ const UserPage = (): JSX.Element => {
       </UserInfo>
       <UserNav>
         <Link to="">Edit info</Link>
-        <Link to="">Log out</Link>
+        <Link to="" onClick={}>
+          Log out
+        </Link>
         <Link to="">Items on sale</Link>
       </UserNav>
     </UserInfoContainer>
