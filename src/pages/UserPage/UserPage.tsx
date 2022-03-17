@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logOutAction } from "../../redux/actions/usersActionCreator/usersActionCreator";
 import { RootState } from "../../redux/store";
 import {
@@ -11,13 +11,16 @@ import {
 } from "./UserInfoPageStyles";
 
 const UserPage = (): JSX.Element => {
+  const user = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const logOut = (event: React.MouseEvent) => {
     event.preventDefault();
     localStorage.removeItem("tokenKey");
+    navigate("/home");
     dispatch(logOutAction());
   };
-  const user = useSelector((state: RootState) => state.user);
 
   return (
     <UserInfoContainer>
