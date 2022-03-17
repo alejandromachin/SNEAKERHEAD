@@ -18,6 +18,7 @@ import {
   SneakerCardName,
   SneakerInfoContainer,
 } from "./SneakerInfoPageStyles";
+import { cleanUpSneakerAction } from "../../redux/actions/sneakersActionCreator/sneakersActionCreator";
 let holdingAds: Ad[] = [];
 
 const SneakerInfoPage = (): JSX.Element => {
@@ -53,8 +54,12 @@ const SneakerInfoPage = (): JSX.Element => {
   }, [sliceAds]);
 
   useEffect(() => {
+    const cleanUp = () => {
+      dispatch(cleanUpSneakerAction());
+    };
     dispatch(moreInfoSneakerThunk(id as string));
     dispatch(loadAllSneakerAdsThunk(id as string));
+    return cleanUp;
   }, [dispatch, id]);
 
   const openSellForm = () => {

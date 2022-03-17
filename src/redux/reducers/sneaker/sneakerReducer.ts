@@ -11,6 +11,9 @@ const sneakerReducer = (
     case actionTypes.loadSneakerInfo:
       newSneaker = { ...(action as LoadSneakerInfoAction).sneaker };
       break;
+    case actionTypes.cleanUpSneaker:
+      newSneaker = {};
+      break;
     default:
       newSneaker = { ...currentState };
       break;
