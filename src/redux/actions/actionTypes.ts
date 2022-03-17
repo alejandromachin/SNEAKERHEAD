@@ -9,6 +9,8 @@ const actionTypes = {
   editAd: "edit-ad",
   loadAd: "load-ad",
   filterAdsBySize: "filter-adsBySize",
+  cleanUpSneaker: "cleanup-sneaker",
+  cleanUpAds: "cleanup-ads",
 };
 
 export default actionTypes;

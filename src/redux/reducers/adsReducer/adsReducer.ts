@@ -8,7 +8,7 @@ import { Ad } from "../../../Types/Ad";
 import actionTypes from "../../actions/actionTypes";
 
 const adsReducer = (currentState: Ad[] = [], action: Action = {}): Ad[] => {
-  let newAds;
+  let newAds: Ad[];
   switch (action.type) {
     case actionTypes.loadAds:
       newAds = [...(action as LoadAdsAction).ads];
@@ -26,6 +26,10 @@ const adsReducer = (currentState: Ad[] = [], action: Action = {}): Ad[] => {
 
     case actionTypes.filterAdsBySize:
       newAds = [...(action as LoadAdsAction).ads];
+      break;
+
+    case actionTypes.cleanUpAds:
+      newAds = [];
       break;
 
     default:

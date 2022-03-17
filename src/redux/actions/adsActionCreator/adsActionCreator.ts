@@ -1,4 +1,9 @@
-import { AdAction, DeleteAdAction, LoadAdsAction } from "../../../Types/Action";
+import {
+  Action,
+  AdAction,
+  DeleteAdAction,
+  LoadAdsAction,
+} from "../../../Types/Action";
 import { Ad } from "../../../Types/Ad";
 import actionTypes from "../actionTypes";
 
@@ -30,4 +35,8 @@ export const loadAdAction = (ad: Ad): AdAction => ({
 export const filterAdsBySizeAction = (ads: Ad[]): LoadAdsAction => ({
   type: actionTypes.filterAdsBySize,
   ads,
+});
+
+export const cleanUpAdsAction = (): Action => ({
+  type: actionTypes.cleanUpAds,
 });
