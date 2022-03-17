@@ -28,3 +28,12 @@ export const loginThunk =
     const userInfo: User = jwtDecode(token);
     dispatch(loginAction(userInfo));
   };
+
+export const userAdsThunk =
+  (userId: string) => async (dispatch: Dispatch<LoginAction>) => {
+    const url = `${process.env.REACT_APP_URL}user/ads/${userId}`;
+
+    const { data } = await axios.get(url);
+
+    dispatch(userAdsAction(data));
+  };
