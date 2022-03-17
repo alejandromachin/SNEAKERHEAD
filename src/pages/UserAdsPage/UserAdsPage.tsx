@@ -15,11 +15,11 @@ const UserAdsPage = (): JSX.Element => {
   });
 
   return (
-    <>
+    <ul>
       {userAds.map((ad: Ad) => (
-        <p key={ad.id}> {ad.id} </p>
+        <li key={ad.id}> {ad.id} </li>
       ))}
-    </>
+    </ul>
   );
 };
 export default UserAdsPage;
