@@ -1,8 +1,12 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { RootState } from "../../redux/store";
 import SearchBar from "../SearchBar/SearchBar";
 import { NavigationContainer, UserAreaContainer } from "./navigationStyles";
 
 const Navigation = (): JSX.Element => {
+  const user = useSelector((state: RootState) => state.user);
+
   return (
     <NavigationContainer>
       <Link to="/home">
@@ -16,7 +20,14 @@ const Navigation = (): JSX.Element => {
       <Link to="/home">LOGO</Link>
       <SearchBar />
       <UserAreaContainer>
-        <Link to="/register">Register</Link> | <Link to="/login">Login</Link>{" "}
+        {user.name ? (
+          <Link to="/privateArea">Profile</Link>
+        ) : (
+          <>
+            <Link to="/register">Register</Link> |{" "}
+            <Link to="/login">Login</Link>{" "}
+          </>
+        )}
       </UserAreaContainer>
     </NavigationContainer>
   );
