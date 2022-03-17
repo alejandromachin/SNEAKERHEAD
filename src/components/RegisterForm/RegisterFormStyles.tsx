@@ -65,10 +65,9 @@ export const RegisterFormContainer = styled.div`
       top: 247px;
       left: 310px;
       position: absolute;
-
-      & .active {
-        color: #000;
-      }
+    }
+    & .active {
+      color: #000;
     }
   }
 `;

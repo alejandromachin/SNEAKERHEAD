@@ -88,7 +88,11 @@ const RegisterForm = (): JSX.Element => {
         />
 
         <FontAwesomeIcon
-          className="registerForm__eyeIcon"
+          className={
+            passwordVisible
+              ? "registerForm__eyeIcon active"
+              : "registerForm__eyeIcon"
+          }
           icon={eyeLookup}
           onClick={showPassword}
         />
