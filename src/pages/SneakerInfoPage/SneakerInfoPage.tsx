@@ -19,6 +19,7 @@ import {
   SneakerInfoContainer,
 } from "./SneakerInfoPageStyles";
 import { cleanUpSneakerAction } from "../../redux/actions/sneakersActionCreator/sneakersActionCreator";
+import { cleanUpAdsAction } from "../../redux/actions/adsActionCreator/adsActionCreator";
 let holdingAds: Ad[] = [];
 
 const SneakerInfoPage = (): JSX.Element => {
@@ -56,6 +57,7 @@ const SneakerInfoPage = (): JSX.Element => {
   useEffect(() => {
     const cleanUp = () => {
       dispatch(cleanUpSneakerAction());
+      dispatch(cleanUpAdsAction());
     };
     dispatch(moreInfoSneakerThunk(id as string));
     dispatch(loadAllSneakerAdsThunk(id as string));

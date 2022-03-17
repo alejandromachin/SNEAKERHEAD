@@ -10,6 +10,7 @@ const actionTypes = {
   loadAd: "load-ad",
   filterAdsBySize: "filter-adsBySize",
   cleanUpSneaker: "cleanup-sneaker",
+  cleanUpAds: "cleanup-ads",
 };
 
 export default actionTypes;
