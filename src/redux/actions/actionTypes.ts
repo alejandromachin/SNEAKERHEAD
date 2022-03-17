@@ -2,6 +2,7 @@ const actionTypes = {
   loadSneakers: "load-sneakers",
   loadSneakerInfo: "load-sneaker-info",
   login: "login-user",
+  logout: "logout-user",
   register: "register-user",
   loadAds: "load-ads",
   createAd: "create-ad",
