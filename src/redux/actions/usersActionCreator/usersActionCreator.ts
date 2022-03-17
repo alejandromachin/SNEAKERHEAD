@@ -8,7 +8,7 @@ export const loginAction = (login: LoginData): LoginAction => ({
   login,
 });
 export const logOutAction = (): Action => ({
-  type: actionTypes.register,
+  type: actionTypes.logout,
 });
 
 export const registerAction = (user: User): RegisterAction => ({

@@ -1,10 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  loginAction,
-  logOutAction,
-} from "../../redux/actions/usersActionCreator/usersActionCreator";
+import { logOutAction } from "../../redux/actions/usersActionCreator/usersActionCreator";
 import { RootState } from "../../redux/store";
 import {
   UserInfo,
@@ -17,6 +14,7 @@ const UserPage = (): JSX.Element => {
   const dispatch = useDispatch();
   const logOut = (event: React.MouseEvent) => {
     event.preventDefault();
+    localStorage.removeItem("tokenKey");
     dispatch(logOutAction());
   };
   const user = useSelector((state: RootState) => state.user);
@@ -39,7 +37,7 @@ const UserPage = (): JSX.Element => {
       </UserInfo>
       <UserNav>
         <Link to="">Edit info</Link>
-        <Link to="" onClick={}>
+        <Link to="" onClick={logOut}>
           Log out
         </Link>
         <Link to="">Items on sale</Link>
