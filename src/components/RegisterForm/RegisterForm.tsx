@@ -86,6 +86,7 @@ const RegisterForm = (): JSX.Element => {
           value={userData.password}
           required
         />
+
         <FontAwesomeIcon icon={eyeLookup} onClick={showPassword} />
 
         <label htmlFor="email">Email: </label>
