@@ -129,7 +129,10 @@ export const handlers = [
       ctx.status(200),
       ctx.json([
         {
-          data: { token: "token" },
+          data: {
+            token:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdCIsImxhc3RuYW1lIjoidGVzdCIsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdCIsImlkIjoiNjIzMzQ0MDM2ZGFhNjQ1ZWNiMjVmZTg5IiwiaWF0IjoxNjQ3NTI3NzczfQ.drLON9-3m3l5x7CleS3w64mBLI-Gu6QZZH6gBLfzjyo",
+          },
         },
       ])
     );
