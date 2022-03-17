@@ -38,7 +38,7 @@ const LoginForm = (): JSX.Element => {
   return (
     <AdFormContainer>
       <form onSubmit={registerUser} noValidate autoComplete="off">
-        <label htmlFor="username">Name: </label>
+        <label htmlFor="username">Username: </label>
         <input
           type="text"
           id="username"
@@ -46,7 +46,7 @@ const LoginForm = (): JSX.Element => {
           value={loginData.username}
           required
         />
-        <label htmlFor="password">Lastname: </label>
+        <label htmlFor="password">Password: </label>
         <input
           type="password"
           id="password"
