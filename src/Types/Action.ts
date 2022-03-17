@@ -31,3 +31,7 @@ export interface RegisterAction extends Action {
 export interface LoginAction extends Action {
   login: LoginData;
 }
+
+export interface LoadUserAdsAction extends Action {
+  ads: Ad[];
+}
