@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerThunk } from "../../redux/thunks/userThunk";
 import { User } from "../../Types/User";
-import { AdFormContainer } from "../AdForm/AdFormStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconLookup, library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import { RegisterFormContainer } from "./RegisterFormStyles";
 
 library.add(fas);
 
@@ -52,7 +52,7 @@ const RegisterForm = (): JSX.Element => {
   };
 
   return (
-    <AdFormContainer>
+    <RegisterFormContainer>
       <form onSubmit={registerUser} noValidate autoComplete="off">
         <label htmlFor="name">Name: </label>
         <input
@@ -87,7 +87,11 @@ const RegisterForm = (): JSX.Element => {
           required
         />
 
-        <FontAwesomeIcon icon={eyeLookup} onClick={showPassword} />
+        <FontAwesomeIcon
+          className="registerForm__eyeIcon"
+          icon={eyeLookup}
+          onClick={showPassword}
+        />
 
         <label htmlFor="email">Email: </label>
         <input
@@ -107,7 +111,7 @@ const RegisterForm = (): JSX.Element => {
         />
         <button type="submit">REGISTER</button>
       </form>
-    </AdFormContainer>
+    </RegisterFormContainer>
   );
 };
 
