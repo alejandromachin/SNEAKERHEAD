@@ -1,26 +1,30 @@
 import styled from "styled-components";
 
-export const AdFormContainer = styled.div`
+export const RegisterFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
   width: 100vw;
-  height: 100vh;
+  min-height: 80vh;
   align-items: center;
-  justify-content: center;
   font-size: 20px;
+  font-size: 17px;
   & form {
-    width: 85%;
+    font-size: 17px;
+    width: 80%;
     height: 100%;
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
+    padding: 20px;
+    padding-bottom: 40px;
     gap: 5px;
-
+    background-color: #d3e2ff;
+    border: 2px solid #b2b1b1;
+    border-radius: 10px;
     & select,
     input {
       padding-left: 10px;
-      font-size: 20px;
+      font-size: 17px;
       height: 30px;
       border: 1px solid #b2b1b1;
       border-radius: 2px;
@@ -46,7 +50,7 @@ export const AdFormContainer = styled.div`
       align-items: center;
       height: 40px;
       background-color: #d3e2ff;
-      position: absolute;
+      position: fixed;
       bottom: 0px;
       left: 0px;
       width: 100%;
@@ -56,5 +60,22 @@ export const AdFormContainer = styled.div`
       font-size: 25px;
       color: #ff0000;
     }
+    & .registerForm__eyeIcon {
+      color: #b2b1b1;
+      top: 247px;
+      left: 310px;
+      position: absolute;
+    }
+    & .active {
+      color: #000;
+    }
   }
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 85%;
+  height: 100%;
 `;
