@@ -11,7 +11,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import SneakerInfoPage from "./pages/SneakerInfoPage/SneakerInfoPage";
 import SneakerResultsPage from "./pages/SneakersResultsPage/SneakersResultsPage";
-import UserInfoPage from "./pages/UserInfoPage/UserInfoPage";
+import UserInfoPage from "./pages/UserPage/UserPage";
 import { loginAction } from "./redux/actions/usersActionCreator/usersActionCreator";
 import { User } from "./Types/User";
 

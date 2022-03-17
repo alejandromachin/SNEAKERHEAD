@@ -8,7 +8,7 @@ import {
   UserTittle,
 } from "./UserInfoPageStyles";
 
-const UserInfoPage = (): JSX.Element => {
+const UserPage = (): JSX.Element => {
   const user = useSelector((state: RootState) => state.user);
 
   return (
@@ -36,4 +36,4 @@ const UserInfoPage = (): JSX.Element => {
   );
 };
 
-export default UserInfoPage;
+export default UserPage;
