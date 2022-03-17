@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { loginThunk } from "../../redux/thunks/userThunk";
 import { LoginData } from "../../Types/LoginData";
 import { LoginFormContainer } from "./LoginFormStyles";
@@ -15,16 +16,17 @@ const LoginForm = (): JSX.Element => {
     ads: [],
   };
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState<LoginData>(blankFields);
 
   const resetForm = () => {
     setLoginData(blankFields);
   };
 
-  const registerUser = (event: React.FormEvent<HTMLFormElement>) => {
+  const loginUser = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     dispatch(loginThunk(loginData));
+    navigate("/home");
     resetForm();
   };
 
@@ -37,7 +39,7 @@ const LoginForm = (): JSX.Element => {
 
   return (
     <LoginFormContainer>
-      <form onSubmit={registerUser} noValidate autoComplete="off">
+      <form onSubmit={loginUser} noValidate autoComplete="off">
         <label htmlFor="username">Username: </label>
         <input
           type="text"
