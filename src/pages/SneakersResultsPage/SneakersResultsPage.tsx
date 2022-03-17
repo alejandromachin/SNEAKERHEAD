@@ -5,6 +5,7 @@ import SneakersList from "../../components/SneakersList/SneakersList";
 import { loadAllSneakersThunk } from "../../redux/thunks/sneakersThunk";
 import { Sneaker } from "../../Types/Sneaker";
 import { SneakersResultsListContainer } from "./SneakersResultsListStyles";
+import Spinner from "../../components/Spinner/Spinner";
 
 const SneakersResultsPage = (): JSX.Element => {
   const sneakers: Sneaker[] = useSelector((state: RootState) => state.sneakers);
@@ -17,9 +18,13 @@ const SneakersResultsPage = (): JSX.Element => {
   return (
     <>
       <h1 className="sneakerResults_tittle">RESULTS:</h1>
-      <SneakersResultsListContainer>
-        <SneakersList sneakers={sneakers} />
-      </SneakersResultsListContainer>
+      {sneakers.length !== 0 ? (
+        <Spinner />
+      ) : (
+        <SneakersResultsListContainer>
+          <SneakersList sneakers={sneakers} />
+        </SneakersResultsListContainer>
+      )}
     </>
   );
 };
