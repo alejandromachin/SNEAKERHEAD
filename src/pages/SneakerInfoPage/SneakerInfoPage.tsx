@@ -98,7 +98,7 @@ const SneakerInfoPage = (): JSX.Element => {
           <SneakerAdList ads={adsToShow} />
           <ButtonContainer>
             <Button actionOnClick={loadMoreAds} text={"LOAD MORE"} />
-          </ButtonContainer>{" "}
+          </ButtonContainer>
         </>
       )}
       {showSellForm && (

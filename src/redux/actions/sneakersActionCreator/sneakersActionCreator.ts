@@ -1,4 +1,5 @@
 import {
+  Action,
   LoadSneakerInfoAction,
   LoadSneakersAction,
 } from "../../../Types/Action";
@@ -17,4 +18,8 @@ export const loadSneakerInfoAction = (
 ): LoadSneakerInfoAction => ({
   type: actionTypes.loadSneakerInfo,
   sneaker,
+});
+
+export const cleanUpSneakerAction = (): Action => ({
+  type: actionTypes.cleanUpSneaker,
 });

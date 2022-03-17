@@ -72,7 +72,9 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
 
         <select id="state" value={adData.state} onChange={changeData} required>
           <option value="">-</option>
-          <option value="NEW">new</option>
+          <option selected value="NEW">
+            new
+          </option>
           <option value="USED">used</option>
         </select>
         <label htmlFor="condition">Condition:</label>
