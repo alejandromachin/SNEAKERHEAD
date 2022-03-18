@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { loginThunk } from "../../redux/thunks/userThunk";
 import { LoginData } from "../../Types/LoginData";
 import { LoginFormContainer } from "./LoginFormStyles";
@@ -16,7 +15,6 @@ const LoginForm = (): JSX.Element => {
     ads: [],
   };
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [loginData, setLoginData] = useState<LoginData>(blankFields);
 
   const resetForm = () => {
@@ -26,7 +24,6 @@ const LoginForm = (): JSX.Element => {
   const loginUser = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     dispatch(loginThunk(loginData));
-    navigate("/home");
     resetForm();
   };
 
