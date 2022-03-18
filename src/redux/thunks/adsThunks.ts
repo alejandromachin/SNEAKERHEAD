@@ -39,16 +39,40 @@ export const moreInfoAdThunk =
   };
 
 export const createAdThunk =
-  (adData: FormData) => async (dispatch: Dispatch<AdAction>) => {
+  (adData: FormData) =>
+  async (dispatch: Dispatch<AdAction> | Dispatch<ErrorAction>) => {
     const url = `${process.env.REACT_APP_URL}ads/new`;
 
-    const { data }: AdData = await axios.post(url as string, adData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-
-    dispatch(createAdAction(data));
+    await axios
+      .post(url, adData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        (dispatch as Dispatch<AdAction>)(createAdAction(response.data));
+        toast.success("CREATED", {
+          duration: 1000,
+          style: {
+            position: "relative",
+            top: 530,
+            color: "#ff0000",
+            backgroundColor: "#d3e2ff",
+          },
+        });
+      })
+      .catch((error) => {
+        (dispatch as Dispatch<ErrorAction>)(errorAction(error.response.data));
+        toast.error(`${error.response.data.message}`, {
+          duration: 1000,
+          style: {
+            position: "relative",
+            top: 530,
+            color: "#ff0000",
+            backgroundColor: "#d3e2ff",
+          },
+        });
+      });
   };
 
 export const deleteAdThunk =
@@ -66,7 +90,7 @@ export const deleteAdThunk =
           duration: 1000,
           style: {
             position: "relative",
-            top: 330,
+            top: 530,
             color: "#ff0000",
             backgroundColor: "#d3e2ff",
           },
@@ -78,7 +102,7 @@ export const deleteAdThunk =
           duration: 1000,
           style: {
             position: "relative",
-            top: 330,
+            top: 530,
             color: "#ff0000",
             backgroundColor: "#d3e2ff",
           },
