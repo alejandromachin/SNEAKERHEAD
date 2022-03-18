@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { userAdsThunk } from "../../redux/thunks/userThunk";
 import { Ad } from "../../Types/Ad";
@@ -10,6 +11,7 @@ const UserAdsPage = (): JSX.Element => {
   const user = useSelector((state: RootState) => state.user);
   const userAds = useSelector((state: RootState) => state.userAds);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const id = useMemo(() => user.id, [user]);
 
@@ -17,6 +19,9 @@ const UserAdsPage = (): JSX.Element => {
     dispatch(userAdsThunk(id as string));
   }, [dispatch, id]);
 
+  const navigateToAd = (adId: string) => {
+    navigate(`/ads/${adId}`);
+  };
   return (
     <UserInfoContainer>
       <UserTittle>
@@ -25,7 +30,12 @@ const UserAdsPage = (): JSX.Element => {
       <UserAdsList>
         <ul>
           {userAds.map((ad: Ad) => (
-            <li key={ad.id}>
+            <li
+              onClick={() => {
+                navigateToAd(ad.id);
+              }}
+              key={ad.id}
+            >
               <UserAdsInfo>
                 <h2>
                   {ad.brand} {ad.style}
