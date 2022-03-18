@@ -40,7 +40,17 @@ export const SneakerCardInfo = styled.div`
   height: 60px;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
-
+  & .SneakerInfoPage__loginToSell {
+    display: flex;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    color: #ff0000;
+    border: none;
+    background-color: #d3e2ff;
+  }
   & p {
     margin: 0px;
   }
