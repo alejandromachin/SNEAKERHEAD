@@ -1,9 +1,12 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import jwtDecode from "jwt-decode";
 import { Dispatch } from "react";
+import toast from "react-hot-toast";
 import { LoadUserAdsAction, LoginAction } from "../../Types/Action";
+import { ErrorAction } from "../../Types/Error";
 import { LoginData } from "../../Types/LoginData";
 import { User } from "../../Types/User";
+import { errorOnLoginAction } from "../actions/errorsActionCreator/errorActionCreator";
 import {
   loadUserAdsAction,
   loginAction,
@@ -20,19 +23,28 @@ export const registerThunk = (userData: User) => async () => {
 };
 
 export const loginThunk =
-  (userData: LoginData) => async (dispatch: Dispatch<LoginAction>) => {
+  (userData: LoginData) =>
+  async (dispatch: Dispatch<LoginAction> | Dispatch<ErrorAction>) => {
     const url = `${process.env.REACT_APP_URL}user/login`;
-    try {
-      const {
-        data: { token },
-      } = await axios.post(url, userData);
 
-      localStorage.setItem("tokenKey", token);
-      const userInfo: User = jwtDecode(token);
-      dispatch(loginAction(userInfo));
-    } catch (error) {
-      dispatch();
-    }
+    await axios
+      .post(url, userData)
+      .then((response) => {
+        localStorage.setItem(
+          "tokenKey",
+          (response as AxiosResponse).data.token
+        );
+        const userInfo: User = jwtDecode(
+          (response as AxiosResponse).data.token
+        );
+        (dispatch as Dispatch<LoginAction>)(loginAction(userInfo));
+      })
+      .catch((error) => {
+        (dispatch as Dispatch<ErrorAction>)(
+          errorOnLoginAction(error.response.data)
+        );
+        toast.error("This didn't work.");
+      });
   };
 
 export const userAdsThunk =

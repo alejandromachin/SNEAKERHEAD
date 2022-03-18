@@ -1,11 +1,12 @@
-import { Action } from "../../../Types/Action";
+import { Error, ErrorAction } from "../../../Types/Error";
 import errorTypes from "../errorTypes";
 
-interface ErrorAction extends Action {
-  errorMessage: string;
-}
-
-export const errorAction = (errorMessage: string): ErrorAction => ({
+export const errorAction = (error: Error): ErrorAction => ({
   type: errorTypes.error,
-  errorMessage,
+  error,
+});
+
+export const errorOnLoginAction = (error: Error): ErrorAction => ({
+  type: errorTypes.login,
+  error,
 });

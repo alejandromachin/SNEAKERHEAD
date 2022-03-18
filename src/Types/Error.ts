@@ -1,9 +1,12 @@
-import { Action } from "./Action";
-
 export interface Error {
+  error: boolean;
   code: number;
   message: string;
 }
-export interface ErrorAction extends Action {
+
+export interface GenericErrorAction {
+  type?: string;
+}
+export interface ErrorAction extends GenericErrorAction {
   error: Error;
 }

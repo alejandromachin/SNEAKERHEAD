@@ -1,23 +1,19 @@
-import { Action, LoginAction } from "../../../Types/Action";
-import { User } from "../../../Types/User";
-import actionTypes from "../../actions/actionTypes";
+import { ErrorAction, GenericErrorAction } from "../../../Types/Error";
+import errorTypes from "../../actions/errorTypes";
 
-const userReducer = (
-  currentUser: User | {} = {},
-  action: Action | LoginAction = {}
+const errorReducer = (
+  currentError: Error | {} = {},
+  action: ErrorAction | GenericErrorAction = {}
 ) => {
-  let newUser;
+  let newError;
   switch (action.type) {
-    case actionTypes.login:
-      newUser = { ...(action as LoginAction).login };
-      break;
-    case actionTypes.logout:
-      newUser = {};
+    case errorTypes.login:
+      newError = { ...(action as ErrorAction).error };
       break;
     default:
-      newUser = { ...currentUser };
+      newError = { ...currentError };
   }
-  return newUser;
+  return newError;
 };
 
-export default userReducer;
+export default errorReducer;
