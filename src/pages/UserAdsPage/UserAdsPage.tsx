@@ -12,7 +12,7 @@ const UserAdsPage = (): JSX.Element => {
   const userAds = useSelector((state: RootState) => state.userAds);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  console.log(userAds);
   const id = useMemo(() => user.id, [user]);
 
   useEffect(() => {
