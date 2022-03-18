@@ -16,7 +16,7 @@ const LoginPage = () => {
         duration: 1000,
         style: {
           position: "relative",
-          top: 400,
+          top: 330,
           color: "#ff0000",
           backgroundColor: "#d3e2ff",
         },

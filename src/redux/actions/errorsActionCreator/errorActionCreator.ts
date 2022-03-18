@@ -10,3 +10,8 @@ export const errorOnLoginAction = (error: Error): ErrorAction => ({
   type: errorTypes.login,
   error,
 });
+
+export const errorOnRegisterAction = (error: Error): ErrorAction => ({
+  type: errorTypes.register,
+  error,
+});

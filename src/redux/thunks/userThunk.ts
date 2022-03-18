@@ -6,21 +6,41 @@ import { LoadUserAdsAction, LoginAction } from "../../Types/Action";
 import { ErrorAction } from "../../Types/Error";
 import { LoginData } from "../../Types/LoginData";
 import { User } from "../../Types/User";
-import { errorOnLoginAction } from "../actions/errorsActionCreator/errorActionCreator";
+import {
+  errorOnLoginAction,
+  errorOnRegisterAction,
+} from "../actions/errorsActionCreator/errorActionCreator";
 import {
   loadUserAdsAction,
   loginAction,
 } from "../actions/usersActionCreator/usersActionCreator";
 
-export const registerThunk = (userData: User) => async () => {
-  const url = `${process.env.REACT_APP_URL}user/register`;
+export const registerThunk =
+  (userData: User) => async (dispatch: Dispatch<ErrorAction>) => {
+    const url = `${process.env.REACT_APP_URL}user/register`;
 
-  await axios.post(url, userData, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-};
+    await axios
+      .post(url, userData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then(() => {})
+      .catch((error) => {
+        (dispatch as Dispatch<ErrorAction>)(
+          errorOnRegisterAction(error.response.data)
+        );
+        toast.error(`${error.response.data.message}`, {
+          duration: 1000,
+          style: {
+            position: "relative",
+            top: 580,
+            color: "#ff0000",
+            backgroundColor: "#d3e2ff",
+          },
+        });
+      });
+  };
 
 export const loginThunk =
   (userData: LoginData) =>

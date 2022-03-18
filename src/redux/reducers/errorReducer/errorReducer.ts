@@ -7,7 +7,13 @@ const errorReducer = (
 ) => {
   let newError;
   switch (action.type) {
+    case errorTypes.error:
+      newError = { ...(action as ErrorAction).error };
+      break;
     case errorTypes.login:
+      newError = { ...(action as ErrorAction).error };
+      break;
+    case errorTypes.register:
       newError = { ...(action as ErrorAction).error };
       break;
     default:
