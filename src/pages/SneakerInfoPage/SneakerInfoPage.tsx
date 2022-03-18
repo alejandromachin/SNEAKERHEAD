@@ -30,6 +30,7 @@ const SneakerInfoPage = (): JSX.Element => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const sneaker = useSelector((state: RootState) => state.sneaker);
+  const user = useSelector((state: RootState) => state.user);
   const ads = useSelector((state: RootState) => state.ads);
 
   const [adsToShow, setAdsToShow] = useState<Ad[]>([]);
@@ -87,10 +88,14 @@ const SneakerInfoPage = (): JSX.Element => {
             <p>Average price: {(sneaker as Sneaker).averagePrice}</p>
           </SneakerCardInfoText>
           <SellButton>
-            <Button
-              actionOnClick={openSellForm}
-              text={showSellForm ? "BUY" : "SELL"}
-            />
+            {user.id ? (
+              <Button
+                actionOnClick={openSellForm}
+                text={showSellForm ? "BUY" : "SELL"}
+              />
+            ) : (
+              <p className="SneakerInfoPage__loginToSell">LOG IN TO SELL</p>
+            )}
           </SellButton>
         </SneakerCardInfo>
       </SneakerInfoContainer>
@@ -109,10 +114,7 @@ const SneakerInfoPage = (): JSX.Element => {
         </>
       )}
       {showSellForm && (
-        <AdForm
-          userId="622f4fa5fb6b3a28843dd391"
-          sneaker={sneaker as Sneaker}
-        />
+        <AdForm userId={user.id as string} sneaker={sneaker as Sneaker} />
       )}
     </>
   );
