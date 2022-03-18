@@ -22,14 +22,17 @@ export const registerThunk = (userData: User) => async () => {
 export const loginThunk =
   (userData: LoginData) => async (dispatch: Dispatch<LoginAction>) => {
     const url = `${process.env.REACT_APP_URL}user/login`;
+    try {
+      const {
+        data: { token },
+      } = await axios.post(url, userData);
 
-    const {
-      data: { token },
-    } = await axios.post(url, userData);
-
-    localStorage.setItem("tokenKey", token);
-    const userInfo: User = jwtDecode(token);
-    dispatch(loginAction(userInfo));
+      localStorage.setItem("tokenKey", token);
+      const userInfo: User = jwtDecode(token);
+      dispatch(loginAction(userInfo));
+    } catch (error) {
+      dispatch();
+    }
   };
 
 export const userAdsThunk =
