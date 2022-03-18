@@ -12,6 +12,7 @@ const actionTypes = {
   filterAdsBySize: "filter-adsBySize",
   cleanUpSneaker: "cleanup-sneaker",
   cleanUpAds: "cleanup-ads",
+  loadUserAds: "load-userAds",
 };
 
 export default actionTypes;

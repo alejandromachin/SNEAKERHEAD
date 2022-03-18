@@ -43,7 +43,7 @@ const UserPage = (): JSX.Element => {
         <Link to="" onClick={logOut}>
           Log out
         </Link>
-        <Link to="">Items on sale</Link>
+        <Link to="myAds">Items on sale</Link>
       </UserNav>
     </UserInfoContainer>
   );

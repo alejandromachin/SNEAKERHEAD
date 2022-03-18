@@ -146,13 +146,17 @@ export const handlers = [
           brand: "test",
           style: "test",
           colorway: "test",
-          images: ["test"],
+          image1: "test",
+          image2: "test",
+          image3: "test",
+          image4: "test",
           price: "test",
           likes: 0,
           size: 40,
           condition: 10,
           box: "good",
           state: "new",
+          owner: "test",
         },
       ])
     );
@@ -166,13 +170,41 @@ export const handlers = [
           brand: "test",
           style: "test",
           colorway: "test",
-          images: ["test"],
+          image1: "test",
+          image2: "test",
+          image3: "test",
+          image4: "test",
           price: "test",
           likes: 0,
           size: 40,
           condition: 10,
           box: "good",
           state: "new",
+          owner: "test",
+        },
+      ])
+    );
+  }),
+  rest.get(`${process.env.REACT_APP_URL}user/ads/test`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          id: "ad test",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          image1: "test",
+          image2: "test",
+          image3: "test",
+          image4: "test",
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
+          box: "good",
+          state: "new",
+          owner: "test",
         },
       ])
     );
