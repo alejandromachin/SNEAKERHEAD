@@ -43,7 +43,15 @@ export const loginThunk =
         (dispatch as Dispatch<ErrorAction>)(
           errorOnLoginAction(error.response.data)
         );
-        toast.error("This didn't work.");
+        toast.error(`${error.response.data.message}`, {
+          duration: 1000,
+          style: {
+            position: "relative",
+            top: 330,
+            color: "#ff0000",
+            backgroundColor: "#d3e2ff",
+          },
+        });
       });
   };
 

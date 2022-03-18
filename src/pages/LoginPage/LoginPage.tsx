@@ -12,11 +12,12 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (user.name) {
-      toast.success("Successfully logged!", {
+      toast.success("SUCESSFULLY LOGGED!", {
         duration: 1000,
         style: {
           position: "relative",
-          top: 500,
+          top: 400,
+          color: "#ff0000",
           backgroundColor: "#d3e2ff",
         },
       });
