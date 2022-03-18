@@ -111,14 +111,38 @@ export const deleteAdThunk =
   };
 
 export const editAdThunk =
-  (adData: FormData, adId: string) => async (dispatch: Dispatch<AdAction>) => {
+  (adData: FormData, adId: string) =>
+  async (dispatch: Dispatch<AdAction> | Dispatch<ErrorAction>) => {
     const url = `${process.env.REACT_APP_URL}ads/${adId}`;
 
-    const { data }: AdData = await axios.patch(url as string, adData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-
-    dispatch(editAdAction(data));
+    await axios
+      .patch(url, adData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        (dispatch as Dispatch<AdAction>)(editAdAction(response.data));
+        toast.success("EDITED", {
+          duration: 1000,
+          style: {
+            position: "relative",
+            top: 530,
+            color: "#ff0000",
+            backgroundColor: "#d3e2ff",
+          },
+        });
+      })
+      .catch((error) => {
+        (dispatch as Dispatch<ErrorAction>)(errorAction(error.response.data));
+        toast.error(`${error.response.data.message}`, {
+          duration: 1000,
+          style: {
+            position: "relative",
+            top: 530,
+            color: "#ff0000",
+            backgroundColor: "#d3e2ff",
+          },
+        });
+      });
   };
