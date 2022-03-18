@@ -28,33 +28,14 @@ const mockAds: Ad[] = [
 jest.mock("react-redux", () => {
   return {
     ...jest.requireActual("react-redux"),
-    useSelector: (cb) => cb({ user: mockUser, userAds: mockAds }),
+    useSelector: (cb: CallableFunction) =>
+      cb({ user: mockUser, userAds: mockAds }),
   };
 });
 
 describe("Given an UserAdsPage page", () => {
   describe("When it is rendered", () => {
     test("Then it should show a tittle and a list of ads", () => {
-      const ads: Ad[] = [
-        {
-          id: "ad test",
-          brand: "test",
-          style: "test",
-          colorway: "test",
-          image1: "test",
-          image2: "test",
-          image3: "test",
-          image4: "test",
-          price: "test",
-          likes: 0,
-          size: 40,
-          condition: 10,
-          box: "good",
-          state: "new",
-          owner: "test",
-        },
-      ];
-
       render(
         <BrowserRouter>
           <Provider store={store}>
