@@ -1,5 +1,6 @@
 import jwtDecode from "jwt-decode";
 import React, { useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
@@ -29,6 +30,10 @@ function App() {
 
   return (
     <>
+      <div>
+        <Toaster />
+      </div>
+
       <Navigation />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />

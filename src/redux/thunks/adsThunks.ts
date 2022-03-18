@@ -1,7 +1,9 @@
 import axios from "axios";
 import { Dispatch } from "react";
+import toast from "react-hot-toast";
 import { AdAction, DeleteAdAction, LoadAdsAction } from "../../Types/Action";
 import { Ad } from "../../Types/Ad";
+import { ErrorAction } from "../../Types/Error";
 import {
   createAdAction,
   deleteAdAction,
@@ -9,6 +11,7 @@ import {
   loadAdAction,
   loadAdsAction,
 } from "../actions/adsActionCreator/adsActionCreator";
+import { errorAction } from "../actions/errorsActionCreator/errorActionCreator";
 
 interface AdData {
   data: Ad;
@@ -26,15 +29,6 @@ export const loadAllSneakerAdsThunk =
     dispatch(loadAdsAction(data));
   };
 
-// export const filterAdsBySizeThunk =
-//   (size: number) => async (dispatch: Dispatch<LoadAdsAction>) => {
-//     const url = `${process.env.REACT_APP_URL}ads/?size=${size}`;
-
-//     const { data }: AdsData = await axios.get(url as string);
-
-//     dispatch(filterAdsBySizeAction(data));
-//   };
-
 export const moreInfoAdThunk =
   (id: string) => async (dispatch: Dispatch<AdAction>) => {
     const url = `${process.env.REACT_APP_URL}ads/detail/${id}`;
@@ -45,36 +39,110 @@ export const moreInfoAdThunk =
   };
 
 export const createAdThunk =
-  (adData: FormData) => async (dispatch: Dispatch<AdAction>) => {
+  (adData: FormData) =>
+  async (dispatch: Dispatch<AdAction> | Dispatch<ErrorAction>) => {
     const url = `${process.env.REACT_APP_URL}ads/new`;
 
-    const { data }: AdData = await axios.post(url as string, adData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-
-    dispatch(createAdAction(data));
+    await axios
+      .post(url, adData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        (dispatch as Dispatch<AdAction>)(createAdAction(response.data));
+        toast.success("CREATED", {
+          duration: 1000,
+          style: {
+            position: "relative",
+            top: 530,
+            color: "#ff0000",
+            backgroundColor: "#d3e2ff",
+          },
+        });
+      })
+      .catch((error) => {
+        (dispatch as Dispatch<ErrorAction>)(errorAction(error.response.data));
+        toast.error(`${error.response.data.message}`, {
+          duration: 1000,
+          style: {
+            position: "relative",
+            top: 530,
+            color: "#ff0000",
+            backgroundColor: "#d3e2ff",
+          },
+        });
+      });
   };
 
 export const deleteAdThunk =
-  (id: string) => async (dispatch: Dispatch<DeleteAdAction>) => {
+  (id: string) =>
+  async (dispatch: Dispatch<DeleteAdAction> | Dispatch<ErrorAction>) => {
     const url = `${process.env.REACT_APP_URL}ads/${id}`;
 
-    const { data }: AdData = await axios.delete(url as string);
-
-    dispatch(deleteAdAction(data.id));
+    await axios
+      .delete(url)
+      .then((response) => {
+        (dispatch as Dispatch<DeleteAdAction>)(
+          deleteAdAction(response.data.id)
+        );
+        toast.success("DELETED", {
+          duration: 1000,
+          style: {
+            position: "relative",
+            top: 530,
+            color: "#ff0000",
+            backgroundColor: "#d3e2ff",
+          },
+        });
+      })
+      .catch((error) => {
+        (dispatch as Dispatch<ErrorAction>)(errorAction(error.response.data));
+        toast.error(`${error.response.data.message}`, {
+          duration: 1000,
+          style: {
+            position: "relative",
+            top: 530,
+            color: "#ff0000",
+            backgroundColor: "#d3e2ff",
+          },
+        });
+      });
   };
 
 export const editAdThunk =
-  (adData: FormData, adId: string) => async (dispatch: Dispatch<AdAction>) => {
+  (adData: FormData, adId: string) =>
+  async (dispatch: Dispatch<AdAction> | Dispatch<ErrorAction>) => {
     const url = `${process.env.REACT_APP_URL}ads/${adId}`;
 
-    const { data }: AdData = await axios.patch(url as string, adData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-
-    dispatch(editAdAction(data));
+    await axios
+      .patch(url, adData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        (dispatch as Dispatch<AdAction>)(editAdAction(response.data));
+        toast.success("EDITED", {
+          duration: 1000,
+          style: {
+            position: "relative",
+            top: 530,
+            color: "#ff0000",
+            backgroundColor: "#d3e2ff",
+          },
+        });
+      })
+      .catch((error) => {
+        (dispatch as Dispatch<ErrorAction>)(errorAction(error.response.data));
+        toast.error(`${error.response.data.message}`, {
+          duration: 1000,
+          style: {
+            position: "relative",
+            top: 530,
+            color: "#ff0000",
+            backgroundColor: "#d3e2ff",
+          },
+        });
+      });
   };

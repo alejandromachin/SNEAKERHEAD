@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import LoginForm from "../../components/LoginForm/LoginForm";
@@ -11,7 +12,18 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (user.name) {
-      navigate("/home");
+      toast.success("SUCESSFULLY LOGGED!", {
+        duration: 1000,
+        style: {
+          position: "relative",
+          top: 330,
+          color: "#ff0000",
+          backgroundColor: "#d3e2ff",
+        },
+      });
+      setTimeout(() => {
+        navigate("/home");
+      }, 1000);
     }
   }, [navigate, user]);
 
