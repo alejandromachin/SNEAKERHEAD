@@ -8,6 +8,7 @@ export const BurgerContainer = styled.div`
   height: ${burgerHeight}px;
   width: min-content;
   justify-content: space-between;
+  z-index: 20;
   &.active .burger-bar:nth-child(2) {
     opacity: 0;
   }
@@ -23,6 +24,7 @@ export const BurgerContainer = styled.div`
 `;
 
 export const BurgerBar = styled.span`
+  z-index: 20;
   position: relative;
   width: 30px;
   background-color: #000;
