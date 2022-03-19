@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Ad } from "../../Types/Ad";
 import {
   HotDealsCard,
@@ -10,12 +11,21 @@ interface HotDealsProps {
 }
 
 const HotDeals = ({ ads }: HotDealsProps): JSX.Element => {
+  const navigate = useNavigate();
+
+  const goToAd = (id: string) => {
+    navigate(`/ads/${id}`);
+  };
   return (
     <>
       <h2>HOT DEALS:</h2>
       <HotDealsContainer>
         {ads.map((ad) => (
-          <HotDealsCard>
+          <HotDealsCard
+            onClick={() => {
+              goToAd(ad.id);
+            }}
+          >
             <img src={ad.image1} alt={ad.colorway} />
             <HotDealsCardText>
               <h3>{ad.brand} </h3>
