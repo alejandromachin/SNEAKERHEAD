@@ -4,6 +4,7 @@ import {
   HotDealsCard,
   HotDealsCardText,
   HotDealsContainer,
+  HotDealsTitle,
 } from "./HotDealsStyles";
 
 interface HotDealsProps {
@@ -18,7 +19,9 @@ const HotDeals = ({ ads }: HotDealsProps): JSX.Element => {
   };
   return (
     <>
-      <h2>HOT DEALS:</h2>
+      <HotDealsTitle>
+        <h2 className="HotDeals__title">HOT DEALS:</h2>
+      </HotDealsTitle>
       <HotDealsContainer>
         {ads.map((ad) => (
           <HotDealsCard

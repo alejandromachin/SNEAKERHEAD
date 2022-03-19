@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+export const HotDealsTitle = styled.div`
+  width: 90vw;
+  & h2 {
+    text-align: left;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-shadow: 1px 0 #000, 1px 0 #000, 1px 0 #000, 1px 0 #000;
+  }
+`;
+
 export const HotDealsContainer = styled.div`
   display: flex;
   flex-direction: row;
