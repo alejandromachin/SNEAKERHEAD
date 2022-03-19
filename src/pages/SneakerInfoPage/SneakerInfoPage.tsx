@@ -59,6 +59,8 @@ const SneakerInfoPage = (): JSX.Element => {
     const cleanUp = () => {
       dispatch(cleanUpSneakerAction());
       dispatch(cleanUpAdsAction());
+      setAdsToShow([]);
+      holdingAds = [];
     };
     dispatch(moreInfoSneakerThunk(id as string));
     dispatch(loadAllSneakerAdsThunk(id as string));
