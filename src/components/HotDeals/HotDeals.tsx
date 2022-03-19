@@ -28,6 +28,7 @@ const HotDeals = ({ ads }: HotDealsProps): JSX.Element => {
             onClick={() => {
               goToAd(ad.id);
             }}
+            key={ad.id}
           >
             <img src={ad.image1} alt={ad.colorway} />
             <HotDealsCardText>
