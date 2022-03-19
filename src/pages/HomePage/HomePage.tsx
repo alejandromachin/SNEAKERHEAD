@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { loadAllSneakersThunk } from "../../redux/thunks/sneakersThunk";
 import { RootState } from "../../redux/store";
 import { CarouselContainer, HomePageContainer } from "./HomePageStyles";
+import HotDeals from "../../components/HotDeals/HotDeals";
 
 const HomePage = (): JSX.Element => {
   const sneakers: Sneaker[] = useSelector((state: RootState) => state.sneakers);
@@ -14,7 +15,9 @@ const HomePage = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(loadAllSneakersThunk);
+    dispatch(loadHotDealsThunk);
   }, [dispatch]);
+
   return (
     <HomePageContainer>
       <h1>SNEAKERHEAD</h1>
@@ -41,6 +44,7 @@ const HomePage = (): JSX.Element => {
         </Carousel>
       </CarouselContainer>
       <SneakerSlider sneakers={sneakers} />
+      <HotDeals />
     </HomePageContainer>
   );
 };
