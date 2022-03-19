@@ -32,7 +32,6 @@ const SneakerInfoPage = (): JSX.Element => {
   const sneaker = useSelector((state: RootState) => state.sneaker);
   const user = useSelector((state: RootState) => state.user);
   const ads = useSelector((state: RootState) => state.ads);
-  console.log(ads);
   const [adsToShow, setAdsToShow] = useState<Ad[]>([]);
   const [next, setNext] = useState(2);
   const [showSellForm, setShowSellForm] = useState<boolean>(false);
