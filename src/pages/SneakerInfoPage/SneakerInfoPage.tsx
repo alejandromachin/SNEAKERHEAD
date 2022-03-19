@@ -32,10 +32,11 @@ const SneakerInfoPage = (): JSX.Element => {
   const sneaker = useSelector((state: RootState) => state.sneaker);
   const user = useSelector((state: RootState) => state.user);
   const ads = useSelector((state: RootState) => state.ads);
-
+  console.log(ads);
   const [adsToShow, setAdsToShow] = useState<Ad[]>([]);
   const [next, setNext] = useState(2);
   const [showSellForm, setShowSellForm] = useState<boolean>(false);
+  const [noMoreAds, setNoMoreAds] = useState<boolean>(false);
 
   const sliceAds = useCallback(
     (start: number, end: number) => {
@@ -47,8 +48,12 @@ const SneakerInfoPage = (): JSX.Element => {
   );
 
   const loadMoreAds = () => {
-    sliceAds(next, next + adsPerPage);
-    setNext(next + adsPerPage);
+    if (adsToShow.length < ads.length) {
+      sliceAds(next, next + adsPerPage);
+      setNext(next + adsPerPage);
+    } else {
+      setNoMoreAds(true);
+    }
   };
 
   useEffect(() => {
@@ -59,7 +64,6 @@ const SneakerInfoPage = (): JSX.Element => {
     const cleanUp = () => {
       dispatch(cleanUpSneakerAction());
       dispatch(cleanUpAdsAction());
-      setAdsToShow([]);
       holdingAds = [];
     };
     dispatch(moreInfoSneakerThunk(id as string));
@@ -111,7 +115,10 @@ const SneakerInfoPage = (): JSX.Element => {
           </SizeContainer>
           <SneakerAdList ads={adsToShow} />
           <ButtonContainer>
-            <Button actionOnClick={loadMoreAds} text={"LOAD MORE"} />
+            <Button
+              actionOnClick={loadMoreAds}
+              text={noMoreAds ? "NO MORE ADS TO SHOW" : "LOAD MORE"}
+            />
           </ButtonContainer>
         </>
       )}
