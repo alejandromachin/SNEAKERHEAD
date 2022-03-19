@@ -14,6 +14,7 @@ const actionTypes = {
   cleanUpAds: "cleanup-ads",
   loadUserAds: "load-userAds",
   hotdeals: "load-hotdeals",
+  menuState: "change-menuState",
 };
 
 export default actionTypes;

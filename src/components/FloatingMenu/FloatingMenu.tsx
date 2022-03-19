@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { RootState } from "../../redux/store";
 import { FloatingMenuDiv } from "./FloatingMenuStyles";
 
@@ -15,10 +16,13 @@ const FloatingMenu = ({ isActive }: FloatingMenuProps): JSX.Element => {
         <p className="FloatinMenu__greating">
           Hello, {user.name ? user.name : "stranger"}
         </p>
+
         <ul>
-          <li className="FloatinMenu__Register">
-            {user.name ? "" : "Register"}
-          </li>
+          <Link to={"/register"}>
+            <li className="FloatinMenu__Register">
+              {user.name ? "" : "Register"}
+            </li>
+          </Link>
           <li>Home</li>
           <li>All sneakers</li>
         </ul>
