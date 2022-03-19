@@ -2,7 +2,7 @@ import { rest } from "msw";
 
 export const handlers = [
   rest.get(
-    "https://finalprojectback.onrender.com/sneakers",
+    `${process.env.REACT_APP_URL}sneakers/?limit=${test}&skip=${test}`,
     (req, res, ctx) => {
       return res(
         ctx.status(200),
