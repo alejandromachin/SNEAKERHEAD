@@ -8,19 +8,24 @@ interface SneakerSliderProps {
 
 const SliderContainer = styled.div`
   .slider {
-    padding: 20px;
     width: 100vw;
-    height: 150px;
+    height: 160px;
     display: flex;
+    justify-content: space-between;
     overflow-x: auto;
+    background-color: #d3e2ff;
   }
   .slider::-webkit-scrollbar {
     display: none;
   }
   .slide {
-    width: 200px;
+    margin-top: 10px;
+    padding-left: 5px;
+    width: 140px;
     flex-shrink: 0;
-    height: 100%;
+  }
+  & img {
+    width: 140px;
   }
 `;
 

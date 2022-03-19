@@ -33,7 +33,6 @@ function App() {
       <div>
         <Toaster />
       </div>
-
       <Navigation />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
