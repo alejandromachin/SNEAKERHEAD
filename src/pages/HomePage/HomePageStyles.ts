@@ -8,6 +8,7 @@ export const HomePageContainer = styled.div`
   width: 100vw;
   & h1 {
     justify-content: flex-start;
+    text-shadow: 1px 0 #000, 1px 0 #000, 1px 0 #000, 1px 0 #000;
   }
 `;
 
