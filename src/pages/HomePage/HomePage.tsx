@@ -1,7 +1,19 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import SneakerSlider from "../../components/SneakerSlider/SneakerSlider";
+import { useDispatch, useSelector } from "react-redux";
+import { Sneaker } from "../../Types/Sneaker";
+import { useEffect } from "react";
+import { loadAllSneakersThunk } from "../../redux/thunks/sneakersThunk";
+import { RootState } from "../../redux/store";
 
 const HomePage = (): JSX.Element => {
+  const sneakers: Sneaker[] = useSelector((state: RootState) => state.sneakers);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadAllSneakersThunk);
+  }, [dispatch]);
   return (
     <>
       <h1>SNEAKERHEAD</h1>
@@ -19,6 +31,7 @@ const HomePage = (): JSX.Element => {
           <img src="/images/homepage_slider/jordan4-Sail.png" alt="sail"></img>
         </div>
       </Carousel>
+      <SneakerSlider sneakers={sneakers} />
     </>
   );
 };
