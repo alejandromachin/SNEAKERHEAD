@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import adReducer from "./adReducer/adReducer";
 import adsReducer from "./adsReducer/adsReducer";
 import errorReducer from "./errorReducer/errorReducer";
+import menuReducer from "./menuReducer/menuReducer";
 import sneakerReducer from "./sneaker/sneakerReducer";
 import sneakersReducer from "./sneakers/sneakersReducer";
 import userAdsReducer from "./userAdsReducer/userAdsReducer";
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   userAds: userAdsReducer,
   error: errorReducer,
+  menuState: menuReducer,
 });
 
 export default rootReducer;

@@ -6,9 +6,8 @@ import Navigation from "./Navigation";
 
 describe("Given a Navigation component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show 3 anchors and an image as anchor", () => {
-      const expectedNumberOfAnchors = 4;
-      const expectedImageName = "burger-menu";
+    test("Then it should show 6 anchors and an image as anchor", () => {
+      const expectedNumberOfAnchors = 6;
 
       render(
         <BrowserRouter>
@@ -19,10 +18,8 @@ describe("Given a Navigation component", () => {
       );
 
       const anchors = screen.getAllByRole("link").length;
-      const image = screen.getByRole("img", { name: expectedImageName });
 
       expect(anchors).toBe(expectedNumberOfAnchors);
-      expect(image).toBeInTheDocument();
     });
   });
 });
