@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import { Sneaker as sneakertype } from "../../Types/Sneaker";
 import Sneaker from "../Sneaker/Sneaker";
-import { SneakerCard } from "../Sneaker/SneakerStyles";
 
 interface SneakerSliderProps {
   sneakers: sneakertype[];
 }
 
-const Container = styled.div`
+const SliderContainer = styled.div`
   .slider {
     padding: 20px;
     width: 100vw;
@@ -27,7 +26,7 @@ const Container = styled.div`
 
 const SneakerSlider = ({ sneakers }: SneakerSliderProps): JSX.Element => {
   return (
-    <Container>
+    <SliderContainer>
       <div className="slider">
         {sneakers.map((sneaker) => (
           <div className="slide">
@@ -35,7 +34,7 @@ const SneakerSlider = ({ sneakers }: SneakerSliderProps): JSX.Element => {
           </div>
         ))}
       </div>
-    </Container>
+    </SliderContainer>
   );
 };
 
