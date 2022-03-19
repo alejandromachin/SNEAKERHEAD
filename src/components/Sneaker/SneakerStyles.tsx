@@ -15,6 +15,7 @@ export const SneakerCard = styled.div`
 export const SneakerCardText = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 150px;
   width: 150px;
   & p {
