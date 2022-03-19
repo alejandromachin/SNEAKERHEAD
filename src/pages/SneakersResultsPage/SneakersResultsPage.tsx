@@ -4,7 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import SneakersList from "../../components/SneakersList/SneakersList";
 import { loadAllSneakersThunk } from "../../redux/thunks/sneakersThunk";
 import { Sneaker } from "../../Types/Sneaker";
-import { SneakersResultsListContainer } from "./SneakersResultsListStyles";
+import {
+  PaginationButtons,
+  SneakersResultsListContainer,
+} from "./SneakersResultsListStyles";
 import Spinner from "../../components/Spinner/Spinner";
 import { ButtonContainer } from "../SneakerInfoPage/SneakerInfoPageStyles";
 import Button from "../../components/Button/Button";
@@ -12,16 +15,20 @@ import Button from "../../components/Button/Button";
 const SneakersResultsPage = (): JSX.Element => {
   const sneakers: Sneaker[] = useSelector((state: RootState) => state.sneakers);
   const dispatch = useDispatch();
-
+  const [page, setPage] = useState<number>(1);
   const limit = 6;
   const [skip, setSkip] = useState(0);
 
+  const numberOfPages = 4;
+
   const nextPage = () => {
     setSkip(skip + limit);
+    setPage(page + 1);
   };
 
   const previousPage = () => {
     setSkip(skip - limit);
+    setPage(page - 1);
   };
 
   useEffect(() => {
@@ -39,8 +46,12 @@ const SneakersResultsPage = (): JSX.Element => {
         </SneakersResultsListContainer>
       )}
       <ButtonContainer>
-        <Button actionOnClick={previousPage} text={"PREVIOUS"} />
-        <Button actionOnClick={nextPage} text={"NEXT"} />
+        <PaginationButtons>
+          {page !== 1 && (
+            <Button actionOnClick={previousPage} text={"PREVIOUS"} />
+          )}
+          {page !== 4 && <Button actionOnClick={nextPage} text={"NEXT"} />}
+        </PaginationButtons>
       </ButtonContainer>
     </>
   );

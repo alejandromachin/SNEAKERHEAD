@@ -13,3 +13,12 @@ export const SneakersResultsListContainer = styled.div`
     margin-bottom: 0px;
   }
 `;
+
+export const PaginationButtons = styled.div`
+  padding: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
