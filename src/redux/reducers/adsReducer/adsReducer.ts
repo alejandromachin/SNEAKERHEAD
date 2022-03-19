@@ -13,6 +13,9 @@ const adsReducer = (currentState: Ad[] = [], action: Action = {}): Ad[] => {
     case actionTypes.loadAds:
       newAds = [...(action as LoadAdsAction).ads];
       break;
+    case actionTypes.hotdeals:
+      newAds = [...(action as LoadAdsAction).ads];
+      break;
 
     case actionTypes.deleteAd:
       newAds = currentState.filter(

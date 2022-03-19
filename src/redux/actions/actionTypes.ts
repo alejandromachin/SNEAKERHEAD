@@ -13,6 +13,7 @@ const actionTypes = {
   cleanUpSneaker: "cleanup-sneaker",
   cleanUpAds: "cleanup-ads",
   loadUserAds: "load-userAds",
+  hotdeals: "load-hotdeals",
 };
 
 export default actionTypes;
