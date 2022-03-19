@@ -1,21 +1,23 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../../redux/store";
+import BurguerMenu from "../BurgerMenu/BurgerMenu";
 import SearchBar from "../SearchBar/SearchBar";
 import { NavigationContainer, UserAreaContainer } from "./navigationStyles";
 
 const Navigation = (): JSX.Element => {
   const user = useSelector((state: RootState) => state.user);
+  const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
+
+  const toggleActive = () => {
+    setOpenBurgerMenu(!openBurgerMenu);
+  };
 
   return (
     <NavigationContainer>
       <Link to="/home">
-        <img
-          src="https://uxwing.com/wp-content/themes/uxwing/download/07-web-app-development/hamburger-menu.png"
-          width="20"
-          height="20"
-          alt="burger-menu"
-        ></img>
+        <BurguerMenu actionOnClick={toggleActive} isActive={openBurgerMenu} />
       </Link>
       <Link to="/home">LOGO</Link>
       <SearchBar />
