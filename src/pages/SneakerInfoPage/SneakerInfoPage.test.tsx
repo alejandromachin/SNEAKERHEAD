@@ -139,7 +139,7 @@ describe("Given a SneakerInfoPage component", () => {
       userEvent.click(buttonLoad);
 
       const images = screen.getAllByRole("img");
-      expect(images).toHaveLength(7);
+      expect(images).toHaveLength(5);
     });
   });
 });
