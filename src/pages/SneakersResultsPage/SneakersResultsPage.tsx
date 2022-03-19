@@ -50,7 +50,9 @@ const SneakersResultsPage = (): JSX.Element => {
           {page !== 1 && (
             <Button actionOnClick={previousPage} text={"PREVIOUS"} />
           )}
-          {page !== 4 && <Button actionOnClick={nextPage} text={"NEXT"} />}
+          {page !== numberOfPages && (
+            <Button actionOnClick={nextPage} text={"NEXT"} />
+          )}
         </PaginationButtons>
       </ButtonContainer>
     </>
