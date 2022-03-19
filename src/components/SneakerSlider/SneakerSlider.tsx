@@ -34,7 +34,7 @@ const SneakerSlider = ({ sneakers }: SneakerSliderProps): JSX.Element => {
     <SliderContainer>
       <div className="slider">
         {sneakers.map((sneaker) => (
-          <div className="slide">
+          <div className="slide" key={`${sneaker.style} ${sneaker.colorway}`}>
             <Sneaker sneaker={sneaker} />
           </div>
         ))}

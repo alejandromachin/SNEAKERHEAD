@@ -10,6 +10,7 @@ import { CarouselContainer, HomePageContainer } from "./HomePageStyles";
 import HotDeals from "../../components/HotDeals/HotDeals";
 import { loadHotDealsThunk } from "../../redux/thunks/adsThunks";
 import { Ad } from "../../Types/Ad";
+import { cleanUpAdsAction } from "../../redux/actions/adsActionCreator/adsActionCreator";
 
 const HomePage = (): JSX.Element => {
   const sneakers: Sneaker[] = useSelector((state: RootState) => state.sneakers);
@@ -17,8 +18,12 @@ const HomePage = (): JSX.Element => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const cleanUp = () => {
+      dispatch(cleanUpAdsAction());
+    };
     dispatch(loadAllSneakersThunk);
     dispatch(loadHotDealsThunk);
+    return cleanUp;
   }, [dispatch]);
 
   return (
