@@ -10,6 +10,7 @@ import {
   editAdAction,
   loadAdAction,
   loadAdsAction,
+  loadHotDealsAction,
 } from "../actions/adsActionCreator/adsActionCreator";
 import { errorAction } from "../actions/errorsActionCreator/errorActionCreator";
 
@@ -148,14 +149,14 @@ export const editAdThunk =
   };
 
 export const loadHotDealsThunk = async (
-  dispatch: Dispatch<AdAction> | Dispatch<ErrorAction>
+  dispatch: Dispatch<LoadAdsAction> | Dispatch<ErrorAction>
 ) => {
   const url = `${process.env.REACT_APP_URL}ads/hotdeals/load`;
 
   await axios
     .get(url)
     .then((response) => {
-      (dispatch as Dispatch<AdAction>)(createAdAction(response.data));
+      (dispatch as Dispatch<LoadAdsAction>)(loadHotDealsAction(response.data));
     })
     .catch((error) => {
       (dispatch as Dispatch<ErrorAction>)(errorAction(error.response.data));

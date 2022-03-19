@@ -8,9 +8,12 @@ import { loadAllSneakersThunk } from "../../redux/thunks/sneakersThunk";
 import { RootState } from "../../redux/store";
 import { CarouselContainer, HomePageContainer } from "./HomePageStyles";
 import HotDeals from "../../components/HotDeals/HotDeals";
+import { loadHotDealsThunk } from "../../redux/thunks/adsThunks";
+import { Ad } from "../../Types/Ad";
 
 const HomePage = (): JSX.Element => {
   const sneakers: Sneaker[] = useSelector((state: RootState) => state.sneakers);
+  const ads: Ad[] = useSelector((state: RootState) => state.ads);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -44,7 +47,7 @@ const HomePage = (): JSX.Element => {
         </Carousel>
       </CarouselContainer>
       <SneakerSlider sneakers={sneakers} />
-      <HotDeals />
+      <HotDeals ads={ads} />
     </HomePageContainer>
   );
 };
