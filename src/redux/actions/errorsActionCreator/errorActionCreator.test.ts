@@ -1,9 +1,13 @@
 import errorTypes from "../errorTypes";
-import { errorAction, errorOnLoginAction } from "./errorActionCreator";
+import {
+  errorAction,
+  errorOnLoginAction,
+  errorOnRegisterAction,
+} from "./errorActionCreator";
 
 describe("Given an errorAction function", () => {
   describe("When it is called with an error message", () => {
-    test("Then it should return an object with the type and the error message", () => {
+    test("Then it should return an object with the type and the error object", () => {
       const error = {
         error: true,
         message: "General error",
@@ -22,7 +26,7 @@ describe("Given an errorAction function", () => {
 });
 describe("Given an errorOnLoginAction function", () => {
   describe("When it is called with an error message", () => {
-    test("Then it should return an object with the type and the error message", () => {
+    test("Then it should return an object with the type and the error object", () => {
       const error = {
         error: true,
         message: "General error",
@@ -34,6 +38,25 @@ describe("Given an errorOnLoginAction function", () => {
       };
 
       const action = errorOnLoginAction(error);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+describe("Given an errorOnRegisterAction function", () => {
+  describe("When it is called with an error message", () => {
+    test("Then it should return an object with the type and the error object", () => {
+      const error = {
+        error: true,
+        message: "General error",
+        code: 404,
+      };
+      const expectedAction = {
+        type: errorTypes.register,
+        error,
+      };
+
+      const action = errorOnRegisterAction(error);
 
       expect(action).toEqual(expectedAction);
     });
