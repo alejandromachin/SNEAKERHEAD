@@ -23,7 +23,7 @@ describe("Given a RegisterForm component", () => {
       );
 
       const textboxes = screen.getAllByRole("textbox");
-      const button = screen.getByRole("button", { name: /register/i });
+      const button = screen.getByRole("button", { name: /fill all the info/i });
 
       expect(button).toBeInTheDocument();
       expect(textboxes).toHaveLength(5);
@@ -36,6 +36,11 @@ describe("Given a RegisterForm component", () => {
           <RegisterForm />
         </Provider>
       );
+
+      const textboxes = screen.getAllByRole("textbox");
+      const password = screen.getByText("Password:");
+      userEvent.type(password, "test");
+      textboxes.forEach((textbox) => userEvent.type(textbox, "test"));
 
       const button = screen.getByRole("button", { name: /register/i });
       userEvent.click(button);
