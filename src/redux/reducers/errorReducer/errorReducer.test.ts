@@ -1,4 +1,3 @@
-import { Error } from "../../../Types/Error";
 import errorTypes from "../../actions/errorTypes";
 import errorReducer from "./errorReducer";
 
