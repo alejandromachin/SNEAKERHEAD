@@ -5,6 +5,7 @@ import SneakersList from "../../components/SneakersList/SneakersList";
 import { loadAllSneakersThunk } from "../../redux/thunks/sneakersThunk";
 import { Sneaker } from "../../Types/Sneaker";
 import {
+  NextButtonContainer,
   PaginationButtons,
   SneakersResultsListContainer,
 } from "./SneakersResultsListStyles";
@@ -57,7 +58,9 @@ const SneakersResultsPage = (): JSX.Element => {
             <Button actionOnClick={previousPage} text={"PREVIOUS"} />
           )}
           {page !== numberOfPages && (
-            <Button actionOnClick={nextPage} text={"NEXT"} />
+            <NextButtonContainer>
+              <Button actionOnClick={nextPage} text={"NEXT"} />
+            </NextButtonContainer>
           )}
         </PaginationButtons>
       </ButtonContainer>

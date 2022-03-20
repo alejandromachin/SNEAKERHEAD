@@ -5,6 +5,7 @@ export const RegisterFormContainer = styled.div`
   flex-direction: column;
   position: relative;
   width: 100vw;
+
   min-height: 80vh;
   align-items: center;
   font-size: 20px;
@@ -72,6 +73,9 @@ export const RegisterFormContainer = styled.div`
     & .active {
       color: #000;
     }
+  }
+  @media (min-width: 600px) {
+    width: 100%;
   }
 `;
 

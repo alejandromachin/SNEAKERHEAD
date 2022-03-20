@@ -11,6 +11,10 @@ export const SneakerCard = styled.div`
     height: 100px;
     object-fit: cover;
   }
+  @media (min-width: 600px) {
+    height: 170px;
+    width: 170px;
+  }
 `;
 export const SneakerCardText = styled.div`
   display: flex;
@@ -26,5 +30,15 @@ export const SneakerCardText = styled.div`
     font-size: 18px;
     font-family: "arial";
     font-weight: 900;
+  }
+  @media (min-width: 600px) {
+    height: 170px;
+    width: 190px;
+    & .sneaker_name {
+      font-size: 20px;
+    }
+    & p {
+      font-size: 16px;
+    }
   }
 `;
