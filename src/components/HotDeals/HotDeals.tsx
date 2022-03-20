@@ -31,6 +31,8 @@ const HotDeals = ({ ads }: HotDealsProps): JSX.Element => {
             key={ad.id}
           >
             <img src={ad.image1} alt={ad.colorway} />
+            <img className="desktop" src={ad.image2} alt={ad.colorway} />
+            <img className="desktop" src={ad.image3} alt={ad.colorway} />
             <HotDealsCardText>
               <h3>{ad.brand} </h3>
               <p className="HotDeals__colorway">{ad.colorway}</p>
