@@ -3,6 +3,15 @@ import actionTypes from "../../actions/actionTypes";
 import sneakersReducer from "./sneakersReducer";
 
 describe("Given a sneakersReducer function", () => {
+  describe("When it is rendered with no action", () => {
+    test("Then it should return the same state as the current state", () => {
+      const currentState: Sneaker[] = [];
+
+      const newState = sneakersReducer(currentState, undefined);
+
+      expect(newState).toEqual(currentState);
+    });
+  });
   describe("When it is called with an empty state and the loadSneakers action with an array of sneakers", () => {
     test("Then it should return the new state with the array of sneakers", () => {
       const currentState: Sneaker[] = [];
