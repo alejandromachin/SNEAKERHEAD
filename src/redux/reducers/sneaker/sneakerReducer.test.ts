@@ -2,6 +2,15 @@ import actionTypes from "../../actions/actionTypes";
 import sneakerReducer from "./sneakerReducer";
 
 describe("Given a sneakerReducer function", () => {
+  describe("When it is rendered with no action", () => {
+    test("Then it should return the same state as the current state", () => {
+      const currentState = {};
+
+      const newState = sneakerReducer(currentState, undefined);
+
+      expect(newState).toEqual(currentState);
+    });
+  });
   describe("When it is called with an empty state and the loadSneakerInfo action with a sneaker", () => {
     test("Then it should return the new state with the sneaker", () => {
       const currentState = {};
