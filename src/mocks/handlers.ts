@@ -1,36 +1,68 @@
 import { rest } from "msw";
 
 export const handlers = [
-  rest.get(
-    `${process.env.REACT_APP_URL}sneakers/?limit=${test}&skip=${test}`,
-    (req, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json([
-          {
-            id: "123",
-            brand: "Jordan",
-            style: "1 high",
-            colorway: "Chicago",
-            releaseDate: "1/2/1980",
-            image: "image",
-            averagePrice: "4.000€",
-            ads: [],
-          },
-          {
-            id: "123",
-            brand: "Jordan",
-            style: "1 high",
-            colorway: "Chicago",
-            releaseDate: "1/2/1980",
-            image: "image",
-            averagePrice: "4.000€",
-            ads: [],
-          },
-        ])
-      );
-    }
-  ),
+  rest.get(`${process.env.REACT_APP_URL}sneakers/`, (req, res, ctx) => {
+    req.url.searchParams.get("limit");
+    req.url.searchParams.get("skip");
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          id: "123",
+          brand: "Jordan",
+          style: "1 high",
+          colorway: "Chicago",
+          releaseDate: "1/2/1980",
+          image: "image",
+          averagePrice: "4.000€",
+          ads: [],
+        },
+        {
+          id: "123",
+          brand: "Jordan",
+          style: "1 high",
+          colorway: "Chicago",
+          releaseDate: "1/2/1980",
+          image: "image",
+          averagePrice: "4.000€",
+          ads: [],
+        },
+      ])
+    );
+  }),
+  rest.get(`${process.env.REACT_APP_URL}ads/hotdeals/load`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          id: "ad test1",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
+          box: "good",
+          state: "new",
+        },
+        {
+          id: "ad test2",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          images: ["test"],
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
+          box: "good",
+          state: "new",
+        },
+      ])
+    );
+  }),
   rest.get(`${process.env.REACT_APP_URL}sneakers/test`, (req, res, ctx) => {
     return res(
       ctx.status(200),

@@ -11,6 +11,7 @@ import {
 import Spinner from "../../components/Spinner/Spinner";
 import { ButtonContainer } from "../SneakerInfoPage/SneakerInfoPageStyles";
 import Button from "../../components/Button/Button";
+import { cleanUpSneakersAction } from "../../redux/actions/sneakersActionCreator/sneakersActionCreator";
 
 const SneakersResultsPage = (): JSX.Element => {
   const sneakers: Sneaker[] = useSelector((state: RootState) => state.sneakers);
@@ -32,7 +33,12 @@ const SneakersResultsPage = (): JSX.Element => {
   };
 
   useEffect(() => {
+    const cleanUp = () => {
+      dispatch(cleanUpSneakersAction());
+    };
+
     dispatch(loadAllSneakersThunk(limit, skip));
+    return cleanUp;
   }, [dispatch, skip, limit]);
 
   return (
