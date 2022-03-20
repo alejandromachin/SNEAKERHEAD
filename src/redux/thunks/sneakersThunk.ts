@@ -30,7 +30,7 @@ export const moreInfoSneakerThunk =
 export const loadSpinnerSneakersThunk = async (
   dispatch: Dispatch<LoadSneakersAction> | Dispatch<ErrorAction>
 ) => {
-  const url = `${process.env.REACT_APP_URL}sneakers/spinner`;
+  const url = `${process.env.REACT_APP_URL}sneakers/slider`;
 
   await axios
     .get(url)
