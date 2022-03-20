@@ -244,4 +244,52 @@ describe("Given an adsReducer function", () => {
       expect(newState).toEqual(filteredAds);
     });
   });
+  describe("When it is called with an empty state and a loadHotDealsAction with two ads", () => {
+    test("then it should return the ads as the new state", () => {
+      const currentState: Ad[] = [];
+      const hotDealsAds: Ad[] = [
+        {
+          id: "test1",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          image1: "test",
+          image2: "test",
+          image3: "test",
+          image4: "test",
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
+          box: "good",
+          state: "new",
+          owner: "622b15710695a90af3e56a20",
+        },
+        {
+          id: "test2",
+          brand: "test",
+          style: "test",
+          colorway: "test",
+          image1: "test",
+          image2: "test",
+          image3: "test",
+          image4: "test",
+          price: "test",
+          likes: 0,
+          size: 40,
+          condition: 10,
+          box: "good",
+          state: "new",
+          owner: "622b15710695a90af3e56a20",
+        },
+      ];
+      const action: LoadAdsAction = {
+        type: actionTypes.hotdeals,
+        ads: hotDealsAds,
+      };
+      const newState = adsReducer(currentState, action);
+
+      expect(newState).toEqual(hotDealsAds);
+    });
+  });
 });
