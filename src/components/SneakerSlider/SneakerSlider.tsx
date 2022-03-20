@@ -14,6 +14,9 @@ const SliderContainer = styled.div`
     justify-content: space-between;
     overflow-x: auto;
     background-color: #d3e2ff;
+    @media (min-width: 600px) {
+      width: 80vw;
+    }
   }
   .slider::-webkit-scrollbar {
     display: none;

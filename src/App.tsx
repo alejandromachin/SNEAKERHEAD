@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
+import styled from "styled-components";
 import Navigation from "./components/Navigation/Navigation";
 import AdInfoPage from "./pages/AdMoreInfoPage/AdMoreInfoPage";
 
@@ -17,6 +18,12 @@ import UserInfoPage from "./pages/UserPage/UserPage";
 import { loginAction } from "./redux/actions/usersActionCreator/usersActionCreator";
 import { User } from "./Types/User";
 
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 function App() {
   const dispatch = useDispatch();
 
@@ -29,7 +36,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <AppContainer>
       <div>
         <Toaster />
       </div>
@@ -46,7 +53,7 @@ function App() {
         <Route path="/ads/:id" element={<AdInfoPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </>
+    </AppContainer>
   );
 }
 
