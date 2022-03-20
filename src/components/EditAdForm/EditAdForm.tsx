@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { editAdThunk } from "../../redux/thunks/adsThunks";
@@ -25,6 +25,19 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
   const [adData, setAdData] = useState(blankFields);
+  const [disableButton, setDisableButton] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (
+      adData.condition !== "" &&
+      adData.price !== "" &&
+      adData.size !== "" &&
+      adData.state !== "" &&
+      adData.box !== ""
+    ) {
+      setDisableButton(false);
+    }
+  }, [adData]);
 
   const resetForm = () => {
     setAdData(blankFields);
@@ -172,7 +185,13 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
           <option value="Damaged">Damaged</option>
           <option value="No box">No box</option>
         </select>
-        <button type="submit">EDIT</button>
+        <button
+          type="submit"
+          className={disableButton ? "AdForm_Button__disabled" : ""}
+          disabled={disableButton ? true : false}
+        >
+          {disableButton ? "FILL ALL THE INFO" : "ACCEPT"}
+        </button>
       </form>
     </AdFormContainer>
   );

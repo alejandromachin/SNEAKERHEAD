@@ -195,7 +195,7 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
           className={disableButton ? "AdForm_Button__disabled" : ""}
           disabled={disableButton ? true : false}
         >
-          LIST
+          {disableButton ? "FILL ALL THE INFO" : "LIST"}
         </button>
       </form>
     </AdFormContainer>
