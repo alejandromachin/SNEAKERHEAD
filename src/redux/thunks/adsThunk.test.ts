@@ -6,8 +6,8 @@ import {
   loadHotDealsThunk,
   moreInfoAdThunk,
 } from "./adsThunks";
-
 import axios from "axios";
+
 beforeEach(() => {
   jest.clearAllMocks();
 });
