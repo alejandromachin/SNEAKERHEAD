@@ -59,6 +59,9 @@ export const RegisterFormContainer = styled.div`
       text-align: center;
       font-size: 25px;
       color: #ff0000;
+      &.AdForm_Button__disabled {
+        background-color: #b2b1b1;
+      }
     }
     & .registerForm__eyeIcon {
       color: #b2b1b1;

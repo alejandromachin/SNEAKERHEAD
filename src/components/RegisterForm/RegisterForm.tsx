@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerThunk } from "../../redux/thunks/userThunk";
 import { User } from "../../Types/User";
@@ -25,14 +25,28 @@ const RegisterForm = (): JSX.Element => {
     city: "",
     ads: [],
   };
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const [userData, setUserData] = useState<User>(blankFields);
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
+  const [disableButton, setDisableButton] = useState<boolean>(true);
 
   const resetForm = () => {
     setUserData(blankFields);
   };
+
+  useEffect(() => {
+    if (
+      userData.name !== "" &&
+      userData.lastname !== "" &&
+      userData.username !== "" &&
+      userData.password !== "" &&
+      userData.email !== "" &&
+      userData.city !== ""
+    ) {
+      setDisableButton(false);
+    }
+  }, [userData]);
 
   const registerUser = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -113,7 +127,13 @@ const RegisterForm = (): JSX.Element => {
           value={userData.city}
           required
         />
-        <button type="submit">REGISTER</button>
+        <button
+          type="submit"
+          className={disableButton ? "AdForm_Button__disabled" : ""}
+          disabled={disableButton ? true : false}
+        >
+          {disableButton ? "FILL ALL THE INFO" : "REGISTER"}
+        </button>
       </form>
     </RegisterFormContainer>
   );
