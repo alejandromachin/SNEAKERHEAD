@@ -27,3 +27,10 @@ export const cleanUpSneakerAction = (): Action => ({
 export const cleanUpSneakersAction = (): Action => ({
   type: actionTypes.cleanUpSneakers,
 });
+
+export const loadSpinnerSneakersAction = (
+  sneakers: Sneaker[]
+): LoadSneakersAction => ({
+  type: actionTypes.loadSpinnerAds,
+  sneakers,
+});

@@ -6,7 +6,6 @@ import {
   editAdAction,
   filterAdsBySizeAction,
   loadAdsAction,
-  loadSpinnerAdsAction,
 } from "./adsActionCreator";
 
 describe("Given a createAdAction function", () => {
@@ -163,39 +162,6 @@ describe("Given a filterAdsBySizeAction function", () => {
       };
 
       const action = filterAdsBySizeAction(ads);
-
-      expect(action).toEqual(expectedAction);
-    });
-  });
-});
-describe("Given a loadSpinnerAdsAction function", () => {
-  describe("When it is called with an array of ads", () => {
-    test("Then it should return an object with the type and the ads", () => {
-      const ads: Ad[] = [
-        {
-          id: "test",
-          brand: "test",
-          style: "test",
-          colorway: "test",
-          image1: "test",
-          image2: "test",
-          image3: "test",
-          image4: "test",
-          price: "test",
-          likes: 0,
-          size: 40,
-          condition: 10,
-          box: "good",
-          state: "new",
-          owner: "622b15710695a90af3e56a20",
-        },
-      ];
-      const expectedAction = {
-        type: actionTypes.loadSpinnerAds,
-        ads,
-      };
-
-      const action = loadSpinnerAdsAction(ads);
 
       expect(action).toEqual(expectedAction);
     });
