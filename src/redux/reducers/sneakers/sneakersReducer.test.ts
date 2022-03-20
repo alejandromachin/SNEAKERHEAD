@@ -30,9 +30,10 @@ describe("Given a sneakersReducer function", () => {
   describe("When it is called with an empty state and the loadSneakers action without the sneakerArray", () => {
     test("Then it should return the new state with the array of sneakers", () => {
       const currentState: Sneaker[] = [];
-
+      const arrayOfSneakers: Sneaker[] = [];
       const action = {
         type: actionTypes.loadSneakers,
+        sneakers: arrayOfSneakers,
       };
 
       const newState = sneakersReducer(currentState, action);

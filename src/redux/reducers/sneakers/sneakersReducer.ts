@@ -6,15 +6,15 @@ const sneakersReducer = (
   currentState: Sneaker[] | [] = [],
   action: Action = {}
 ) => {
-  let newSneakers: Sneaker[];
+  let newSneakers: Sneaker[] | [];
   switch (action.type) {
     case actionTypes.loadSneakers:
-      if ((action as LoadSneakersAction).sneakers) {
-        newSneakers = [...(action as LoadSneakersAction).sneakers];
-      } else {
-        newSneakers = [...currentState];
-      }
+      newSneakers = [...(action as LoadSneakersAction).sneakers];
       break;
+    case actionTypes.cleanUpSneakers:
+      newSneakers = [];
+      break;
+
     default:
       newSneakers = [...currentState];
       break;

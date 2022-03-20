@@ -11,6 +11,7 @@ const actionTypes = {
   loadAd: "load-ad",
   filterAdsBySize: "filter-adsBySize",
   cleanUpSneaker: "cleanup-sneaker",
+  cleanUpSneakers: "cleanup-sneakers",
   cleanUpAds: "cleanup-ads",
   loadUserAds: "load-userAds",
   hotdeals: "load-hotdeals",

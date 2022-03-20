@@ -28,7 +28,7 @@ export const loadAdsAction = (ads: Ad[]): LoadAdsAction => ({
 });
 
 export const loadHotDealsAction = (ads: Ad[]): LoadAdsAction => ({
-  type: actionTypes.loadAds,
+  type: actionTypes.hotdeals,
   ads,
 });
 

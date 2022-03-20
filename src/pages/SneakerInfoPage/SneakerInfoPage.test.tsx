@@ -18,7 +18,7 @@ jest.mock("react-router-dom", () => {
 const mockUser = { name: "test", id: "test" };
 const mockAds: Ad[] = [
   {
-    id: "test",
+    id: "test1",
     brand: "test",
     style: "test",
     colorway: "test",
@@ -35,7 +35,7 @@ const mockAds: Ad[] = [
     owner: "622b15710695a90af3e56a20",
   },
   {
-    id: "test",
+    id: "test2",
     brand: "test",
     style: "test",
     colorway: "test",
@@ -52,7 +52,7 @@ const mockAds: Ad[] = [
     owner: "622b15710695a90af3e56a20",
   },
   {
-    id: "test",
+    id: "test3",
     brand: "test",
     style: "test",
     colorway: "test",
@@ -69,7 +69,7 @@ const mockAds: Ad[] = [
     owner: "622b15710695a90af3e56a20",
   },
   {
-    id: "test",
+    id: "test4",
     brand: "test",
     style: "test",
     colorway: "test",

@@ -27,13 +27,17 @@ describe("Given a loadAllSneakersThunk function", () => {
           ads: [],
         },
       ];
+      const limit = 2;
+      const skip = 3;
       const dispatch = jest.fn();
       const action: LoadSneakersAction = {
         type: actionTypes.loadSneakers,
         sneakers,
       };
 
-      await loadAllSneakersThunk(dispatch);
+      const thunk = loadAllSneakersThunk(limit, skip);
+
+      await thunk(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(action);
     });

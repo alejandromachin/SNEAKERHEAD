@@ -23,3 +23,7 @@ export const loadSneakerInfoAction = (
 export const cleanUpSneakerAction = (): Action => ({
   type: actionTypes.cleanUpSneaker,
 });
+
+export const cleanUpSneakersAction = (): Action => ({
+  type: actionTypes.cleanUpSneakers,
+});
