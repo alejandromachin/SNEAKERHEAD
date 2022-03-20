@@ -41,10 +41,6 @@ export const filterAdsBySizeAction = (ads: Ad[]): LoadAdsAction => ({
   type: actionTypes.filterAdsBySize,
   ads,
 });
-export const loadSpinnerAdsAction = (ads: Ad[]): LoadAdsAction => ({
-  type: actionTypes.loadSpinnerAds,
-  ads,
-});
 
 export const cleanUpAdsAction = (): Action => ({
   type: actionTypes.cleanUpAds,
