@@ -55,6 +55,9 @@ export const AdFormContainer = styled.div`
       text-align: center;
       font-size: 25px;
       color: #ff0000;
+      &.AdForm_Button__disabled {
+        background-color: #b2b1b1;
+      }
     }
   }
 `;

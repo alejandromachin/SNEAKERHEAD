@@ -45,7 +45,11 @@ describe("Given a LoginForm component", () => {
         </Provider>
       );
 
+      const username = screen.getByRole("textbox");
+      const password = screen.getByLabelText("Password:");
       const button = screen.getByRole("button", { name: /log in/i });
+      userEvent.type(username, "test");
+      userEvent.type(password, "test");
       userEvent.click(button);
 
       expect(mockUseDispatch).toHaveBeenCalled();

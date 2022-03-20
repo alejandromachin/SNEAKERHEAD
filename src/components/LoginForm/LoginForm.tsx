@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginThunk } from "../../redux/thunks/userThunk";
 import { LoginData } from "../../Types/LoginData";
@@ -16,6 +16,14 @@ const LoginForm = (): JSX.Element => {
   };
   const dispatch = useDispatch();
   const [loginData, setLoginData] = useState<LoginData>(blankFields);
+
+  const [disableButton, setDisableButton] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (loginData.username !== "" && loginData.password !== "") {
+      setDisableButton(false);
+    }
+  }, [loginData]);
 
   const resetForm = () => {
     setLoginData(blankFields);
@@ -54,7 +62,13 @@ const LoginForm = (): JSX.Element => {
           required
         />
 
-        <button type="submit">LOG IN</button>
+        <button
+          type="submit"
+          className={disableButton ? "AdForm_Button__disabled" : ""}
+          disabled={disableButton ? true : false}
+        >
+          LOG IN
+        </button>
       </form>
     </LoginFormContainer>
   );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { editAdThunk } from "../../redux/thunks/adsThunks";
@@ -25,6 +25,19 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
   const [adData, setAdData] = useState(blankFields);
+  const [disableButton, setDisableButton] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (
+      adData.condition !== "" &&
+      adData.price !== "" &&
+      adData.size !== "" &&
+      adData.state !== "" &&
+      adData.box !== ""
+    ) {
+      setDisableButton(false);
+    }
+  }, [adData]);
 
   const resetForm = () => {
     setAdData(blankFields);
@@ -38,7 +51,7 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
     adDataFinal.append("image2", adData.image2);
     adDataFinal.append("image3", adData.image3);
     adDataFinal.append("image4", adData.image4);
-    adDataFinal.append("price", adData.price);
+    adDataFinal.append("price", `${adData.price}€`);
     adDataFinal.append("size", adData.size);
     adDataFinal.append("state", adData.state);
     adDataFinal.append("box", adData.box);
@@ -136,7 +149,7 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
         />
         <label htmlFor="price">Price: </label>
         <input
-          type="text"
+          type="number"
           id="price"
           value={adData.price}
           onChange={changeData}
@@ -165,14 +178,20 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
           <option value="44.5">44.5</option>
           <option value="45">45</option>
         </select>
-        <label htmlFor="box">Box condition:</label>
+        <label htmlFor="box">Box:</label>
         <select id="box" value={adData.box} onChange={changeData} required>
           <option value="">-</option>
           <option value="Good">Good</option>
           <option value="Damaged">Damaged</option>
           <option value="No box">No box</option>
         </select>
-        <button type="submit">EDIT</button>
+        <button
+          type="submit"
+          className={disableButton ? "AdForm_Button__disabled" : ""}
+          disabled={disableButton ? true : false}
+        >
+          {disableButton ? "FILL ALL THE INFO" : "ACCEPT"}
+        </button>
       </form>
     </AdFormContainer>
   );
