@@ -4,7 +4,7 @@ import SneakerSlider from "../../components/SneakerSlider/SneakerSlider";
 import { useDispatch, useSelector } from "react-redux";
 import { Sneaker } from "../../Types/Sneaker";
 import { useEffect } from "react";
-import { loadAllSneakersThunk } from "../../redux/thunks/sneakersThunk";
+import { loadSpinnerSneakersThunk } from "../../redux/thunks/sneakersThunk";
 import { RootState } from "../../redux/store";
 import { CarouselContainer, HomePageContainer } from "./HomePageStyles";
 import HotDeals from "../../components/HotDeals/HotDeals";
@@ -21,7 +21,7 @@ const HomePage = (): JSX.Element => {
     const cleanUp = () => {
       dispatch(cleanUpAdsAction());
     };
-    dispatch(loadAllSneakersThunk);
+    dispatch(loadSpinnerSneakersThunk);
     dispatch(loadHotDealsThunk);
     return cleanUp;
   }, [dispatch]);
