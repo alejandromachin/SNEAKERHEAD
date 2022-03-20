@@ -9,7 +9,6 @@ import { LoginFormPageContainer } from "./LoginPageStyles";
 const LoginPage = () => {
   const user = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
-
   useEffect(() => {
     if (user.name) {
       toast.success("SUCESSFULLY LOGGED!", {
