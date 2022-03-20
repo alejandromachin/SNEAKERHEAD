@@ -155,7 +155,7 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
         />
         <label htmlFor="price">Price: </label>
         <input
-          type="text"
+          type="number"
           id="price"
           value={adData.price}
           onChange={changeData}

@@ -51,7 +51,7 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
     adDataFinal.append("image2", adData.image2);
     adDataFinal.append("image3", adData.image3);
     adDataFinal.append("image4", adData.image4);
-    adDataFinal.append("price", adData.price);
+    adDataFinal.append("price", `${adData.price}€`);
     adDataFinal.append("size", adData.size);
     adDataFinal.append("state", adData.state);
     adDataFinal.append("box", adData.box);
@@ -149,7 +149,7 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
         />
         <label htmlFor="price">Price: </label>
         <input
-          type="text"
+          type="number"
           id="price"
           value={adData.price}
           onChange={changeData}
