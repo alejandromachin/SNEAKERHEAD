@@ -12,7 +12,7 @@ const sneakersReducer = (
       newSneakers = [...(action as LoadSneakersAction).sneakers];
       break;
 
-    case actionTypes.loadSpinnerAds:
+    case actionTypes.loadSpinnerSneakers:
       newSneakers = [...(action as LoadSneakersAction).sneakers];
       break;
 

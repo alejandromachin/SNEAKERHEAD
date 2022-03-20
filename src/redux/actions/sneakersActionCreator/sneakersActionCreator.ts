@@ -31,6 +31,6 @@ export const cleanUpSneakersAction = (): Action => ({
 export const loadSpinnerSneakersAction = (
   sneakers: Sneaker[]
 ): LoadSneakersAction => ({
-  type: actionTypes.loadSpinnerAds,
+  type: actionTypes.loadSpinnerSneakers,
   sneakers,
 });

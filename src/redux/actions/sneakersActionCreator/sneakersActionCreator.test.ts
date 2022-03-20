@@ -69,7 +69,7 @@ describe("Given a loadSpinnerAdsAction function", () => {
         },
       ];
       const expectedAction = {
-        type: actionTypes.loadSpinnerAds,
+        type: actionTypes.loadSpinnerSneakers,
         sneakers,
       };
 
