@@ -241,7 +241,7 @@ export const handlers = [
       ])
     );
   }),
-  rest.get(`${process.env.REACT_APP_URL}sneakers/spinner`, (req, res, ctx) => {
+  rest.get(`${process.env.REACT_APP_URL}sneakers/slider`, (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json([
