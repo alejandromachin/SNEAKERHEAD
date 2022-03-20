@@ -44,8 +44,8 @@ describe("Given a EditAdForm component", () => {
       );
 
       const selects = screen.getAllByRole("combobox");
-      const input = screen.getByRole("textbox", { name: /price/i });
-      const button = screen.getByRole("button", { name: /edit/i });
+      const input = screen.getByRole("spinbutton", { name: /price/i });
+      const button = screen.getByRole("button", { name: /fill all the info/i });
       userEvent.type(input, "test");
 
       expect(selects).toHaveLength(4);
@@ -55,6 +55,11 @@ describe("Given a EditAdForm component", () => {
   });
   describe("When it is clicked on the edit button", () => {
     test("Then it should call the dispatch function with the data", () => {
+      const selectedState = "new";
+      const selectedCondition = "4";
+      const selectedSize = "40";
+      const selectedBoxCondition = "Good";
+
       const ad: Ad = {
         id: "test",
         brand: "test",
@@ -80,7 +85,25 @@ describe("Given a EditAdForm component", () => {
         </Provider>
       );
 
-      const button = screen.getByRole("button", { name: /edit/i });
+      const state = screen.getByRole("combobox", {
+        name: /are they used or new?/i,
+      });
+      const condition = screen.getByRole("combobox", {
+        name: /condition/i,
+      });
+      const size = screen.getByRole("combobox", { name: /size/i });
+      const boxCondition = screen.getByRole("combobox", {
+        name: /box/i,
+      });
+      const price = screen.getByRole("spinbutton", { name: /price/i });
+
+      userEvent.selectOptions(state, selectedState);
+      userEvent.selectOptions(condition, selectedCondition);
+      userEvent.selectOptions(size, selectedSize);
+      userEvent.selectOptions(boxCondition, selectedBoxCondition);
+      userEvent.type(price, "2");
+
+      const button = screen.getByRole("button", { name: /accept/i });
       userEvent.click(button);
 
       expect(mockUseDispatch).toHaveBeenCalled();

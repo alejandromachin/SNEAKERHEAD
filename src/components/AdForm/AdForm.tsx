@@ -183,7 +183,7 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
           <option value="44.5">44.5</option>
           <option value="45">45</option>
         </select>
-        <label htmlFor="box">Box condition:</label>
+        <label htmlFor="box">Box:</label>
         <select id="box" value={adData.box} onChange={changeData} required>
           <option value="">-</option>
           <option value="Good">Good</option>
