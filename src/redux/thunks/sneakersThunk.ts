@@ -4,6 +4,7 @@ import { LoadSneakerInfoAction, LoadSneakersAction } from "../../Types/Action";
 import {
   loadSneakerInfoAction,
   loadSneakersAction,
+  loadSpinnerSneakersAction,
 } from "../actions/sneakersActionCreator/sneakersActionCreator";
 
 export const loadAllSneakersThunk =
@@ -21,3 +22,11 @@ export const moreInfoSneakerThunk =
 
     dispatch(loadSneakerInfoAction(data));
   };
+export const loadSpinnerSneakersThunk = async (
+  dispatch: Dispatch<LoadSneakersAction>
+) => {
+  const url = `${process.env.REACT_APP_URL}sneakers/spinner`;
+
+  const { data } = await axios.get(url as string);
+  dispatch(loadSpinnerSneakersAction(data));
+};
