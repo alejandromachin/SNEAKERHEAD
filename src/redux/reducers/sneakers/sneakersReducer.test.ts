@@ -36,6 +36,30 @@ describe("Given a sneakersReducer function", () => {
       expect(newState).toEqual(arrayOfSneakers);
     });
   });
+  describe("When it is called with an empty state and the loadSpinnerSneakersAction action with an array of sneakers", () => {
+    test("Then it should return the new state with the array of sneakers", () => {
+      const currentState: Sneaker[] = [];
+      const arrayOfSneakers = [
+        {
+          Brand: "Jordan",
+          Model: "1",
+          Colorway: "Chicago",
+          releaseDate: "april 1990",
+          Image: "image",
+          AveragePrice: "5.000€",
+          Adds: "adds",
+        },
+      ];
+      const action = {
+        type: actionTypes.loadSpinnerSneakers,
+        sneakers: arrayOfSneakers,
+      };
+
+      const newState = sneakersReducer(currentState, action);
+
+      expect(newState).toEqual(arrayOfSneakers);
+    });
+  });
   describe("When it is called with an empty state and the loadSneakers action without the sneakerArray", () => {
     test("Then it should return the new state with the array of sneakers", () => {
       const currentState: Sneaker[] = [];
