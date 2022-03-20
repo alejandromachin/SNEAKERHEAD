@@ -16,6 +16,7 @@ const actionTypes = {
   loadUserAds: "load-userAds",
   hotdeals: "load-hotdeals",
   menuState: "change-menuState",
+  loadSpinnerAds: "load-spinnerAds",
 };
 
 export default actionTypes;
