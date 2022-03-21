@@ -1,15 +1,19 @@
 import styled from "styled-components";
 
-export const NavigationContainer = styled.div`
+interface navigationProps {
+  readonly isLogged: boolean;
+}
+
+export const NavigationContainer = styled.div<navigationProps>`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 15px;
 
   & form {
     & input {
       height: 20px;
-      width: 33vw;
+      width: ${(props) => (props.isLogged ? "50vw" : "35vw")};
       border: 1px solid #b2b1b1;
       border-top-left-radius: 2px;
       border-bottom-left-radius: 2px;
@@ -32,8 +36,9 @@ export const NavigationContainer = styled.div`
     outline: 1px solid #000;
   }
 `;
-export const UserAreaContainer = styled.div`
-  width: 35vw;
+
+export const UserAreaContainer = styled.div<navigationProps>`
+  width: ${(props) => (props.isLogged ? "20vw" : "35vw")};
   display: flex;
   flex-direction: row;
   justify-content: space-around;
