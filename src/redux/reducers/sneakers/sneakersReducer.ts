@@ -12,6 +12,10 @@ const sneakersReducer = (
       newSneakers = [...(action as LoadSneakersAction).sneakers];
       break;
 
+    case actionTypes.loadSneakersByParam:
+      newSneakers = [...(action as LoadSneakersAction).sneakers];
+      break;
+
     case actionTypes.loadSpinnerSneakers:
       newSneakers = [...(action as LoadSneakersAction).sneakers];
       break;

@@ -3,6 +3,7 @@ import adReducer from "./adReducer/adReducer";
 import adsReducer from "./adsReducer/adsReducer";
 import errorReducer from "./errorReducer/errorReducer";
 import menuReducer from "./menuReducer/menuReducer";
+import searchReducer from "./searchReducer/searchReducer";
 import sneakerReducer from "./sneaker/sneakerReducer";
 import sneakersReducer from "./sneakers/sneakersReducer";
 import userAdsReducer from "./userAdsReducer/userAdsReducer";
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   userAds: userAdsReducer,
   error: errorReducer,
   menuState: menuReducer,
+  params: searchReducer,
 });
 
 export default rootReducer;

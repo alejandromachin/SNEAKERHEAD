@@ -35,3 +35,6 @@ export interface LoginAction extends Action {
 export interface LoadUserAdsAction extends Action {
   ads: Ad[];
 }
+export interface SearchParamsActionType extends Action {
+  params: string;
+}

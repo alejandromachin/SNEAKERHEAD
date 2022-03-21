@@ -3,6 +3,8 @@ import { useState } from "react";
 import { IconLookup, library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loadAllSneakersByParamsThunk } from "../../redux/thunks/sneakersThunk";
 
 interface SearchData {
   search: string | ReadonlyArray<string> | number | undefined;
@@ -19,7 +21,9 @@ const SearchBar = (): JSX.Element => {
   const blankFields: SearchData = { search: "" };
   const [searchData, setFormData] = useState<SearchData>(blankFields);
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const limit = 6;
+  const skip = 0;
   const resetForm = () => {
     setFormData(blankFields);
   };
@@ -33,6 +37,9 @@ const SearchBar = (): JSX.Element => {
 
   const search = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    dispatch(
+      loadAllSneakersByParamsThunk(limit, skip, searchData.search as string)
+    );
     navigate("/sneakers");
     resetForm();
   };

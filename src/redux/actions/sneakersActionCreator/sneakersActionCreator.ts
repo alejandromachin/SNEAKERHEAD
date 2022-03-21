@@ -2,6 +2,7 @@ import {
   Action,
   LoadSneakerInfoAction,
   LoadSneakersAction,
+  SearchParamsActionType,
 } from "../../../Types/Action";
 import { Sneaker } from "../../../Types/Sneaker";
 import actionTypes from "../actionTypes";
@@ -10,6 +11,12 @@ export const loadSneakersAction = (
   sneakers: Sneaker[]
 ): LoadSneakersAction => ({
   type: actionTypes.loadSneakers,
+  sneakers,
+});
+export const loadSneakersByParamAction = (
+  sneakers: Sneaker[]
+): LoadSneakersAction => ({
+  type: actionTypes.loadSneakersByParam,
   sneakers,
 });
 
@@ -33,4 +40,9 @@ export const loadSpinnerSneakersAction = (
 ): LoadSneakersAction => ({
   type: actionTypes.loadSpinnerSneakers,
   sneakers,
+});
+
+export const searchParamsAction = (params: string): SearchParamsActionType => ({
+  type: actionTypes.searchParams,
+  params,
 });

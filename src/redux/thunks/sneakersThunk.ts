@@ -1,13 +1,19 @@
 import axios from "axios";
 import { Dispatch } from "react";
 import toast from "react-hot-toast";
-import { LoadSneakerInfoAction, LoadSneakersAction } from "../../Types/Action";
+import {
+  LoadSneakerInfoAction,
+  LoadSneakersAction,
+  SearchParamsActionType,
+} from "../../Types/Action";
 import { ErrorAction } from "../../Types/Error";
 import { errorAction } from "../actions/errorsActionCreator/errorActionCreator";
 import {
   loadSneakerInfoAction,
   loadSneakersAction,
+  loadSneakersByParamAction,
   loadSpinnerSneakersAction,
+  searchParamsAction,
 } from "../actions/sneakersActionCreator/sneakersActionCreator";
 
 export const loadAllSneakersThunk =
@@ -17,6 +23,23 @@ export const loadAllSneakersThunk =
 
     const { data } = await axios.get(url as string);
     dispatch(loadSneakersAction(data));
+  };
+
+export const loadAllSneakersByParamsThunk =
+  (limit: number, skip: number, params: string) =>
+  async (
+    dispatch: Dispatch<LoadSneakersAction> | Dispatch<SearchParamsActionType>
+  ) => {
+    if (params === "") {
+      params = "all";
+    }
+    const url = `${process.env.REACT_APP_URL}sneakers/search/${params}?limit=${limit}&skip=${skip}`;
+
+    const { data } = await axios.get(url as string);
+
+    (dispatch as Dispatch<SearchParamsActionType>)(searchParamsAction(params));
+
+    (dispatch as Dispatch<LoadSneakersAction>)(loadSneakersByParamAction(data));
   };
 
 export const moreInfoSneakerThunk =
