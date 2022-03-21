@@ -19,6 +19,7 @@ const actionTypes = {
   menuState: "change-menuState",
   loadSpinnerSneakers: "load-spinnerSneakers",
   searchParams: "search-params",
+  filterBySize: "filter-size",
 };
 
 export default actionTypes;

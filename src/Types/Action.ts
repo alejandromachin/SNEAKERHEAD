@@ -38,3 +38,6 @@ export interface LoadUserAdsAction extends Action {
 export interface SearchParamsActionType extends Action {
   params: string;
 }
+export interface sizeFilterActionType extends Action {
+  size: number;
+}

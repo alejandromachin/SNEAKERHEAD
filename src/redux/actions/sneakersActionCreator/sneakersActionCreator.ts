@@ -3,6 +3,7 @@ import {
   LoadSneakerInfoAction,
   LoadSneakersAction,
   SearchParamsActionType,
+  sizeFilterActionType,
 } from "../../../Types/Action";
 import { Sneaker } from "../../../Types/Sneaker";
 import actionTypes from "../actionTypes";
@@ -45,4 +46,9 @@ export const loadSpinnerSneakersAction = (
 export const searchParamsAction = (params: string): SearchParamsActionType => ({
   type: actionTypes.searchParams,
   params,
+});
+
+export const sizeFilterAction = (size: number): sizeFilterActionType => ({
+  type: actionTypes.filterBySize,
+  size,
 });
