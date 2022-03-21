@@ -87,6 +87,8 @@ const SneakerInfoPage = (): JSX.Element => {
   };
   const clearFilters = () => {
     holdingAds = [];
+    setNoMoreAds(false);
+    setFilteredAds([]);
     dispatch(clearFilterAction());
   };
 
@@ -143,16 +145,20 @@ const SneakerInfoPage = (): JSX.Element => {
           {filter.length > 0 && (
             <>
               <span onClick={() => clearFilters()}>Clear filters x</span>
-              <span>Sorry, there are no ads of this size</span>
+              {filteredAds.length === 0 && (
+                <span>Sorry, there are no ads of this size</span>
+              )}
             </>
           )}
           <SneakerAdList ads={filter.length > 0 ? filteredAds : adsToShow} />
-          <ButtonContainer>
-            <Button
-              actionOnClick={loadMoreAds}
-              text={noMoreAds ? "NO MORE ADS TO SHOW" : "LOAD MORE"}
-            />
-          </ButtonContainer>
+          {filter.length === 0 && filteredAds.length === 0 && (
+            <ButtonContainer>
+              <Button
+                actionOnClick={loadMoreAds}
+                text={noMoreAds ? "NO MORE ADS TO SHOW" : "LOAD MORE"}
+              />
+            </ButtonContainer>
+          )}
         </>
       )}
       {showSellForm && (
