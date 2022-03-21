@@ -22,6 +22,17 @@ jest.mock("react-redux", () => {
   };
 });
 
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: (query: string) => {
+    return {
+      matches: false,
+      media: query,
+      onchange: null,
+    };
+  },
+});
+
 describe("Given a AdInfoPage component", () => {
   describe("When it is rendered", () => {
     test("Then it should show an image, 3 headins and 3 textboxes and a button with the text 'EDIT'", () => {
