@@ -14,7 +14,7 @@ jest.mock("react-router-dom", () => {
     useParams: () => mockUseParams,
   };
 });
-
+const mockFilter: number[] = [];
 const mockUser = { name: "test", id: "test" };
 const mockAds: Ad[] = [
   {
@@ -100,7 +100,12 @@ jest.mock("react-redux", () => {
   return {
     ...jest.requireActual("react-redux"),
     useSelector: (cb: CallableFunction) =>
-      cb({ user: mockUser, ads: mockAds, sneaker: mockSneaker }),
+      cb({
+        user: mockUser,
+        ads: mockAds,
+        sneaker: mockSneaker,
+        filter: mockFilter,
+      }),
   };
 });
 

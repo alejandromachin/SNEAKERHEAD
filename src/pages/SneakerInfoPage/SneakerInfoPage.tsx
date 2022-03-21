@@ -20,11 +20,15 @@ import {
   SneakerInfoContainer,
 } from "./SneakerInfoPageStyles";
 import { cleanUpSneakerAction } from "../../redux/actions/sneakersActionCreator/sneakersActionCreator";
-import { cleanUpAdsAction } from "../../redux/actions/adsActionCreator/adsActionCreator";
+import {
+  cleanUpAdsAction,
+  clearFilterAction,
+  sizeFilterAction,
+} from "../../redux/actions/adsActionCreator/adsActionCreator";
 let holdingAds: Ad[] = [];
 
 const SneakerInfoPage = (): JSX.Element => {
-  const sizes: number[] = [37, 38, 39, 40, 41, 42, 43, 44, 45];
+  const sizes: number[] = [35.5, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
 
   const adsPerPage = 2;
 
@@ -33,10 +37,12 @@ const SneakerInfoPage = (): JSX.Element => {
   const sneaker = useSelector((state: RootState) => state.sneaker);
   const user = useSelector((state: RootState) => state.user);
   const ads = useSelector((state: RootState) => state.ads);
+  const filter = useSelector((state: RootState) => state.filter);
   const [adsToShow, setAdsToShow] = useState<Ad[]>([]);
   const [next, setNext] = useState(2);
   const [showSellForm, setShowSellForm] = useState<boolean>(false);
   const [noMoreAds, setNoMoreAds] = useState<boolean>(false);
+  const [filteredAds, setFilteredAds] = useState<Ad[]>([]);
 
   const sliceAds = useCallback(
     (start: number, end: number) => {
@@ -75,6 +81,25 @@ const SneakerInfoPage = (): JSX.Element => {
     setShowSellForm(!showSellForm);
   };
 
+  const sizeFilter = (size: number) => {
+    holdingAds = [];
+    dispatch(sizeFilterAction(size));
+  };
+  const clearFilters = () => {
+    holdingAds = [];
+    setNoMoreAds(false);
+    setFilteredAds([]);
+    dispatch(clearFilterAction());
+  };
+
+  useEffect(() => {
+    if (filter.length > 0 && adsToShow.length > 0) {
+      setFilteredAds(
+        ads.filter((ad) => (filter as number[]).includes(ad.size))
+      );
+    }
+  }, [filter, ads, adsToShow]);
+
   return (
     <>
       <SneakerInfoContainer>
@@ -112,16 +137,28 @@ const SneakerInfoPage = (): JSX.Element => {
         <>
           <SizeContainer>
             {sizes.map((size) => (
-              <span key={size}>{size}</span>
+              <span key={size} onClick={() => sizeFilter(size)}>
+                {size}
+              </span>
             ))}
           </SizeContainer>
-          <SneakerAdList ads={adsToShow} />
-          <ButtonContainer>
-            <Button
-              actionOnClick={loadMoreAds}
-              text={noMoreAds ? "NO MORE ADS TO SHOW" : "LOAD MORE"}
-            />
-          </ButtonContainer>
+          {filter.length > 0 && (
+            <>
+              <span onClick={() => clearFilters()}>Clear filters x</span>
+              {filteredAds.length === 0 && (
+                <span>Sorry, there are no ads of this size</span>
+              )}
+            </>
+          )}
+          <SneakerAdList ads={filter.length > 0 ? filteredAds : adsToShow} />
+          {filter.length === 0 && filteredAds.length === 0 && (
+            <ButtonContainer>
+              <Button
+                actionOnClick={loadMoreAds}
+                text={noMoreAds ? "NO MORE ADS TO SHOW" : "LOAD MORE"}
+              />
+            </ButtonContainer>
+          )}
         </>
       )}
       {showSellForm && (
