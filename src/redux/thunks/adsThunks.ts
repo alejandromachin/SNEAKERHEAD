@@ -22,8 +22,9 @@ interface AdsData {
 }
 
 export const loadAllSneakerAdsThunk =
-  (id: string) => async (dispatch: Dispatch<LoadAdsAction>) => {
-    const url = `${process.env.REACT_APP_URL}ads/${id}`;
+  (id: string, limit: number, skip: number) =>
+  async (dispatch: Dispatch<LoadAdsAction>) => {
+    const url = `${process.env.REACT_APP_URL}ads/${id}?limit=${limit}&skip=${skip}`;
 
     const { data }: AdsData = await axios.get(url as string);
 

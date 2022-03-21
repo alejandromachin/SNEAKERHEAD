@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Button from "../../components/Button/Button";
@@ -25,12 +25,10 @@ import {
   clearFilterAction,
   sizeFilterAction,
 } from "../../redux/actions/adsActionCreator/adsActionCreator";
-let holdingAds: Ad[] = [];
 
 const SneakerInfoPage = (): JSX.Element => {
   const sizes: number[] = [35.5, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
-
-  const adsPerPage = 2;
+  const limit = 2;
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -38,67 +36,57 @@ const SneakerInfoPage = (): JSX.Element => {
   const user = useSelector((state: RootState) => state.user);
   const ads = useSelector((state: RootState) => state.ads);
   const filter = useSelector((state: RootState) => state.filter);
-  const [adsToShow, setAdsToShow] = useState<Ad[]>([]);
-  const [next, setNext] = useState(2);
+
   const [showSellForm, setShowSellForm] = useState<boolean>(false);
   const [noMoreAds, setNoMoreAds] = useState<boolean>(false);
   const [filteredAds, setFilteredAds] = useState<Ad[]>([]);
-
-  const sliceAds = useCallback(
-    (start: number, end: number) => {
-      const slicedAds = ads.slice(start, end);
-      holdingAds = [...holdingAds, ...slicedAds];
-      setAdsToShow(holdingAds);
-    },
-    [ads]
-  );
+  const [skip, setSkip] = useState(0);
 
   const loadMoreAds = () => {
-    if (adsToShow.length < ads.length) {
-      sliceAds(next, next + adsPerPage);
-      setNext(next + adsPerPage);
-    } else {
-      setNoMoreAds(true);
-    }
+    setSkip(skip + limit);
+    dispatch(loadAllSneakerAdsThunk(id as string, limit, skip));
   };
 
-  useEffect(() => {
-    sliceAds(0, 2);
-  }, [sliceAds]);
+  if (sneaker.ads) {
+    if (sneaker.ads.length === ads.length) {
+      // setNoMoreAds(true);
+    }
+  }
 
   useEffect(() => {
     const cleanUp = () => {
       dispatch(cleanUpSneakerAction());
       dispatch(cleanUpAdsAction());
-      holdingAds = [];
     };
+    setFilteredAds([]);
+
     dispatch(moreInfoSneakerThunk(id as string));
-    dispatch(loadAllSneakerAdsThunk(id as string));
+    dispatch(loadAllSneakerAdsThunk(id as string, limit, skip));
+
     return cleanUp;
-  }, [dispatch, id]);
+  }, [dispatch, id, limit, skip]);
 
   const openSellForm = () => {
     setShowSellForm(!showSellForm);
   };
 
   const sizeFilter = (size: number) => {
-    holdingAds = [];
     dispatch(sizeFilterAction(size));
   };
+
   const clearFilters = () => {
-    holdingAds = [];
     setNoMoreAds(false);
     setFilteredAds([]);
     dispatch(clearFilterAction());
   };
 
   useEffect(() => {
-    if (filter.length > 0 && adsToShow.length > 0) {
+    if (filter.length > 0 && ads.length > 0) {
       setFilteredAds(
         ads.filter((ad) => (filter as number[]).includes(ad.size))
       );
     }
-  }, [filter, ads, adsToShow]);
+  }, [filter, ads]);
 
   return (
     <>
@@ -150,7 +138,7 @@ const SneakerInfoPage = (): JSX.Element => {
               )}
             </>
           )}
-          <SneakerAdList ads={filter.length > 0 ? filteredAds : adsToShow} />
+          <SneakerAdList ads={filter.length > 0 ? filteredAds : ads} />
           {filter.length === 0 && filteredAds.length === 0 && (
             <ButtonContainer>
               <Button

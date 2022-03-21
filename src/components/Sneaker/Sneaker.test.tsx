@@ -56,6 +56,8 @@ describe("Given a Sneaker component", () => {
         averagePrice: "4.000€",
         ads: [],
       };
+      const path = `/sneakers/${sneaker.id}`;
+
       render(
         <BrowserRouter>
           <Sneaker sneaker={sneaker} />
@@ -65,7 +67,7 @@ describe("Given a Sneaker component", () => {
       const image = screen.getByRole("img");
       userEvent.click(image);
 
-      expect(mockUseNavigate).toHaveBeenCalledWith(sneaker.id);
+      expect(mockUseNavigate).toHaveBeenCalledWith(path);
     });
   });
 });
