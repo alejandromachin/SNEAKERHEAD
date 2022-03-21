@@ -9,6 +9,7 @@ export const AdFormContainer = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 20px;
+
   & form {
     width: 85%;
     height: 100%;
@@ -45,11 +46,12 @@ export const AdFormContainer = styled.div`
       justify-content: center;
       align-items: center;
       height: 40px;
+      padding: 0px;
       background-color: #d3e2ff;
       position: absolute;
       bottom: 0px;
       left: 0px;
-      width: 100%;
+      width: 100vw;
       border: none;
       cursor: pointer;
       text-align: center;
@@ -60,4 +62,10 @@ export const AdFormContainer = styled.div`
       }
     }
   }
+`;
+
+export const LabelContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 `;

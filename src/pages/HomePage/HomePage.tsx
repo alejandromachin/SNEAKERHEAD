@@ -6,7 +6,11 @@ import { Sneaker } from "../../Types/Sneaker";
 import { useEffect } from "react";
 import { loadSpinnerSneakersThunk } from "../../redux/thunks/sneakersThunk";
 import { RootState } from "../../redux/store";
-import { CarouselContainer, HomePageContainer } from "./HomePageStyles";
+import {
+  CarouselContainer,
+  HomePageContainer,
+  SliderContainer,
+} from "./HomePageStyles";
 import HotDeals from "../../components/HotDeals/HotDeals";
 import { loadHotDealsThunk } from "../../redux/thunks/adsThunks";
 import { Ad } from "../../Types/Ad";
@@ -51,7 +55,9 @@ const HomePage = (): JSX.Element => {
           </div>
         </Carousel>
       </CarouselContainer>
-      <SneakerSlider sneakers={sneakers} />
+      <SliderContainer>
+        <SneakerSlider sneakers={sneakers} />
+      </SliderContainer>
       <HotDeals ads={ads} />
     </HomePageContainer>
   );

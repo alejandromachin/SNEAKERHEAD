@@ -12,6 +12,9 @@ export const SneakersResultsListContainer = styled.div`
   & .sneakerResults_tittle {
     margin-bottom: 0px;
   }
+  @media (min-width: 600px) {
+    width: 80vw;
+  }
 `;
 
 export const PaginationButtons = styled.div`
@@ -21,4 +24,10 @@ export const PaginationButtons = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const NextButtonContainer = styled.div`
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
 `;

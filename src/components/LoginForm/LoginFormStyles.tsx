@@ -8,6 +8,9 @@ export const LoginFormContainer = styled.div`
   min-height: 50vh;
   align-items: center;
   font-size: 20px;
+  @media (min-width: 600px) {
+    width: 100%;
+  }
   & form {
     width: 80%;
     height: 100%;
