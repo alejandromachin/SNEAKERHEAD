@@ -39,7 +39,13 @@ const AdMoreInfoPage = (): JSX.Element => {
     <>
       <AdMoreInfoContainer>
         <AdMoreInfoCarousel>
-          <Carousel showThumbs={false} showStatus={false} showArrows={false}>
+          <Carousel
+            showThumbs={false}
+            showStatus={false}
+            showArrows={
+              window.matchMedia("(min-width: 600px)").matches ? true : false
+            }
+          >
             <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
 
             <div>
