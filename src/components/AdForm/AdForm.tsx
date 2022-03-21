@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createAdThunk } from "../../redux/thunks/adsThunks";
 import { Sneaker } from "../../Types/Sneaker";
-import { AdFormContainer } from "./AdFormStyles";
+import { AdFormContainer, LabelContainer } from "./AdFormStyles";
 
 interface AdFormProps {
   userId: string;
@@ -87,109 +87,125 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
   return (
     <AdFormContainer>
       <form onSubmit={listItem} noValidate autoComplete="off">
-        <label htmlFor="state">Are they used or new? </label>
-
-        <select id="state" value={adData.state} onChange={changeData} required>
-          <option value="">-</option>
-          <option value="NEW">new</option>
-          <option value="USED">used</option>
-        </select>
-        <label htmlFor="condition">Condition:</label>
-        <select
-          id="condition"
-          value={adData.condition}
-          onChange={changeData}
-          required
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
-        <div>Photos:</div>
-        <label className="adForm__fileUpload" htmlFor="image1">
-          Click to add a photo
-        </label>
-        <input
-          type="file"
-          name="file"
-          id="image1"
-          onChange={changeData}
-          required
-        />
-        <label className="adForm__fileUpload" htmlFor="image2">
-          Click to add a photo
-        </label>
-        <input
-          type="file"
-          name="file"
-          id="image2"
-          onChange={changeData}
-          required
-        />
-        <label className="adForm__fileUpload" htmlFor="image3">
-          Click to add a photo
-        </label>
-        <input
-          type="file"
-          name="file"
-          id="image3"
-          onChange={changeData}
-          required
-        />
-        <label className="adForm__fileUpload" htmlFor="image4">
-          Click to add a photo
-        </label>
-        <input
-          type="file"
-          name="file"
-          id="image4"
-          onChange={changeData}
-          required
-        />
-        <label htmlFor="price">Price: </label>
-        <input
-          type="number"
-          id="price"
-          value={adData.price}
-          onChange={changeData}
-        />
-        <label htmlFor="size">Size:</label>
-        <select id="size" value={adData.size} onChange={changeData} required>
-          <option value="">-</option>
-          <option value="35">35</option>
-          <option value="35.5">35.5</option>
-          <option value="36">36</option>
-          <option value="36.5">36.5</option>
-          <option value="37">37</option>
-          <option value="37.5">37.5</option>
-          <option value="38.5">38.5</option>
-          <option value="39">39</option>
-          <option value="40">40</option>
-          <option value="40.5">40.5</option>
-          <option value="41">41</option>
-          <option value="41.5">41.5</option>
-          <option value="42">42</option>
-          <option value="42.5">42.5</option>
-          <option value="43">43</option>
-          <option value="43.5">43.5</option>
-          <option value="44">44</option>
-          <option value="44.5">44.5</option>
-          <option value="45">45</option>
-        </select>
-        <label htmlFor="box">Box:</label>
-        <select id="box" value={adData.box} onChange={changeData} required>
-          <option value="">-</option>
-          <option value="Good">Good</option>
-          <option value="Damaged">Damaged</option>
-          <option value="No box">No box</option>
-        </select>
+        <LabelContainer>
+          <label htmlFor="state">Are they used or new? </label>
+          <select
+            id="state"
+            value={adData.state}
+            onChange={changeData}
+            required
+          >
+            <option value="">-</option>
+            <option value="NEW">new</option>
+            <option value="USED">used</option>
+          </select>
+        </LabelContainer>
+        <LabelContainer>
+          <label htmlFor="condition">Condition:</label>
+          <select
+            id="condition"
+            value={adData.condition}
+            onChange={changeData}
+            required
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </LabelContainer>
+        <LabelContainer>
+          <div>Photos:</div>
+          <label className="adForm__fileUpload" htmlFor="image1">
+            Click to add a photo
+          </label>
+          <input
+            type="file"
+            name="file"
+            id="image1"
+            onChange={changeData}
+            required
+          />
+          <label className="adForm__fileUpload" htmlFor="image2">
+            Click to add a photo
+          </label>
+          <input
+            type="file"
+            name="file"
+            id="image2"
+            onChange={changeData}
+            required
+          />
+          <label className="adForm__fileUpload" htmlFor="image3">
+            Click to add a photo
+          </label>
+          <input
+            type="file"
+            name="file"
+            id="image3"
+            onChange={changeData}
+            required
+          />
+          <label className="adForm__fileUpload" htmlFor="image4">
+            Click to add a photo
+          </label>
+          <input
+            type="file"
+            name="file"
+            id="image4"
+            onChange={changeData}
+            required
+          />
+        </LabelContainer>
+        <LabelContainer>
+          <label htmlFor="price">Price: </label>
+          <input
+            type="number"
+            id="price"
+            value={adData.price}
+            onChange={changeData}
+          />
+        </LabelContainer>
+        <LabelContainer>
+          <label htmlFor="size">Size:</label>
+          <select id="size" value={adData.size} onChange={changeData} required>
+            <option value="">-</option>
+            <option value="35">35</option>
+            <option value="35.5">35.5</option>
+            <option value="36">36</option>
+            <option value="36.5">36.5</option>
+            <option value="37">37</option>
+            <option value="37.5">37.5</option>
+            <option value="38.5">38.5</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="40.5">40.5</option>
+            <option value="41">41</option>
+            <option value="41.5">41.5</option>
+            <option value="42">42</option>
+            <option value="42.5">42.5</option>
+            <option value="43">43</option>
+            <option value="43.5">43.5</option>
+            <option value="44">44</option>
+            <option value="44.5">44.5</option>
+            <option value="45">45</option>
+          </select>
+        </LabelContainer>
+        <LabelContainer>
+          <label htmlFor="box">Box:</label>
+          <select id="box" value={adData.box} onChange={changeData} required>
+            <option value="">-</option>
+            <option value="Good">Good</option>
+            <option value="Damaged">Damaged</option>
+            <option value="No box">No box</option>
+          </select>
+        </LabelContainer>
         <button
           type="submit"
           className={disableButton ? "AdForm_Button__disabled" : ""}
