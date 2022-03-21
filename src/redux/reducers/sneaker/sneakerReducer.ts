@@ -6,7 +6,7 @@ const sneakerReducer = (
   currentState: Sneaker | {} = {},
   action: Action = {}
 ) => {
-  let newSneaker: Sneaker | {};
+  let newSneaker;
   switch (action.type) {
     case actionTypes.loadSneakerInfo:
       newSneaker = { ...(action as LoadSneakerInfoAction).sneaker };

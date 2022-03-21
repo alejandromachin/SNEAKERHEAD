@@ -111,7 +111,7 @@ jest.mock("react-redux", () => {
 
 describe("Given a SneakerInfoPage component", () => {
   describe("When it is rendered with a sneaker with 4 ads", () => {
-    test("Then it should show 1 image of the sneaker, 2 images of the ads and a button to sell and a button to load more", async () => {
+    test("Then it should show 1 image of the sneaker, 4 images of the ads and a button to sell and a button to load more", async () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -124,7 +124,7 @@ describe("Given a SneakerInfoPage component", () => {
       const buttonSell = screen.getByRole("button", { name: "SELL" });
       const buttonLoad = screen.getByRole("button", { name: "LOAD MORE" });
 
-      expect(images).toHaveLength(3);
+      expect(images).toHaveLength(5);
       expect(buttonSell).toBeInTheDocument();
       expect(buttonLoad).toBeInTheDocument();
     });

@@ -48,7 +48,9 @@ describe("Given a loadAllSneakerAdsThunk inner function", () => {
     test("Then it should call the dispatch function", async () => {
       const dispatch = jest.fn();
       const ad = { id: "test" };
-      const thunkFunction = loadAllSneakerAdsThunk(ad.id);
+      const limit = 2;
+      const skip = 2;
+      const thunkFunction = loadAllSneakerAdsThunk(ad.id, limit, skip);
 
       await thunkFunction(dispatch);
 

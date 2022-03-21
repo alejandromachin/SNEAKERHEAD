@@ -12,7 +12,7 @@ const Sneaker = ({ sneaker }: SneakerProps): JSX.Element => {
 
   const moreInfo = (event: React.MouseEvent<HTMLImageElement>) => {
     event.preventDefault();
-    navigate(`${sneaker.id}`);
+    navigate(`/sneakers/${sneaker.id}`);
   };
 
   return (
