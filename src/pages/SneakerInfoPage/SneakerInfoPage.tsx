@@ -75,6 +75,10 @@ const SneakerInfoPage = (): JSX.Element => {
     setShowSellForm(!showSellForm);
   };
 
+  const sizeFilter = (size: number) => {
+    // dispatch(sizeFilterAction(size));
+  };
+
   return (
     <>
       <SneakerInfoContainer>
@@ -112,7 +116,9 @@ const SneakerInfoPage = (): JSX.Element => {
         <>
           <SizeContainer>
             {sizes.map((size) => (
-              <span key={size}>{size}</span>
+              <span key={size} onClick={() => sizeFilter(size)}>
+                {size}
+              </span>
             ))}
           </SizeContainer>
           <SneakerAdList ads={adsToShow} />
