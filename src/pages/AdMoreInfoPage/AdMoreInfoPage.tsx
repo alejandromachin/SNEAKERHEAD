@@ -10,6 +10,7 @@ import { deleteAdThunk, moreInfoAdThunk } from "../../redux/thunks/adsThunks";
 import { Ad } from "../../Types/Ad";
 import { ButtonContainer } from "../SneakerInfoPage/SneakerInfoPageStyles";
 import {
+  AdMoreInfoCarousel,
   AdMoreInfoContainer,
   AdMoreInfoText,
   DeleteButton,
@@ -37,20 +38,21 @@ const AdMoreInfoPage = (): JSX.Element => {
   return (
     <>
       <AdMoreInfoContainer>
-        <Carousel showThumbs={false} showStatus={false} showArrows={false}>
-          <div>
+        <AdMoreInfoCarousel>
+          <Carousel showThumbs={false} showStatus={false} showArrows={false}>
             <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
-          </div>
-          <div>
-            <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
-          </div>
-          <div>
-            <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
-          </div>
-          <div>
-            <img src={(ad as Ad).image4} alt={(ad as Ad).colorway}></img>
-          </div>
-        </Carousel>
+
+            <div>
+              <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
+            </div>
+            <div>
+              <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
+            </div>
+            <div>
+              <img src={(ad as Ad).image4} alt={(ad as Ad).colorway}></img>
+            </div>
+          </Carousel>
+        </AdMoreInfoCarousel>
         <AdMoreInfoText>
           {showEditForm ? (
             <>

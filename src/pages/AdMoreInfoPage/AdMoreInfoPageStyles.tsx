@@ -11,7 +11,21 @@ export const AdMoreInfoContainer = styled.div`
     margin-top: 20px;
     padding: 10px;
   }
+  @media (min-width: 600px) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70vh;
+    margin-top: 100px;
+  }
 `;
+export const AdMoreInfoCarousel = styled.div`
+  @media (min-width: 600px) {
+    width: 45%;
+  }
+`;
+
 export const AdMoreInfoText = styled.div`
   width: 330px;
   margin-top: 0px;
@@ -37,6 +51,12 @@ export const AdMoreInfoText = styled.div`
 
     margin-top: 3px;
     margin-bottom: 3px;
+  }
+  @media (min-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 `;
 export const FormContainer = styled.div`

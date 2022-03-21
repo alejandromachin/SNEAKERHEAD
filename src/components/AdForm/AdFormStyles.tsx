@@ -62,8 +62,6 @@ export const AdFormContainer = styled.div`
       }
     }
   }
-  @media (min-width: 600px) {
-  }
 `;
 
 export const LabelContainer = styled.div`
