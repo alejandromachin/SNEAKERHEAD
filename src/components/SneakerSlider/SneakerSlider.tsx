@@ -17,6 +17,7 @@ const SliderContainer = styled.div`
     scrollbar-width: none;
     @media (min-width: 600px) {
       width: 80vw;
+      height: 180px;
     }
   }
   .slider::-webkit-scrollbar {
