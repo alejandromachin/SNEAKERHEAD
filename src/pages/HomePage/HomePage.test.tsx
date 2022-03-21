@@ -4,6 +4,17 @@ import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store";
 import HomePage from "./HomePage";
 
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: (query: string) => {
+    return {
+      matches: false,
+      media: query,
+      onchange: null,
+    };
+  },
+});
+
 describe("Given a HomePage component", () => {
   describe("When it is instantiated", () => {
     test("Then it should show a heading with the text 'SNEAKERHEAD'", () => {

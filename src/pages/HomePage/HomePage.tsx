@@ -34,7 +34,13 @@ const HomePage = (): JSX.Element => {
     <HomePageContainer>
       <h1>SNEAKERHEAD</h1>
       <CarouselContainer>
-        <Carousel showThumbs={false} showStatus={false} showArrows={false}>
+        <Carousel
+          showThumbs={false}
+          showStatus={false}
+          showArrows={
+            window.matchMedia("(min-width: 600px)").matches ? true : false
+          }
+        >
           <div>
             <img
               src="/images/homepage_slider/jordan1-bred.png"
