@@ -13,6 +13,7 @@ import { Sneaker } from "../../Types/Sneaker";
 import {
   ButtonContainer,
   SizeContainer,
+  SneakerCard,
   SneakerCardInfo,
   SneakerCardInfoText,
   SneakerCardName,
@@ -81,28 +82,30 @@ const SneakerInfoPage = (): JSX.Element => {
           src={(sneaker as Sneaker).image}
           alt={(sneaker as Sneaker).colorway}
         />
-        <SneakerCardName>
-          <p className="sneaker_name">
-            {(sneaker as Sneaker).brand} {(sneaker as Sneaker).style}
-          </p>
-          <p>{(sneaker as Sneaker).colorway}</p>
-        </SneakerCardName>
-        <SneakerCardInfo>
-          <SneakerCardInfoText>
-            <p>Release date: {(sneaker as Sneaker).releaseDate}</p>
-            <p>Average price: {(sneaker as Sneaker).averagePrice}</p>
-          </SneakerCardInfoText>
-          <SellButton>
-            {user.id ? (
-              <Button
-                actionOnClick={openSellForm}
-                text={showSellForm ? "BUY" : "SELL"}
-              />
-            ) : (
-              <p className="SneakerInfoPage__loginToSell">LOG IN TO SELL</p>
-            )}
-          </SellButton>
-        </SneakerCardInfo>
+        <SneakerCard>
+          <SneakerCardName>
+            <p className="sneaker_name">
+              {(sneaker as Sneaker).brand} {(sneaker as Sneaker).style}
+            </p>
+            <p>{(sneaker as Sneaker).colorway}</p>
+          </SneakerCardName>
+          <SneakerCardInfo>
+            <SneakerCardInfoText>
+              <p>Release date: {(sneaker as Sneaker).releaseDate}</p>
+              <p>Average price: {(sneaker as Sneaker).averagePrice}</p>
+            </SneakerCardInfoText>
+            <SellButton>
+              {user.id ? (
+                <Button
+                  actionOnClick={openSellForm}
+                  text={showSellForm ? "BUY" : "SELL"}
+                />
+              ) : (
+                <p className="SneakerInfoPage__loginToSell">LOG IN TO SELL</p>
+              )}
+            </SellButton>
+          </SneakerCardInfo>
+        </SneakerCard>
       </SneakerInfoContainer>
 
       {!showSellForm && (

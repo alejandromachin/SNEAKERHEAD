@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const UserInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 80vh;
-  padding: 15px;
+  width: 90vw;
 `;
 export const UserTittle = styled.div`
   display: flex;

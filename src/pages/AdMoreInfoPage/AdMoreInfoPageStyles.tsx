@@ -4,7 +4,8 @@ export const AdMoreInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  margin-bottom: 50px;
+  width: 90vw;
   & img {
     width: 250px;
     margin-top: 20px;
@@ -17,12 +18,14 @@ export const AdMoreInfoText = styled.div`
   padding: 10px;
 
   & h1 {
+    font-size: 40px;
+
     margin: 0px;
   }
   & h2 {
-    font-size: 20px;
+    font-size: 25px;
     margin-top: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
   }
   & h3 {
     font-size: 20px;
@@ -30,6 +33,8 @@ export const AdMoreInfoText = styled.div`
     margin-bottom: 5px;
   }
   & p {
+    font-size: 25px;
+
     margin-top: 3px;
     margin-bottom: 3px;
   }

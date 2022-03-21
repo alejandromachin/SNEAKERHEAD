@@ -11,6 +11,17 @@ export const SneakerInfoContainer = styled.div`
     height: 170px;
     object-fit: cover;
   }
+  @media (min-width: 600px) {
+    flex-direction: row;
+    height: 300px;
+  }
+`;
+
+export const SneakerCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 export const SneakerCardName = styled.div`
   display: flex;
@@ -87,4 +98,9 @@ export const SizeContainer = styled.div`
   background-color: #d3e2ff;
   font-size: 20px;
   margin-bottom: 15px;
+  width: 100%;
+  @media (min-width: 600px) {
+    flex-direction: row;
+    width: 100%;
+  }
 `;
