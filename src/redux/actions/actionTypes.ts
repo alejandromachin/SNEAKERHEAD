@@ -1,5 +1,6 @@
 const actionTypes = {
   loadSneakers: "load-sneakers",
+  loadSneakersByParam: "load-sneakersByParam",
   loadSneakerInfo: "load-sneaker-info",
   login: "login-user",
   logout: "logout-user",
@@ -17,6 +18,7 @@ const actionTypes = {
   hotdeals: "load-hotdeals",
   menuState: "change-menuState",
   loadSpinnerSneakers: "load-spinnerSneakers",
+  searchParams: "search-params",
 };
 
 export default actionTypes;
