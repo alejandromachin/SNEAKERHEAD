@@ -4,6 +4,7 @@ export const UserInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 90vw;
+  height: 80vh;
   @media (min-width: 600px) {
     width: 100%;
     flex-direction: row;
@@ -15,9 +16,10 @@ export const UserTittle = styled.div`
   display: flex;
   width: 200px;
   font-size: 22px;
-  margin: 20px;
+
   border-bottom: 1px solid #000;
   @media (min-width: 600px) {
+    margin: 20px;
     width: 100%;
   }
 `;
