@@ -3,6 +3,7 @@ import {
   AdAction,
   DeleteAdAction,
   LoadAdsAction,
+  sizeFilterActionType,
 } from "../../../Types/Action";
 import { Ad } from "../../../Types/Ad";
 import actionTypes from "../actionTypes";
@@ -44,4 +45,12 @@ export const filterAdsBySizeAction = (ads: Ad[]): LoadAdsAction => ({
 
 export const cleanUpAdsAction = (): Action => ({
   type: actionTypes.cleanUpAds,
+});
+
+export const sizeFilterAction = (size: number): sizeFilterActionType => ({
+  type: actionTypes.filterBySize,
+  size,
+});
+export const clearFilterAction = (): Action => ({
+  type: actionTypes.clearFilters,
 });

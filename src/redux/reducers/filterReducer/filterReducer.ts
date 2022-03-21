@@ -7,7 +7,9 @@ const filterReducer = (currentFilter: number[] = [], action: Action = {}) => {
     case actionTypes.filterBySize:
       newFilter = [...currentFilter, (action as sizeFilterActionType).size];
       break;
-
+    case actionTypes.clearFilters:
+      newFilter = [];
+      break;
     default:
       newFilter = [...currentFilter];
       break;

@@ -20,6 +20,7 @@ const actionTypes = {
   loadSpinnerSneakers: "load-spinnerSneakers",
   searchParams: "search-params",
   filterBySize: "filter-size",
+  clearFilters: "filter-clear",
 };
 
 export default actionTypes;
