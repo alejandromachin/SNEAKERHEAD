@@ -22,6 +22,7 @@ const mockAds: Ad[] = [
     box: "good",
     state: "new",
     owner: "test",
+    ownerEmail: "test@email.com",
   },
 ];
 

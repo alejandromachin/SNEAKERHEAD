@@ -34,6 +34,7 @@ describe("Given a EditAdForm component", () => {
         box: "good",
         state: "new",
         owner: "622b15710695a90af3e56a20",
+        ownerEmail: "test@email.com",
       };
       render(
         <Provider store={store}>
@@ -76,6 +77,7 @@ describe("Given a EditAdForm component", () => {
         box: "good",
         state: "new",
         owner: "622b15710695a90af3e56a20",
+        ownerEmail: "test@email.com",
       };
       render(
         <Provider store={store}>

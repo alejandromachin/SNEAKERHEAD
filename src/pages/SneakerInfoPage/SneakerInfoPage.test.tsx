@@ -33,6 +33,7 @@ const mockAds: Ad[] = [
     box: "good",
     state: "new",
     owner: "622b15710695a90af3e56a20",
+    ownerEmail: "test@email.com",
   },
   {
     id: "test2",
@@ -50,6 +51,7 @@ const mockAds: Ad[] = [
     box: "good",
     state: "new",
     owner: "622b15710695a90af3e56a20",
+    ownerEmail: "test@email.com",
   },
   {
     id: "test3",
@@ -67,6 +69,7 @@ const mockAds: Ad[] = [
     box: "good",
     state: "new",
     owner: "622b15710695a90af3e56a20",
+    ownerEmail: "test@email.com",
   },
   {
     id: "test4",
@@ -84,6 +87,7 @@ const mockAds: Ad[] = [
     box: "good",
     state: "new",
     owner: "622b15710695a90af3e56a20",
+    ownerEmail: "test@email.com",
   },
 ];
 const mockSneaker = {

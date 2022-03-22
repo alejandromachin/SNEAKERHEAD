@@ -24,6 +24,7 @@ describe("Given an adsReducer function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
         {
           id: "test",
@@ -41,6 +42,7 @@ describe("Given an adsReducer function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
       ];
       const action = {
@@ -71,6 +73,7 @@ describe("Given an adsReducer function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
       ];
 
@@ -102,6 +105,7 @@ describe("Given an adsReducer function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
       ];
 
@@ -130,6 +134,7 @@ describe("Given an adsReducer function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
         {
           id: "test",
@@ -147,6 +152,7 @@ describe("Given an adsReducer function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
       ];
 
@@ -166,6 +172,7 @@ describe("Given an adsReducer function", () => {
         box: "good",
         state: "new",
         owner: "622b15710695a90af3e56a20",
+        ownerEmail: "test@email.com",
       };
 
       const action: AdAction = {
@@ -197,6 +204,7 @@ describe("Given an adsReducer function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
       ];
       const filteredAds: Ad[] = [
@@ -216,6 +224,7 @@ describe("Given an adsReducer function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
         {
           id: "test2",
@@ -233,6 +242,7 @@ describe("Given an adsReducer function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
       ];
       const action: LoadAdsAction = {
@@ -264,6 +274,7 @@ describe("Given an adsReducer function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
         {
           id: "test2",
@@ -281,6 +292,7 @@ describe("Given an adsReducer function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
       ];
       const action: LoadAdsAction = {

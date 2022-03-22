@@ -23,6 +23,7 @@ describe("Given a adReducer function", () => {
         box: "good",
         state: "new",
         owner: "622b15710695a90af3e56a20",
+        ownerEmail: "test@email.com",
       };
       const action = {
         type: actionTypes.loadAd,
@@ -60,6 +61,7 @@ describe("Given a adReducer function", () => {
         box: "good",
         state: "new",
         owner: "622b15710695a90af3e56a20",
+        ownerEmail: "test@email.com",
       };
 
       const editedAd: Ad = {
@@ -78,6 +80,7 @@ describe("Given a adReducer function", () => {
         box: "good",
         state: "new",
         owner: "622b15710695a90af3e56a20",
+        ownerEmail: "test@email.com",
       };
 
       const action: AdAction = {
