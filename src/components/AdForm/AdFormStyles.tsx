@@ -41,6 +41,9 @@ export const AdFormContainer = styled.div`
       padding: 6px 12px;
       cursor: pointer;
     }
+    & .uploaded {
+      background-color: #1de051;
+    }
     & button {
       display: flex;
       justify-content: center;

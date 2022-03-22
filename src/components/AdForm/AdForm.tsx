@@ -122,7 +122,14 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
         </LabelContainer>
         <LabelContainer>
           <div>Photos:</div>
-          <label className="adForm__fileUpload" htmlFor="image1">
+          <label
+            className={
+              adData.image1 !== ""
+                ? "adForm__fileUpload uploaded"
+                : "adForm__fileUpload"
+            }
+            htmlFor="image1"
+          >
             Click to add a photo
           </label>
           <input
@@ -132,7 +139,14 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
             onChange={changeData}
             required
           />
-          <label className="adForm__fileUpload" htmlFor="image2">
+          <label
+            className={
+              adData.image2 !== ""
+                ? "adForm__fileUpload uploaded"
+                : "adForm__fileUpload"
+            }
+            htmlFor="image2"
+          >
             Click to add a photo
           </label>
           <input
@@ -142,7 +156,14 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
             onChange={changeData}
             required
           />
-          <label className="adForm__fileUpload" htmlFor="image3">
+          <label
+            className={
+              adData.image3 !== ""
+                ? "adForm__fileUpload uploaded"
+                : "adForm__fileUpload"
+            }
+            htmlFor="image3"
+          >
             Click to add a photo
           </label>
           <input
@@ -152,7 +173,14 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
             onChange={changeData}
             required
           />
-          <label className="adForm__fileUpload" htmlFor="image4">
+          <label
+            className={
+              adData.image4 !== ""
+                ? "adForm__fileUpload uploaded"
+                : "adForm__fileUpload"
+            }
+            htmlFor="image4"
+          >
             Click to add a photo
           </label>
           <input
