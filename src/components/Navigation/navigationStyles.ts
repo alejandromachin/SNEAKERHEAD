@@ -8,16 +8,35 @@ export const NavigationContainer = styled.div<navigationProps>`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 15px;
+
+  margin: 10px;
+  width: 100%;
+
+  & .logo {
+    display: none;
+    font-size: 20px;
+    justify-content: flex-start;
+    text-shadow: 1px 0 #000, 1px 0 #000, 1px 0 #000, 1px 0 #000;
+  }
+
+  @media (min-width: 600px) {
+    width: 80vw;
+    & .logo {
+      display: flex;
+    }
+  }
 
   & form {
     & input {
       height: 20px;
-      width: ${(props) => (props.isLogged ? "50vw" : "35vw")};
+      width: ${(props) => (props.isLogged ? "50vw" : "40vw")};
       border: 1px solid #b2b1b1;
       border-top-left-radius: 2px;
       border-bottom-left-radius: 2px;
       background-color: #f4f4f4;
+      @media (min-width: 600px) {
+        width: 40vw;
+      }
     }
     & button {
       height: 24px;
@@ -43,4 +62,9 @@ export const UserAreaContainer = styled.div<navigationProps>`
   flex-direction: row;
   justify-content: space-around;
   font-size: 18px;
+  margin: 5px;
+  margin-top: 0px;
+  @media (min-width: 600px) {
+    width: 20vw;
+  }
 `;

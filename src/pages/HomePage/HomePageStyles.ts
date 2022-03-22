@@ -10,9 +10,10 @@ export const HomePageContainer = styled.div`
     text-shadow: 1px 0 #000, 1px 0 #000, 1px 0 #000, 1px 0 #000;
   }
   @media (min-width: 600px) {
-    width: 100vw;
+    width: 100%;
   } ;
 `;
+
 export const SliderContainer = styled.div`
   @media (min-width: 600px) {
     width: 80vw;
@@ -27,6 +28,6 @@ export const CarouselContainer = styled.div`
     width: 100%;
   }
   @media (min-width: 600px) {
-    width: 80%;
+    width: 81%;
   } ;
 `;

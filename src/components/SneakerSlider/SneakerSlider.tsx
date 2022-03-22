@@ -28,6 +28,10 @@ const SliderContainer = styled.div`
     padding-left: 5px;
     width: 140px;
     flex-shrink: 0;
+    @media (min-width: 600px) {
+      width: 160px;
+      margin-right: 25px;
+    }
   }
   & img {
     width: 140px;
