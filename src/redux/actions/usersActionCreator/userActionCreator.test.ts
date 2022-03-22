@@ -52,6 +52,7 @@ describe("Given a registerAction function", () => {
             box: "good",
             state: "new",
             owner: "622b15710695a90af3e56a20",
+            ownerEmail: "test@email.com",
           },
         ],
       };

@@ -14,4 +14,5 @@ export interface Ad {
   state: string;
   box: string;
   owner: string;
+  ownerEmail: string;
 }

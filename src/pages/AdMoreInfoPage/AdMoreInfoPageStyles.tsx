@@ -85,3 +85,22 @@ export const DeleteButton = styled.div`
     color: #d3e2ff;
   }
 `;
+export const ContactInfoContainer = styled.div`
+  display: flex;
+  position: absolute;
+  top: 25%;
+  left: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50vh;
+  height: 20vh;
+  border-radius: 20px;
+  border: 3px solid #000;
+  box-shadow: -17px 5px 46px -16px rgba(0, 0, 0, 0.57);
+  background-color: #d3e2ff;
+  & p {
+    text-align: center;
+    font-size: 20px;
+  }
+`;

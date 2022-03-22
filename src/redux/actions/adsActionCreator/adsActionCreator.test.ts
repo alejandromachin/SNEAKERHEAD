@@ -27,6 +27,7 @@ describe("Given a createAdAction function", () => {
         box: "good",
         state: "new",
         owner: "622b15710695a90af3e56a20",
+        ownerEmail: "test@email.com",
       };
       const expectedAction = {
         type: actionTypes.createAd,
@@ -58,6 +59,7 @@ describe("Given a editAdAction function", () => {
         box: "good",
         state: "new",
         owner: "622b15710695a90af3e56a20",
+        ownerEmail: "test@email.com",
       };
       const expectedAction = {
         type: actionTypes.editAd,
@@ -89,6 +91,7 @@ describe("Given a deleteAdAction function", () => {
         state: "new",
         condition: 10,
         owner: "622b15710695a90af3e56a20",
+        ownerEmail: "test@email.com",
       };
       const expectedAction = {
         type: actionTypes.deleteAd,
@@ -121,6 +124,7 @@ describe("Given a loadAdAction function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
       ];
       const expectedAction = {
@@ -154,6 +158,7 @@ describe("Given a filterAdsBySizeAction function", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
       ];
       const expectedAction = {

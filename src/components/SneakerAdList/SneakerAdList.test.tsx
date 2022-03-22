@@ -23,6 +23,7 @@ describe("Given a SneakerAdList component", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
         {
           id: "test2",
@@ -40,6 +41,7 @@ describe("Given a SneakerAdList component", () => {
           box: "good",
           state: "new",
           owner: "622b15710695a90af3e56a20",
+          ownerEmail: "test@email.com",
         },
       ];
 

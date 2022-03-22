@@ -13,6 +13,7 @@ import {
   AdMoreInfoCarousel,
   AdMoreInfoContainer,
   AdMoreInfoText,
+  ContactInfoContainer,
   DeleteButton,
   FormContainer,
 } from "./AdMoreInfoPageStyles";
@@ -21,11 +22,25 @@ const AdMoreInfoPage = (): JSX.Element => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const ad = useSelector((state: RootState) => state.ad);
+  const user = useSelector((state: RootState) => state.user);
   const [showEditForm, setShowEditForm] = useState<boolean>(false);
+  const [showContacInfo, setshowContacInfo] = useState<boolean>(false);
+  const [isYourAd, setIsYourAd] = useState<boolean>(false);
+
+  console.log(user.id);
+  console.log((ad as Ad).owner);
+
+  useEffect(() => {
+    console.log("hola");
+
+    if (user.id === (ad as Ad).owner) {
+      setIsYourAd(true);
+    }
+  }, [ad, user.id]);
 
   useEffect(() => {
     dispatch(moreInfoAdThunk(id as string));
-  }, [dispatch, id]);
+  }, [dispatch, id, user.id]);
 
   const deleteAd = () => {
     dispatch(deleteAdThunk(id as string));
@@ -34,7 +49,9 @@ const AdMoreInfoPage = (): JSX.Element => {
   const editForm = () => {
     setShowEditForm(!showEditForm);
   };
-
+  const contactInfo = () => {
+    setshowContacInfo(!showContacInfo);
+  };
   return (
     <>
       <AdMoreInfoContainer>
@@ -83,8 +100,18 @@ const AdMoreInfoPage = (): JSX.Element => {
               <p>Condition: {(ad as Ad).condition}/10</p>
               <p>Box: {(ad as Ad).box}</p>
               <p>Size: {(ad as Ad).size}</p>
+
+              {showContacInfo && (
+                <ContactInfoContainer>
+                  <p>Email: {(ad as Ad).ownerEmail}</p>
+                </ContactInfoContainer>
+              )}
+
               <ButtonContainer>
-                <Button actionOnClick={editForm} text={"EDIT"} />
+                <Button
+                  actionOnClick={isYourAd ? editForm : contactInfo}
+                  text={isYourAd ? "EDIT" : "CONTACT INFO"}
+                />
               </ButtonContainer>
             </>
           )}
