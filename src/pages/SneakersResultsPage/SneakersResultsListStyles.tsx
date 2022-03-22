@@ -7,7 +7,7 @@ export const SneakersResultsListContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 
   & .sneakerResults_tittle {
     margin-bottom: 0px;

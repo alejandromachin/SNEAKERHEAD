@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { editAdThunk } from "../../redux/thunks/adsThunks";
 import { Ad } from "../../Types/Ad";
-import { AdFormContainer } from "../AdForm/AdFormStyles";
+import { EditAdFormContainer } from "./EditAdFormStyles";
 
 interface EditAdFormProps {
   ad: Ad;
@@ -79,7 +79,7 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
   };
 
   return (
-    <AdFormContainer>
+    <EditAdFormContainer>
       <form onSubmit={listItem} noValidate autoComplete="off">
         <label htmlFor="state">Are they used or new? </label>
 
@@ -107,7 +107,14 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
           <option value="10">10</option>
         </select>
         <div>Photos:</div>
-        <label className="adForm__fileUpload" htmlFor="image1">
+        <label
+          className={
+            adData.image1 !== ""
+              ? "adForm__fileUpload uploaded"
+              : "adForm__fileUpload"
+          }
+          htmlFor="image1"
+        >
           Click to add a photo
         </label>
         <input
@@ -117,7 +124,14 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
           onChange={changeData}
           required
         />
-        <label className="adForm__fileUpload" htmlFor="image2">
+        <label
+          className={
+            adData.image2 !== ""
+              ? "adForm__fileUpload uploaded"
+              : "adForm__fileUpload"
+          }
+          htmlFor="image2"
+        >
           Click to add a photo
         </label>
         <input
@@ -127,7 +141,14 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
           onChange={changeData}
           required
         />
-        <label className="adForm__fileUpload" htmlFor="image3">
+        <label
+          className={
+            adData.image3 !== ""
+              ? "adForm__fileUpload uploaded"
+              : "adForm__fileUpload"
+          }
+          htmlFor="image3"
+        >
           Click to add a photo
         </label>
         <input
@@ -137,7 +158,14 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
           onChange={changeData}
           required
         />
-        <label className="adForm__fileUpload" htmlFor="image4">
+        <label
+          className={
+            adData.image4 !== ""
+              ? "adForm__fileUpload uploaded"
+              : "adForm__fileUpload"
+          }
+          htmlFor="image4"
+        >
           Click to add a photo
         </label>
         <input
@@ -193,7 +221,7 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
           {disableButton ? "FILL ALL THE INFO" : "ACCEPT"}
         </button>
       </form>
-    </AdFormContainer>
+    </EditAdFormContainer>
   );
 };
 

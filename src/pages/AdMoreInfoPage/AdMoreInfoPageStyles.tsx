@@ -17,7 +17,7 @@ export const AdMoreInfoContainer = styled.div`
     justify-content: space-evenly;
     align-items: center;
     height: 70vh;
-    margin-top: 100px;
+    margin-top: 70px;
   }
 `;
 export const AdMoreInfoCarousel = styled.div`
@@ -65,6 +65,9 @@ export const FormContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  @media (min-width: 600px) {
+    height: 70vh;
+  }
 `;
 export const DeleteButton = styled.div`
   margin-top: 5px;
@@ -83,6 +86,10 @@ export const DeleteButton = styled.div`
     text-align: center;
     font-size: 25px;
     color: #d3e2ff;
+    @media (min-width: 600px) {
+      margin-top: 50px;
+      width: 34vw;
+    }
   }
 `;
 export const ContactInfoContainer = styled.div`
@@ -102,5 +109,9 @@ export const ContactInfoContainer = styled.div`
   & p {
     text-align: center;
     font-size: 20px;
+  }
+  @media (min-width: 600px) {
+    top: 70%;
+    left: 60%;
   }
 `;
