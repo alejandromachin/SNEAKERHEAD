@@ -48,9 +48,9 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
   const listItem = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const adDataFinal = new FormData();
-    adDataFinal.append("brand", (sneaker as Sneaker).brand);
-    adDataFinal.append("style", (sneaker as Sneaker).style);
-    adDataFinal.append("colorway", (sneaker as Sneaker).colorway);
+    adDataFinal.append("brand", sneaker.brand);
+    adDataFinal.append("style", sneaker.style);
+    adDataFinal.append("colorway", sneaker.colorway);
     adDataFinal.append("condition", adData.condition);
     adDataFinal.append("image1", adData.image1);
     adDataFinal.append("image2", adData.image2);
@@ -61,7 +61,7 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
     adDataFinal.append("state", adData.state);
     adDataFinal.append("box", adData.box);
     adDataFinal.append("owner", userId);
-    adDataFinal.append("sneakerId", (sneaker as Sneaker).id);
+    adDataFinal.append("sneakerId", sneaker.id);
 
     dispatch(createAdThunk(adDataFinal));
     resetForm();

@@ -29,6 +29,6 @@ export const CarouselContainer = styled.div`
     width: 100%;
   }
   @media (min-width: 600px) {
-    width: 81%;
+    width: 80.8%;
   } ;
 `;

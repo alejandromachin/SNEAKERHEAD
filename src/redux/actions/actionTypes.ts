@@ -14,6 +14,7 @@ const actionTypes = {
   cleanUpSneaker: "cleanup-sneaker",
   cleanUpSneakers: "cleanup-sneakers",
   cleanUpAds: "cleanup-ads",
+  cleanUpAd: "cleanup-ad",
   loadUserAds: "load-userAds",
   hotdeals: "load-hotdeals",
   menuState: "change-menuState",

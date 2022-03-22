@@ -34,7 +34,11 @@ const AdMoreInfoPage = (): JSX.Element => {
   }, [ad, user.id]);
 
   useEffect(() => {
+    const cleanUp = () => {
+      setIsYourAd(false);
+    };
     dispatch(moreInfoAdThunk(id as string));
+    return cleanUp;
   }, [dispatch, id, user.id]);
 
   const deleteAd = () => {
@@ -47,6 +51,12 @@ const AdMoreInfoPage = (): JSX.Element => {
   const contactInfo = () => {
     setshowContacInfo(!showContacInfo);
   };
+
+  const isYourAdAction = () => {
+    isYourAd ? editForm() : contactInfo();
+  };
+
+  const isYourAdText = isYourAd ? "EDIT" : "CONTACT INFO";
   return (
     <>
       <AdMoreInfoContainer>
@@ -61,10 +71,10 @@ const AdMoreInfoPage = (): JSX.Element => {
             <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
 
             <div>
-              <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
+              <img src={(ad as Ad).image2} alt={(ad as Ad).colorway}></img>
             </div>
             <div>
-              <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
+              <img src={(ad as Ad).image3} alt={(ad as Ad).colorway}></img>
             </div>
             <div>
               <img src={(ad as Ad).image4} alt={(ad as Ad).colorway}></img>
@@ -103,10 +113,7 @@ const AdMoreInfoPage = (): JSX.Element => {
               )}
 
               <ButtonContainer>
-                <Button
-                  actionOnClick={isYourAd ? editForm : contactInfo}
-                  text={isYourAd ? "EDIT" : "CONTACT INFO"}
-                />
+                <Button actionOnClick={isYourAdAction} text={isYourAdText} />
               </ButtonContainer>
             </>
           )}

@@ -11,7 +11,7 @@ const adsReducer = (currentState: Ad[] = [], action: Action = {}): Ad[] => {
   let newAds: Ad[] | [];
   switch (action.type) {
     case actionTypes.loadAds:
-      newAds = [...(currentState as Ad[]), ...(action as LoadAdsAction).ads];
+      newAds = [...currentState, ...(action as LoadAdsAction).ads];
       break;
 
     case actionTypes.hotdeals:

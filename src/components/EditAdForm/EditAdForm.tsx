@@ -181,7 +181,7 @@ const EditAdForm = ({ ad, actionOnEdit }: EditAdFormProps): JSX.Element => {
           id="price"
           value={adData.price}
           onChange={changeData}
-          placeholder={(ad as Ad).price}
+          placeholder={ad.price}
         />
         <label htmlFor="size">Size:</label>
         <select id="size" value={adData.size} onChange={changeData} required>

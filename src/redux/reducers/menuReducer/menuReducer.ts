@@ -10,7 +10,6 @@ const menuReducer = (
     case actionTypes.menuState:
       newMenuState = !currentMenuState;
       break;
-
     default:
       newMenuState = currentMenuState;
   }

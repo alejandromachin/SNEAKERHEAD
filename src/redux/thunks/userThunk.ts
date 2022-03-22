@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import jwtDecode from "jwt-decode";
 import { Dispatch } from "react";
 import toast from "react-hot-toast";
@@ -26,7 +26,7 @@ export const registerThunk =
   async (dispatch: Dispatch<ErrorAction> | Dispatch<RegisterAction>) => {
     const url = `${process.env.REACT_APP_URL}user/register`;
 
-    const response = await axios
+    await axios
       .post(url, userData, {
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +49,6 @@ export const registerThunk =
           },
         });
       });
-    return response;
   };
 
 export const loginThunk =
@@ -60,13 +59,8 @@ export const loginThunk =
     await axios
       .post(url, userData)
       .then((response) => {
-        localStorage.setItem(
-          "tokenKey",
-          (response as AxiosResponse).data.token
-        );
-        const userInfo: User = jwtDecode(
-          (response as AxiosResponse).data.token
-        );
+        localStorage.setItem("tokenKey", response.data.token);
+        const userInfo: User = jwtDecode(response.data.token);
         (dispatch as Dispatch<LoginAction>)(loginAction(userInfo));
       })
       .catch((error) => {
