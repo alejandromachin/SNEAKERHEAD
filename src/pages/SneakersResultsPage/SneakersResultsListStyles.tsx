@@ -24,10 +24,17 @@ export const PaginationButtons = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  & button {
+    font-size: 25px;
+  }
 `;
 
 export const NextButtonContainer = styled.div`
   position: absolute;
   bottom: 5px;
   right: 10px;
+  & button {
+    font-size: 25px;
+  }
 `;
