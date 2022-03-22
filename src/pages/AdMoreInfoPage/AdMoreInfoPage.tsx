@@ -34,7 +34,11 @@ const AdMoreInfoPage = (): JSX.Element => {
   }, [ad, user.id]);
 
   useEffect(() => {
+    const cleanUp = () => {
+      setIsYourAd(false);
+    };
     dispatch(moreInfoAdThunk(id as string));
+    return cleanUp;
   }, [dispatch, id, user.id]);
 
   const deleteAd = () => {
@@ -47,6 +51,12 @@ const AdMoreInfoPage = (): JSX.Element => {
   const contactInfo = () => {
     setshowContacInfo(!showContacInfo);
   };
+
+  const isYourAdAction = () => {
+    isYourAd ? editForm() : contactInfo();
+  };
+
+  const isYourAdText = isYourAd ? "EDIT" : "CONTACT INFO";
   return (
     <>
       <AdMoreInfoContainer>
@@ -103,10 +113,7 @@ const AdMoreInfoPage = (): JSX.Element => {
               )}
 
               <ButtonContainer>
-                <Button
-                  actionOnClick={isYourAd ? editForm : contactInfo}
-                  text={isYourAd ? "EDIT" : "CONTACT INFO"}
-                />
+                <Button actionOnClick={isYourAdAction} text={isYourAdText} />
               </ButtonContainer>
             </>
           )}
