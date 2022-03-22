@@ -5,7 +5,7 @@ export const LoginFormContainer = styled.div`
   flex-direction: column;
   position: relative;
   width: 100vw;
-  min-height: 50vh;
+  min-height: 20vh;
   align-items: center;
   font-size: 20px;
   @media (min-width: 600px) {
