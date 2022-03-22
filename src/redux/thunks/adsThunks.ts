@@ -26,7 +26,7 @@ export const loadAllSneakerAdsThunk =
   async (dispatch: Dispatch<LoadAdsAction>) => {
     const url = `${process.env.REACT_APP_URL}ads/${id}?limit=${limit}&skip=${skip}`;
 
-    const { data }: AdsData = await axios.get(url as string);
+    const { data }: AdsData = await axios.get(url);
 
     dispatch(loadAdsAction(data));
   };
@@ -35,7 +35,7 @@ export const moreInfoAdThunk =
   (id: string) => async (dispatch: Dispatch<AdAction>) => {
     const url = `${process.env.REACT_APP_URL}ads/detail/${id}`;
 
-    const { data }: AdData = await axios.get(url as string);
+    const { data }: AdData = await axios.get(url);
 
     dispatch(loadAdAction(data));
   };

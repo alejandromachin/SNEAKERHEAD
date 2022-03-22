@@ -71,10 +71,10 @@ const AdMoreInfoPage = (): JSX.Element => {
             <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
 
             <div>
-              <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
+              <img src={(ad as Ad).image2} alt={(ad as Ad).colorway}></img>
             </div>
             <div>
-              <img src={(ad as Ad).image1} alt={(ad as Ad).colorway}></img>
+              <img src={(ad as Ad).image3} alt={(ad as Ad).colorway}></img>
             </div>
             <div>
               <img src={(ad as Ad).image4} alt={(ad as Ad).colorway}></img>

@@ -21,8 +21,9 @@ export const AdMoreInfoContainer = styled.div`
   }
 `;
 export const AdMoreInfoCarousel = styled.div`
+  display: flex;
   @media (min-width: 600px) {
-    width: 45%;
+    max-width: 550px;
   }
 `;
 

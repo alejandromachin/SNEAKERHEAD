@@ -96,6 +96,9 @@ const SneakerInfoPage = (): JSX.Element => {
     }
   }, [filter, ads]);
 
+  const buyAndSellButtonText = showSellForm ? "BUY" : "SELL";
+  const loadMoreButtonText = noMoreAds ? "NO MORE ADS TO SHOW" : "LOAD MORE";
+
   return (
     <>
       <SneakerInfoContainer>
@@ -119,7 +122,7 @@ const SneakerInfoPage = (): JSX.Element => {
               {user.id ? (
                 <Button
                   actionOnClick={openSellForm}
-                  text={showSellForm ? "BUY" : "SELL"}
+                  text={buyAndSellButtonText}
                 />
               ) : (
                 <p className="SneakerInfoPage__loginToSell">LOG IN TO SELL</p>
@@ -165,10 +168,7 @@ const SneakerInfoPage = (): JSX.Element => {
           <SneakerAdList ads={filter.length > 0 ? filteredAds : ads} />
           {filter.length === 0 && filteredAds.length === 0 && (
             <ButtonContainer>
-              <Button
-                actionOnClick={loadMoreAds}
-                text={noMoreAds ? "NO MORE ADS TO SHOW" : "LOAD MORE"}
-              />
+              <Button actionOnClick={loadMoreAds} text={loadMoreButtonText} />
             </ButtonContainer>
           )}
         </>
