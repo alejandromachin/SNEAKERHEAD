@@ -17,8 +17,8 @@ Object.defineProperty(window, "matchMedia", {
 
 describe("Given a Navigation component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show 6 anchors and an image as anchor", () => {
-      const expectedNumberOfAnchors = 6;
+    test("Then it should show 5 anchors and an image as anchor", () => {
+      const expectedNumberOfAnchors = 5;
 
       render(
         <BrowserRouter>
