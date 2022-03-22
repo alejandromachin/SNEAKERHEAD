@@ -45,8 +45,7 @@ export const registerThunk =
 export const loginThunk =
   (userData: LoginData) =>
   async (dispatch: Dispatch<LoginAction> | Dispatch<ErrorAction>) => {
-    // const url = `${process.env.REACT_APP_URL}user/login`;
-    const url = `http://localhost:4000/user/login`;
+    const url = `${process.env.REACT_APP_URL}user/login`;
 
     await axios
       .post(url, userData)
