@@ -1,6 +1,6 @@
-import { LoginAction } from "../../../Types/Action";
+import { LoginAction, RegisterAction } from "../../../Types/Action";
 import { LoginData } from "../../../Types/LoginData";
-import { User } from "../../../Types/User";
+import { RegisterData } from "../../../Types/RegisterData";
 import actionTypes from "../actionTypes";
 import { loginAction, registerAction } from "./usersActionCreator";
 
@@ -27,38 +27,17 @@ describe("Given a loginAction function", () => {
 describe("Given a registerAction function", () => {
   describe("When it is called with a user", () => {
     test("Then it should return an object with the type and the user", () => {
-      const user: User = {
-        id: "test",
+      const user: RegisterData = {
         name: "test",
         lastname: "test",
         username: "test",
         password: "test",
         city: "test",
         email: "test",
-        ads: [
-          {
-            id: "test",
-            brand: "test",
-            style: "test",
-            colorway: "test",
-            image1: "test",
-            image2: "test",
-            image3: "test",
-            image4: "test",
-            price: "test",
-            likes: 0,
-            size: 40,
-            condition: 10,
-            box: "good",
-            state: "new",
-            owner: "622b15710695a90af3e56a20",
-            ownerEmail: "test@email.com",
-          },
-        ],
       };
-      const expectedAction = {
+      const expectedAction: RegisterAction = {
         type: actionTypes.register,
-        user,
+        registerData: user,
       };
 
       const action = registerAction(user);

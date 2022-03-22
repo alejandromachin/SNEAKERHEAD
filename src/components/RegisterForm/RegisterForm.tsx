@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerThunk } from "../../redux/thunks/userThunk";
-import { User } from "../../Types/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconLookup, library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -16,18 +15,16 @@ const eyeLookup: IconLookup = {
 
 const RegisterForm = (): JSX.Element => {
   const blankFields = {
-    id: "",
     name: "",
     lastname: "",
     username: "",
     password: "",
     email: "",
     city: "",
-    ads: [],
   };
 
   const dispatch = useDispatch();
-  const [userData, setUserData] = useState<User>(blankFields);
+  const [userData, setUserData] = useState(blankFields);
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
   const [disableButton, setDisableButton] = useState<boolean>(true);
 
