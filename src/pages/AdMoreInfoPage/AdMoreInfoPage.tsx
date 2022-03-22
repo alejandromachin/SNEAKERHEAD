@@ -103,7 +103,7 @@ const AdMoreInfoPage = (): JSX.Element => {
 
               {showContacInfo && (
                 <ContactInfoContainer>
-                  {user.name} {(ad as Ad).ownerEmail}
+                  <p>Email: {(ad as Ad).ownerEmail}</p>
                 </ContactInfoContainer>
               )}
 
