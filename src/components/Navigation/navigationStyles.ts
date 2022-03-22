@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-interface navigationProps {
+interface NavigationProps {
   readonly isLogged: boolean;
 }
 
-export const NavigationContainer = styled.div<navigationProps>`
+export const NavigationContainer = styled.div<NavigationProps>`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -56,7 +56,7 @@ export const NavigationContainer = styled.div<navigationProps>`
   }
 `;
 
-export const UserAreaContainer = styled.div<navigationProps>`
+export const UserAreaContainer = styled.div<NavigationProps>`
   width: ${(props) => (props.isLogged ? "20vw" : "35vw")};
   display: flex;
   flex-direction: row;
