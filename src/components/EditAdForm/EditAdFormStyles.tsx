@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
-export const AdFormContainer = styled.div`
+export const EditAdFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   align-items: center;
   justify-content: center;
   font-size: 20px;
   @media (min-width: 600px) {
-    width: 100vw;
-    height: 80vh;
+    width: 40vw;
+    height: 60vh;
   }
+
   & form {
     width: 85%;
     height: 100%;
@@ -66,8 +67,11 @@ export const AdFormContainer = styled.div`
       &.AdForm_Button__disabled {
         background-color: #b2b1b1;
       }
+
       @media (min-width: 600px) {
+        margin-top: 10px;
         width: 100%;
+        position: static;
       }
     }
   }

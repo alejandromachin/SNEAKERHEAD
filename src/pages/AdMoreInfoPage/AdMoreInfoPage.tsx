@@ -27,12 +27,7 @@ const AdMoreInfoPage = (): JSX.Element => {
   const [showContacInfo, setshowContacInfo] = useState<boolean>(false);
   const [isYourAd, setIsYourAd] = useState<boolean>(false);
 
-  console.log(user.id);
-  console.log((ad as Ad).owner);
-
   useEffect(() => {
-    console.log("hola");
-
     if (user.id === (ad as Ad).owner) {
       setIsYourAd(true);
     }

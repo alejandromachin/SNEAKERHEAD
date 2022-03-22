@@ -7,6 +7,8 @@ export const BurgerContainer = styled.div`
   flex-direction: column;
   height: ${burgerHeight}px;
   width: min-content;
+  margin: 5px;
+  margin-top: 0px;
   justify-content: space-between;
   z-index: 20;
   &.active .burger-bar:nth-child(2) {

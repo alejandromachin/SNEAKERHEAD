@@ -19,9 +19,10 @@ const Navigation = (): JSX.Element => {
   return (
     <NavigationContainer isLogged={user.name ? true : false}>
       <BurguerMenu actionOnClick={toggleActive} isActive={menuState} />
-
       <FloatingMenu />
-      <Link to="/home">LOGO</Link>
+      <Link to={"/home"} className="logo">
+        SNEAKERHEAD
+      </Link>
       <SearchBar />
       <UserAreaContainer isLogged={user.name ? true : false}>
         {user.name ? (

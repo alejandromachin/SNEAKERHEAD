@@ -7,7 +7,7 @@ export const SneakersResultsListContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 
   & .sneakerResults_tittle {
     margin-bottom: 0px;
@@ -24,10 +24,17 @@ export const PaginationButtons = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  & button {
+    font-size: 25px;
+  }
 `;
 
 export const NextButtonContainer = styled.div`
   position: absolute;
   bottom: 5px;
   right: 10px;
+  & button {
+    font-size: 25px;
+  }
 `;

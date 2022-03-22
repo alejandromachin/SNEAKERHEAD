@@ -33,7 +33,7 @@ const HomePage = (): JSX.Element => {
 
   return (
     <HomePageContainer>
-      <h1>SNEAKERHEAD</h1>
+      {window.matchMedia("(max-width: 600px)").matches && <h1>SNEAKERHEAD</h1>}
       {ads.length === 0 && sneakers.length === 0 && <Spinner />}
       {ads.length !== 0 && sneakers.length !== 0 && (
         <>
