@@ -10,7 +10,7 @@ const LoginPage = () => {
   const user = useSelector((state: RootState) => state.user);
   const navigate = useNavigate();
   useEffect(() => {
-    if (user.name) {
+    if (user.id && user.id !== "") {
       toast.success("SUCESSFULLY LOGGED!", {
         duration: 1000,
         style: {

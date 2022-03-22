@@ -1,4 +1,4 @@
-import { Action, LoginAction } from "../../../Types/Action";
+import { Action, LoginAction, RegisterAction } from "../../../Types/Action";
 import { User } from "../../../Types/User";
 import actionTypes from "../../actions/actionTypes";
 
@@ -11,6 +11,10 @@ const userReducer = (
     case actionTypes.login:
       newUser = { ...(action as LoginAction).login };
       break;
+    case actionTypes.register:
+      newUser = { ...(action as RegisterAction).user };
+      break;
+
     case actionTypes.logout:
       newUser = {};
       break;
