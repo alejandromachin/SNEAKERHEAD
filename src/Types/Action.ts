@@ -1,7 +1,7 @@
 import { Ad } from "./Ad";
 import { LoginData } from "./LoginData";
+import { RegisterData } from "./RegisterData";
 import { Sneaker } from "./Sneaker";
-import { User } from "./User";
 
 export interface Action {
   type?: string;
@@ -25,7 +25,7 @@ export interface LoadSneakerInfoAction extends Action {
   sneaker: Sneaker;
 }
 export interface RegisterAction extends Action {
-  user: User;
+  registerData: RegisterData;
 }
 
 export interface LoginAction extends Action {

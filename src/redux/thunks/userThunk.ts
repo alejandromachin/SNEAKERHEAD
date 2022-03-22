@@ -9,6 +9,7 @@ import {
 } from "../../Types/Action";
 import { ErrorAction } from "../../Types/Error";
 import { LoginData } from "../../Types/LoginData";
+import { RegisterData } from "../../Types/RegisterData";
 import { User } from "../../Types/User";
 import {
   errorOnLoginAction,
@@ -21,7 +22,7 @@ import {
 } from "../actions/usersActionCreator/usersActionCreator";
 
 export const registerThunk =
-  (userData: User) =>
+  (userData: RegisterData) =>
   async (dispatch: Dispatch<ErrorAction> | Dispatch<RegisterAction>) => {
     const url = `${process.env.REACT_APP_URL}user/register`;
 

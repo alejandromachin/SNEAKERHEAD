@@ -12,7 +12,7 @@ const userReducer = (
       newUser = { ...(action as LoginAction).login };
       break;
     case actionTypes.register:
-      newUser = { ...(action as RegisterAction).user };
+      newUser = { ...(action as RegisterAction).registerData };
       break;
 
     case actionTypes.logout:

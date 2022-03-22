@@ -6,13 +6,8 @@ import { LoginFormContainer } from "./LoginFormStyles";
 
 const LoginForm = (): JSX.Element => {
   const blankFields = {
-    name: "",
-    lastname: "",
     username: "",
     password: "",
-    email: "",
-    city: "",
-    ads: [],
   };
   const dispatch = useDispatch();
   const [loginData, setLoginData] = useState<LoginData>(blankFields);

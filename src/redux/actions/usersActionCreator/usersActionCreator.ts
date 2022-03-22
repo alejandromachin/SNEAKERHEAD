@@ -6,7 +6,8 @@ import {
 } from "../../../Types/Action";
 import { Ad } from "../../../Types/Ad";
 import { LoginData } from "../../../Types/LoginData";
-import { User } from "../../../Types/User";
+import { RegisterData } from "../../../Types/RegisterData";
+
 import actionTypes from "../actionTypes";
 
 export const loginAction = (login: LoginData): LoginAction => ({
@@ -17,9 +18,9 @@ export const logOutAction = (): Action => ({
   type: actionTypes.logout,
 });
 
-export const registerAction = (user: User): RegisterAction => ({
+export const registerAction = (registerData: RegisterData): RegisterAction => ({
   type: actionTypes.register,
-  user,
+  registerData,
 });
 
 export const loadUserAdsAction = (ads: Ad[]): LoadUserAdsAction => ({
