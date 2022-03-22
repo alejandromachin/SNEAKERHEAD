@@ -5,6 +5,15 @@ import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store";
 import { Provider } from "react-redux";
 
+const mockUseDispatch = jest.fn();
+
+jest.mock("react-redux", () => {
+  return {
+    ...jest.requireActual("react-redux"),
+    useDispatch: () => mockUseDispatch,
+  };
+});
+
 describe("Given a SearchBar component", () => {
   describe("When it is rendered", () => {
     test("Then it should show a text bar and a button", () => {
@@ -39,6 +48,8 @@ describe("Given a SearchBar component", () => {
       userEvents.type(input, "test");
 
       userEvents.click(button);
+
+      expect(mockUseDispatch).toHaveBeenCalled();
     });
   });
 });

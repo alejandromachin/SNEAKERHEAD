@@ -92,15 +92,44 @@ export const ButtonContainer = styled.div`
 
 export const SizeContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  height: 40px;
-  background-color: #d3e2ff;
-  font-size: 20px;
-  margin-bottom: 15px;
-  width: 100%;
+
+  & .slider {
+    width: 100vw;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    background-color: #d3e2ff;
+    justify-content: space-between;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    @media (min-width: 600px) {
+      width: 80vw;
+      height: 40px;
+    }
+  }
+  & .slider::-webkit-scrollbar {
+    display: none;
+  }
+  & .slide {
+    margin-top: 10px;
+    padding-left: 5px;
+    width: 40px;
+    flex-shrink: 0;
+  }
   @media (min-width: 600px) {
     flex-direction: row;
     width: 100%;
   }
+`;
+export const ActiveFilters = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  color: red;
+  background-color: #d3e2ff;
+  margin-top: 5px;
 `;
