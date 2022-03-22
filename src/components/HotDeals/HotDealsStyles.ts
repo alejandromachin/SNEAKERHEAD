@@ -65,7 +65,7 @@ export const HotDealsCardText = styled.div`
     font-size: 10px;
   }
   & .HotDeals__price {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
   }
   @media (min-width: 600px) {
