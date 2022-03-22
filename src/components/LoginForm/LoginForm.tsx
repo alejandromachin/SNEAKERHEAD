@@ -16,7 +16,6 @@ const LoginForm = (): JSX.Element => {
   };
   const dispatch = useDispatch();
   const [loginData, setLoginData] = useState<LoginData>(blankFields);
-
   const [disableButton, setDisableButton] = useState<boolean>(true);
 
   useEffect(() => {

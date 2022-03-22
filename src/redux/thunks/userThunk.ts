@@ -2,7 +2,11 @@ import axios, { AxiosResponse } from "axios";
 import jwtDecode from "jwt-decode";
 import { Dispatch } from "react";
 import toast from "react-hot-toast";
-import { LoadUserAdsAction, LoginAction } from "../../Types/Action";
+import {
+  LoadUserAdsAction,
+  LoginAction,
+  RegisterAction,
+} from "../../Types/Action";
 import { ErrorAction } from "../../Types/Error";
 import { LoginData } from "../../Types/LoginData";
 import { User } from "../../Types/User";
@@ -13,19 +17,23 @@ import {
 import {
   loadUserAdsAction,
   loginAction,
+  registerAction,
 } from "../actions/usersActionCreator/usersActionCreator";
 
 export const registerThunk =
-  (userData: User) => async (dispatch: Dispatch<ErrorAction>) => {
+  (userData: User) =>
+  async (dispatch: Dispatch<ErrorAction> | Dispatch<RegisterAction>) => {
     const url = `${process.env.REACT_APP_URL}user/register`;
 
-    await axios
+    const response = await axios
       .post(url, userData, {
         headers: {
           "Content-Type": "application/json",
         },
       })
-      .then(() => {})
+      .then(() => {
+        (dispatch as Dispatch<RegisterAction>)(registerAction(userData));
+      })
       .catch((error) => {
         (dispatch as Dispatch<ErrorAction>)(
           errorOnRegisterAction(error.response.data)
@@ -40,6 +48,7 @@ export const registerThunk =
           },
         });
       });
+    return response;
   };
 
 export const loginThunk =
