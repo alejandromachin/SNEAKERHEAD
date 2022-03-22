@@ -19,7 +19,8 @@ import {
 export const loadAllSneakersThunk =
   (limit: number, skip: number) =>
   async (dispatch: Dispatch<LoadSneakersAction>) => {
-    const url = `${process.env.REACT_APP_URL}sneakers/?limit=${limit}&skip=${skip}`;
+    // const url = `${process.env.REACT_APP_URL}sneakers/?limit=${limit}&skip=${skip}`;
+    const url = `http://localhost:4000/sneakers/?limit=${limit}&skip=${skip}`;
 
     const { data } = await axios.get(url as string);
     dispatch(loadSneakersAction(data));
@@ -33,7 +34,8 @@ export const loadAllSneakersByParamsThunk =
     if (params === "") {
       params = "all";
     }
-    const url = `${process.env.REACT_APP_URL}sneakers/search/${params}?limit=${limit}&skip=${skip}`;
+    // const url = `${process.env.REACT_APP_URL}sneakers/search/${params}?limit=${limit}&skip=${skip}`;
+    const url = `http://localhost:4000/sneakers/search/${params}?limit=${limit}&skip=${skip}`;
 
     const { data } = await axios.get(url as string);
 
@@ -44,7 +46,8 @@ export const loadAllSneakersByParamsThunk =
 
 export const moreInfoSneakerThunk =
   (id: string) => async (dispatch: Dispatch<LoadSneakerInfoAction>) => {
-    const url = `${process.env.REACT_APP_URL}sneakers/${id}`;
+    const url = `http://localhost:4000/sneakers/${id}`;
+    // const url = `${process.env.REACT_APP_URL}sneakers/${id}`;
     const { data } = await axios.get(url as string);
 
     dispatch(loadSneakerInfoAction(data));

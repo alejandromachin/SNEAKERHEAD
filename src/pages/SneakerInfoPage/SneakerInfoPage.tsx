@@ -11,6 +11,7 @@ import { moreInfoSneakerThunk } from "../../redux/thunks/sneakersThunk";
 import { Ad } from "../../Types/Ad";
 import { Sneaker } from "../../Types/Sneaker";
 import {
+  ActiveFilters,
   ButtonContainer,
   SizeContainer,
   SneakerCard,
@@ -27,7 +28,10 @@ import {
 } from "../../redux/actions/adsActionCreator/adsActionCreator";
 
 const SneakerInfoPage = (): JSX.Element => {
-  const sizes: number[] = [35.5, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
+  const sizes: number[] = [
+    35.5, 36, 36.5, 37, 37.5, 38, 38.5, 39, 40, 40.5, 41, 41.5, 42, 42.5, 43,
+    43.5, 44, 44.5, 45,
+  ];
   const limit = 2;
 
   const { id } = useParams();
@@ -124,14 +128,30 @@ const SneakerInfoPage = (): JSX.Element => {
       {!showSellForm && (
         <>
           <SizeContainer>
-            {sizes.map((size) => (
-              <span key={size} onClick={() => sizeFilter(size)}>
-                {size}
-              </span>
-            ))}
+            <div className="slider">
+              {sizes.map((size: number) => (
+                <div
+                  className="slide"
+                  key={size}
+                  onClick={
+                    filter.includes(size as never)
+                      ? () => {}
+                      : () => sizeFilter(size)
+                  }
+                >
+                  {size}
+                </div>
+              ))}
+            </div>
           </SizeContainer>
           {filter.length > 0 && (
             <>
+              <ActiveFilters>
+                SELECTED:
+                {filter.map((size) => (
+                  <span> {size} </span>
+                ))}
+              </ActiveFilters>
               <span onClick={() => clearFilters()}>Clear filters x</span>
               {filteredAds.length === 0 && (
                 <span>Sorry, there are no ads of this size</span>

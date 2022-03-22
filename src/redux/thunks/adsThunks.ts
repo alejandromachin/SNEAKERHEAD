@@ -24,7 +24,8 @@ interface AdsData {
 export const loadAllSneakerAdsThunk =
   (id: string, limit: number, skip: number) =>
   async (dispatch: Dispatch<LoadAdsAction>) => {
-    const url = `${process.env.REACT_APP_URL}ads/${id}?limit=${limit}&skip=${skip}`;
+    // const url = `${process.env.REACT_APP_URL}ads/${id}?limit=${limit}&skip=${skip}`;
+    const url = `$http://localhost:4000/ads/${id}?limit=${limit}&skip=${skip}`;
 
     const { data }: AdsData = await axios.get(url as string);
 
@@ -33,7 +34,8 @@ export const loadAllSneakerAdsThunk =
 
 export const moreInfoAdThunk =
   (id: string) => async (dispatch: Dispatch<AdAction>) => {
-    const url = `${process.env.REACT_APP_URL}ads/detail/${id}`;
+    // const url = `${process.env.REACT_APP_URL}ads/detail/${id}`;
+    const url = `http://localhost:4000/ads/detail/${id}`;
 
     const { data }: AdData = await axios.get(url as string);
 
@@ -43,7 +45,8 @@ export const moreInfoAdThunk =
 export const createAdThunk =
   (adData: FormData) =>
   async (dispatch: Dispatch<AdAction> | Dispatch<ErrorAction>) => {
-    const url = `${process.env.REACT_APP_URL}ads/new`;
+    // const url = `${process.env.REACT_APP_URL}ads/new`;
+    const url = `http://localhost:4000/ads/new`;
 
     await axios
       .post(url, adData, {
