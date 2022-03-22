@@ -21,7 +21,7 @@ export const loadAllSneakersThunk =
   async (dispatch: Dispatch<LoadSneakersAction>) => {
     const url = `${process.env.REACT_APP_URL}sneakers/?limit=${limit}&skip=${skip}`;
 
-    const { data } = await axios.get(url as string);
+    const { data } = await axios.get(url);
     dispatch(loadSneakersAction(data));
   };
 
@@ -35,7 +35,7 @@ export const loadAllSneakersByParamsThunk =
     }
     const url = `${process.env.REACT_APP_URL}sneakers/search/${params}?limit=${limit}&skip=${skip}`;
 
-    const { data } = await axios.get(url as string);
+    const { data } = await axios.get(url);
 
     (dispatch as Dispatch<SearchParamsActionType>)(searchParamsAction(params));
 
@@ -45,7 +45,7 @@ export const loadAllSneakersByParamsThunk =
 export const moreInfoSneakerThunk =
   (id: string) => async (dispatch: Dispatch<LoadSneakerInfoAction>) => {
     const url = `${process.env.REACT_APP_URL}sneakers/${id}`;
-    const { data } = await axios.get(url as string);
+    const { data } = await axios.get(url);
 
     dispatch(loadSneakerInfoAction(data));
   };

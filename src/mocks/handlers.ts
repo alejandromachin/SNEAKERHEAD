@@ -148,7 +148,6 @@ export const handlers = [
           name: "test",
           lastname: "test",
           username: "test",
-          password: "test",
           email: "test",
           city: "test",
           ads: ["test"],
