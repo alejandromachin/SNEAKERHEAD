@@ -4,12 +4,15 @@ export const AdFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   align-items: center;
   justify-content: center;
   font-size: 20px;
-
+  @media (min-width: 600px) {
+    width: 100vw;
+    height: 80vh;
+  }
   & form {
     width: 85%;
     height: 100%;
@@ -62,6 +65,9 @@ export const AdFormContainer = styled.div`
       color: #ff0000;
       &.AdForm_Button__disabled {
         background-color: #b2b1b1;
+      }
+      @media (min-width: 600px) {
+        width: 100%;
       }
     }
   }

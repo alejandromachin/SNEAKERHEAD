@@ -12,15 +12,15 @@ export const UserAdsList = styled.div`
     justify-content: center;
     align-items: center;
     gap: 20px;
+    margin-bottom: 70px;
   }
   & li {
     width: 80%;
-    height: 50px;
+    height: 70px;
     padding: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
     list-style: none;
     background-color: #d3e2ff;
   }

@@ -6,7 +6,8 @@ export const UserInfoContainer = styled.div`
   width: 90vw;
   height: 80vh;
   @media (min-width: 600px) {
-    width: 100%;
+    width: 80vw;
+
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -37,7 +38,7 @@ export const UserInfo = styled.div`
     margin: 0px;
   }
   @media (min-width: 600px) {
-    width: 50%;
+    width: 40%;
     margin: 20px;
     font-size: 22px;
   }
@@ -48,6 +49,7 @@ export const UserNav = styled.div`
   font-size: 25px;
   gap: 10px;
   align-items: flex-end;
+
   @media (min-width: 600px) {
     width: 40vw;
     margin: 20px;
