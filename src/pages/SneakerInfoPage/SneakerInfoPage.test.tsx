@@ -113,6 +113,17 @@ jest.mock("react-redux", () => {
   };
 });
 
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: (query: string) => {
+    return {
+      matches: false,
+      media: query,
+      onchange: null,
+    };
+  },
+});
+
 describe("Given a SneakerInfoPage component", () => {
   describe("When it is rendered with a sneaker with 4 ads", () => {
     test("Then it should show 1 image of the sneaker, 4 images of the ads and a button to sell and a button to load more", async () => {

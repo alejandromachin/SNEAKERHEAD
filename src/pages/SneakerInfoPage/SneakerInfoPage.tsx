@@ -32,7 +32,8 @@ const SneakerInfoPage = (): JSX.Element => {
     35.5, 36, 36.5, 37, 37.5, 38, 38.5, 39, 40, 40.5, 41, 41.5, 42, 42.5, 43,
     43.5, 44, 44.5, 45,
   ];
-  const limit = 2;
+
+  const limit = window.matchMedia("(min-width: 600px)").matches ? 4 : 2;
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -47,7 +48,10 @@ const SneakerInfoPage = (): JSX.Element => {
   const [skip, setSkip] = useState(0);
 
   const loadMoreAds = () => {
+    console.log(skip);
     setSkip(skip + limit);
+    console.log(skip);
+
     dispatch(loadAllSneakerAdsThunk(id as string, limit, skip));
   };
 

@@ -5,8 +5,10 @@ export const SneakerAdListContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 100vw;
+  width: 80vw;
   @media (min-width: 600px) {
     align-items: center;
+    margin-top: 20px;
+    justify-content: space-between;
   }
 `;

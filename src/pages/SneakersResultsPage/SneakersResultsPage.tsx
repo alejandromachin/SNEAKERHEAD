@@ -20,21 +20,29 @@ const SneakersResultsPage = (): JSX.Element => {
 
   const dispatch = useDispatch();
   const [page, setPage] = useState<number>(1);
-  const limit = 6;
-  const [skip, setSkip] = useState(6);
+  const limit: number = window.matchMedia("(min-width: 600px)").matches
+    ? 15
+    : 6;
 
-  const numberOfPages = 4;
+  const [skip, setSkip] = useState<number>(0);
+
+  const numberOfPages: number = window.matchMedia("(min-width: 600px)").matches
+    ? 2
+    : 4;
 
   const nextPage = () => {
+    const next = skip + limit;
     setSkip(skip + limit);
     setPage(page + 1);
-    dispatch(loadAllSneakersByParamsThunk(limit, skip, params));
+    dispatch(loadAllSneakersByParamsThunk(limit, next, params));
   };
 
   const previousPage = () => {
+    const previous = skip - limit;
     setSkip(skip - limit);
     setPage(page - 1);
-    dispatch(loadAllSneakersByParamsThunk(limit, skip, params));
+
+    dispatch(loadAllSneakersByParamsThunk(limit, previous, params));
   };
 
   useEffect(() => {
