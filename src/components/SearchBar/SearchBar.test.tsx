@@ -13,6 +13,16 @@ jest.mock("react-redux", () => {
     useDispatch: () => mockUseDispatch,
   };
 });
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: (query: string) => {
+    return {
+      matches: false,
+      media: query,
+      onchange: null,
+    };
+  },
+});
 
 describe("Given a SearchBar component", () => {
   describe("When it is rendered", () => {

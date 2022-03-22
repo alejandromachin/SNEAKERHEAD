@@ -22,7 +22,7 @@ const SearchBar = (): JSX.Element => {
   const [searchData, setFormData] = useState<SearchData>(blankFields);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const limit = 6;
+  const limit = window.matchMedia("(min-width: 600px)").matches ? 15 : 6;
   const skip = 0;
   const resetForm = () => {
     setFormData(blankFields);

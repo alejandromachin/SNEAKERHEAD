@@ -48,7 +48,10 @@ const SneakerInfoPage = (): JSX.Element => {
   const [skip, setSkip] = useState(0);
 
   const loadMoreAds = () => {
+    console.log(skip);
     setSkip(skip + limit);
+    console.log(skip);
+
     dispatch(loadAllSneakerAdsThunk(id as string, limit, skip));
   };
 
