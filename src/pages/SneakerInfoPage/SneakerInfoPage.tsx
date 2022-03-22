@@ -48,18 +48,20 @@ const SneakerInfoPage = (): JSX.Element => {
   const [skip, setSkip] = useState(0);
 
   const loadMoreAds = () => {
-    console.log(skip);
-    setSkip(skip + limit);
-    console.log(skip);
-
-    dispatch(loadAllSneakerAdsThunk(id as string, limit, skip));
+    if (!noMoreAds) {
+      const loadMore = skip + limit;
+      setSkip(skip + limit);
+      dispatch(loadAllSneakerAdsThunk(id as string, limit, loadMore));
+    }
   };
 
-  if (sneaker.ads) {
-    if (sneaker.ads.length === ads.length) {
-      // setNoMoreAds(true);
+  useEffect(() => {
+    if (sneaker.ads) {
+      if (sneaker.ads.length === ads.length) {
+        setNoMoreAds(true);
+      }
     }
-  }
+  }, [ads.length, sneaker.ads]);
 
   useEffect(() => {
     const cleanUp = () => {
