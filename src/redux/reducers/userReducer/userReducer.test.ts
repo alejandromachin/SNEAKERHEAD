@@ -1,4 +1,4 @@
-import { Action, LoginAction } from "../../../Types/Action";
+import { Action, LoginAction, RegisterAction } from "../../../Types/Action";
 import { LoginData } from "../../../Types/LoginData";
 import actionTypes from "../../actions/actionTypes";
 import userReducer from "./userReducer";
@@ -42,6 +42,27 @@ describe("Given a userReducer function", () => {
       const newState = userReducer(currentState, logOutAction);
 
       expect(newState).toEqual(expectedNewState);
+    });
+  });
+  describe("When it is called  with a registerAction", () => {
+    test("Then it should return the register data as new state", () => {
+      const currentState = {};
+      const registerData = {
+        name: "test",
+        lastname: "test",
+        username: "test",
+        password: "test",
+        email: "test",
+        city: "test",
+      };
+      const registerAction: RegisterAction = {
+        type: actionTypes.register,
+        registerData,
+      };
+
+      const newState = userReducer(currentState, registerAction);
+
+      expect(newState).toEqual(registerData);
     });
   });
 });
