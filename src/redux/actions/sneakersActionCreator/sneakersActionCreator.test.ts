@@ -17,6 +17,7 @@ describe("Given a loadSneakersAction function", () => {
           releaseDate: "april 1990",
           image: "image",
           averagePrice: "5.000€",
+          ads: [],
         },
       ];
       const expectedAction = {
@@ -42,6 +43,7 @@ describe("Given a loadSneakerInfoAction function", () => {
         releaseDate: "april 1990",
         image: "image",
         averagePrice: "5.000€",
+        ads: [],
       };
       const expectedAction = {
         type: actionTypes.loadSneakerInfo,
@@ -66,6 +68,7 @@ describe("Given a loadSpinnerAdsAction function", () => {
           releaseDate: "april 1990",
           image: "image",
           averagePrice: "5.000€",
+          ads: [],
         },
       ];
       const expectedAction = {

@@ -8,5 +8,5 @@ export interface Sneaker {
   releaseDate: string;
   image: string;
   averagePrice: string;
-  ads?: Ad[];
+  ads: Ad[];
 }

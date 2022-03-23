@@ -101,6 +101,7 @@ describe("Given a sneakersReducer function", () => {
           releaseDate: "april 1990",
           image: "image",
           averagePrice: "5.000€",
+          ads: [],
         },
         {
           id: "123",
@@ -110,6 +111,7 @@ describe("Given a sneakersReducer function", () => {
           releaseDate: "april 1990",
           image: "image",
           averagePrice: "5.000€",
+          ads: [],
         },
       ];
       const loadSneakersByParamAction: LoadSneakersAction = {
@@ -133,6 +135,7 @@ describe("Given a sneakersReducer function", () => {
           releaseDate: "april 1990",
           image: "image",
           averagePrice: "5.000€",
+          ads: [],
         },
         {
           id: "123",
@@ -142,6 +145,7 @@ describe("Given a sneakersReducer function", () => {
           releaseDate: "april 1990",
           image: "image",
           averagePrice: "5.000€",
+          ads: [],
         },
       ];
       const expectedNewState: Sneaker[] = [];

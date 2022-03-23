@@ -12,7 +12,6 @@ const RegisterPage = (): JSX.Element => {
 
   useEffect(() => {
     if (user.name) {
-      console.log("hola");
       toast.success("USER REGISTERED!", {
         duration: 1000,
         style: {
@@ -23,8 +22,6 @@ const RegisterPage = (): JSX.Element => {
         },
       });
       setTimeout(() => {
-        console.log("kebin");
-
         navigate("/login");
       }, 1000);
     }

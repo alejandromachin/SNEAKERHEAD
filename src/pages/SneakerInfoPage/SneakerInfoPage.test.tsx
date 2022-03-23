@@ -7,14 +7,7 @@ import { Ad } from "../../Types/Ad";
 import SneakerInfoPage from "./SneakerInfoPage";
 
 const mockUseParams = { id: "test" };
-
-jest.mock("react-router-dom", () => {
-  return {
-    ...jest.requireActual("react-router-dom"),
-    useParams: () => mockUseParams,
-  };
-});
-
+const mockUseDispatch = jest.fn();
 const mockFilter: number[] = [];
 const mockUser = { name: "test", id: "test" };
 const mockAds: Ad[] = [
@@ -83,7 +76,7 @@ const mockAds: Ad[] = [
     image3: "test",
     image4: "test",
     price: "10.000",
-    size: 40,
+    size: 41,
     likes: 0,
     box: "good",
     state: "new",
@@ -101,6 +94,20 @@ const mockSneaker = {
   averagePrice: "5.000€",
   ads: ["test", "test", "test", "test"],
 };
+
+jest.mock("react-router-dom", () => {
+  return {
+    ...jest.requireActual("react-router-dom"),
+    useParams: () => mockUseParams,
+  };
+});
+
+jest.mock("react-redux", () => {
+  return {
+    ...jest.requireActual("react-redux"),
+    useDispatch: () => mockUseDispatch,
+  };
+});
 
 jest.mock("react-redux", () => {
   return {
@@ -150,7 +157,7 @@ describe("Given a SneakerInfoPage component", () => {
   });
 
   describe("When its button is clicked", () => {
-    test("Then it should load 2 more ads", async () => {
+    test("Then it should load 2 more ads", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -167,6 +174,45 @@ describe("Given a SneakerInfoPage component", () => {
 
       const images = screen.getAllByRole("img");
       expect(images).toHaveLength(5);
+    });
+  });
+
+  describe("When its clicked on the sell form button", () => {
+    test("Then it should open the form to sell", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SneakerInfoPage />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const buttonSell = screen.getByRole("button", {
+        name: "SELL",
+      });
+
+      userEvent.click(buttonSell);
+
+      const state = screen.getByRole("combobox", {
+        name: /are they used or new?/i,
+      });
+
+      expect(state).toBeInTheDocument();
+    });
+  });
+  describe("When its clicked on the size filter", () => {
+    test("Then it should open the form to sell", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <SneakerInfoPage />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const buttonSize = screen.getByText("40");
+
+      userEvent.click(buttonSize);
     });
   });
 });
