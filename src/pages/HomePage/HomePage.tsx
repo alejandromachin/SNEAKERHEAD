@@ -47,19 +47,19 @@ const HomePage = (): JSX.Element => {
             >
               <div>
                 <img
-                  src="/images/homepage_slider/jordan1-bred.png"
+                  src="/images/homepage_slider/jordan1-bred.webp"
                   alt="bred"
                 ></img>
               </div>
               <div>
                 <img
-                  src="/images/homepage_slider/mono-sunflower-1.png"
+                  src="/images/homepage_slider/mono-sunflower-1.webp"
                   alt="sunflower"
                 ></img>
               </div>
               <div>
                 <img
-                  src="/images/homepage_slider/jordan4-Sail.png"
+                  src="/images/homepage_slider/jordan4-Sail.webp"
                   alt="sail"
                 ></img>
               </div>
