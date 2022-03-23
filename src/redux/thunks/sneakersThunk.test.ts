@@ -122,3 +122,22 @@ describe("Given a loadSpinnerSneakersThunk function", () => {
     });
   });
 });
+
+// describe("Given a loadAllSneakersByParamsThunk function", () => {
+//   describe("When it's invoked", () => {
+//     test("Then it should call the dispatch function", async () => {
+//       const limit = 2;
+//       const skip = 3;
+//       const params = "";
+//       const dispatch = jest.fn();
+//       const action: LoadSneakersAction = {
+//         type: actionTypes.loadSpinnerSneakers,
+//         sneakers,
+//       };
+
+//       const thunkFunction = loadAllSneakersByParamsThunk(limit, skip, params);
+
+//       await thunkFunction(dispatch);
+//     });
+//   });
+// });
