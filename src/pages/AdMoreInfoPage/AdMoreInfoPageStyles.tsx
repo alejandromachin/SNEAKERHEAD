@@ -65,9 +65,9 @@ export const FormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 600px;
   @media (min-width: 600px) {
-    height: 70vh;
+    height: 700px;
   }
 `;
 export const DeleteButton = styled.div`

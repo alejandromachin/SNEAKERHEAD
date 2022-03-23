@@ -5,15 +5,14 @@ export const EditAdFormContainer = styled.div`
   flex-direction: column;
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 500px;
   align-items: center;
   justify-content: center;
   font-size: 20px;
   @media (min-width: 600px) {
     width: 40vw;
-    height: 60vh;
+    height: 600px;
   }
-
   & form {
     width: 85%;
     height: 100%;
@@ -55,10 +54,8 @@ export const EditAdFormContainer = styled.div`
       height: 40px;
       padding: 0px;
       background-color: #d3e2ff;
-      position: absolute;
-      bottom: 0px;
-      left: 0px;
-      width: 100vw;
+
+      width: 100%;
       border: none;
       cursor: pointer;
       text-align: center;
