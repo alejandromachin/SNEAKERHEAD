@@ -48,29 +48,23 @@ const SneakerInfoPage = (): JSX.Element => {
   const [filteredAds, setFilteredAds] = useState<Ad[]>([]);
   const [skip, setSkip] = useState(0);
   const [isCreated, setIsCreated] = useState<boolean>(false);
+  const [visibleAds, setVisibleAds] = useState<number>(limit);
 
-  const loadMoreAds = () => {
-    if (!noMoreAds) {
-      const loadMore = skip + limit;
-      setSkip(skip + limit);
-      dispatch(loadAllSneakerAdsThunk(id as string, limit, loadMore));
-    }
-  };
+  const adsToShow = ads.slice(0, visibleAds);
 
   useEffect(() => {
     if (isCreated) {
       setShowSellForm(!showSellForm);
-      navigate(`/sneakers/${id}`);
     }
   }, [ads, isCreated]);
 
   useEffect(() => {
-    if (sneaker.ads) {
-      if (sneaker.ads.length === ads.length) {
+    if (ads.length !== 0) {
+      if (ads.length === adsToShow.length) {
         setNoMoreAds(true);
       }
     }
-  }, [ads.length, sneaker.ads]);
+  }, [ads, adsToShow]);
 
   useEffect(() => {
     const cleanUp = () => {
@@ -80,7 +74,7 @@ const SneakerInfoPage = (): JSX.Element => {
     setFilteredAds([]);
 
     dispatch(moreInfoSneakerThunk(id as string));
-    dispatch(loadAllSneakerAdsThunk(id as string, limit, skip));
+    dispatch(loadAllSneakerAdsThunk(id as string, 10, 0));
 
     return cleanUp;
   }, [dispatch, id, limit, skip]);
@@ -101,6 +95,9 @@ const SneakerInfoPage = (): JSX.Element => {
     setNoMoreAds(false);
     setFilteredAds([]);
     dispatch(clearFilterAction());
+  };
+  const loadMore = (): void => {
+    setVisibleAds((prevValue) => prevValue + limit);
   };
 
   useEffect(() => {
@@ -180,10 +177,12 @@ const SneakerInfoPage = (): JSX.Element => {
               )}
             </>
           )}
-          <SneakerAdList ads={filter.length > 0 ? filteredAds : ads} />
+
+          <SneakerAdList ads={filter.length > 0 ? filteredAds : adsToShow} />
+
           {filter.length === filteredAds.length && (
             <ButtonContainer>
-              <Button actionOnClick={loadMoreAds} text={loadMoreButtonText} />
+              <Button actionOnClick={loadMore} text={loadMoreButtonText} />
             </ButtonContainer>
           )}
         </>
