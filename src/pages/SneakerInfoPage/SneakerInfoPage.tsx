@@ -158,7 +158,7 @@ const SneakerInfoPage = (): JSX.Element => {
               <ActiveFilters>
                 SELECTED:
                 {filter.map((size) => (
-                  <span> {size} </span>
+                  <span key={size}> {size} </span>
                 ))}
               </ActiveFilters>
               <span onClick={() => clearFilters()}>Clear filters x</span>
@@ -168,7 +168,7 @@ const SneakerInfoPage = (): JSX.Element => {
             </>
           )}
           <SneakerAdList ads={filter.length > 0 ? filteredAds : ads} />
-          {filter.length === 0 && filteredAds.length === 0 && (
+          {filter.length === filteredAds.length && (
             <ButtonContainer>
               <Button actionOnClick={loadMoreAds} text={loadMoreButtonText} />
             </ButtonContainer>

@@ -7,7 +7,14 @@ import { Ad } from "../../Types/Ad";
 import SneakerInfoPage from "./SneakerInfoPage";
 
 const mockUseParams = { id: "test" };
-const mockUseDispatch = jest.fn();
+
+jest.mock("react-router-dom", () => {
+  return {
+    ...jest.requireActual("react-router-dom"),
+    useParams: () => mockUseParams,
+  };
+});
+
 const mockFilter: number[] = [];
 const mockUser = { name: "test", id: "test" };
 const mockAds: Ad[] = [
@@ -76,7 +83,7 @@ const mockAds: Ad[] = [
     image3: "test",
     image4: "test",
     price: "10.000",
-    size: 41,
+    size: 40,
     likes: 0,
     box: "good",
     state: "new",
@@ -84,6 +91,7 @@ const mockAds: Ad[] = [
     ownerEmail: "test@email.com",
   },
 ];
+
 const mockSneaker = {
   id: "123",
   brand: "Jordan",
@@ -92,22 +100,8 @@ const mockSneaker = {
   releaseDate: "april 1990",
   image: "image",
   averagePrice: "5.000€",
-  ads: ["test", "test", "test", "test"],
+  ads: ["test", "test", "test"],
 };
-
-jest.mock("react-router-dom", () => {
-  return {
-    ...jest.requireActual("react-router-dom"),
-    useParams: () => mockUseParams,
-  };
-});
-
-jest.mock("react-redux", () => {
-  return {
-    ...jest.requireActual("react-redux"),
-    useDispatch: () => mockUseDispatch,
-  };
-});
 
 jest.mock("react-redux", () => {
   return {
@@ -134,30 +128,8 @@ Object.defineProperty(window, "matchMedia", {
 });
 
 describe("Given a SneakerInfoPage component", () => {
-  describe("When it is rendered with a sneaker with 4 ads", () => {
-    test("Then it should show 1 image of the sneaker, 4 images of the ads and a button to sell and a button to load more", async () => {
-      render(
-        <BrowserRouter>
-          <Provider store={store}>
-            <SneakerInfoPage />
-          </Provider>
-        </BrowserRouter>
-      );
-
-      const images = screen.getAllByRole("img");
-      const buttonSell = screen.getByRole("button", { name: "SELL" });
-      const buttonLoad = screen.getByRole("button", {
-        name: "NO MORE ADS TO SHOW",
-      });
-
-      expect(images).toHaveLength(5);
-      expect(buttonSell).toBeInTheDocument();
-      expect(buttonLoad).toBeInTheDocument();
-    });
-  });
-
-  describe("When its button is clicked", () => {
-    test("Then it should load 2 more ads", () => {
+  describe("When its button is clicked but it has more ads to load", () => {
+    test("Then it should load 2 more ads", async () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -167,52 +139,13 @@ describe("Given a SneakerInfoPage component", () => {
       );
 
       const buttonLoad = screen.getByRole("button", {
-        name: "NO MORE ADS TO SHOW",
+        name: "LOAD MORE",
       });
 
       userEvent.click(buttonLoad);
 
       const images = screen.getAllByRole("img");
       expect(images).toHaveLength(5);
-    });
-  });
-
-  describe("When its clicked on the sell form button", () => {
-    test("Then it should open the form to sell", () => {
-      render(
-        <BrowserRouter>
-          <Provider store={store}>
-            <SneakerInfoPage />
-          </Provider>
-        </BrowserRouter>
-      );
-
-      const buttonSell = screen.getByRole("button", {
-        name: "SELL",
-      });
-
-      userEvent.click(buttonSell);
-
-      const state = screen.getByRole("combobox", {
-        name: /are they used or new?/i,
-      });
-
-      expect(state).toBeInTheDocument();
-    });
-  });
-  describe("When its clicked on the size filter", () => {
-    test("Then it should open the form to sell", () => {
-      render(
-        <BrowserRouter>
-          <Provider store={store}>
-            <SneakerInfoPage />
-          </Provider>
-        </BrowserRouter>
-      );
-
-      const buttonSize = screen.getByText("40");
-
-      userEvent.click(buttonSize);
     });
   });
 });

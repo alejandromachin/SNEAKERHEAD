@@ -1,9 +1,12 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store";
 import { Ad } from "../../Types/Ad";
 import UserAdsPage from "./UserAdsPage";
+
+const mockUseNavigate = jest.fn();
 const mockUser = { name: "test", id: "test" };
 const mockAds: Ad[] = [
   {
@@ -25,6 +28,13 @@ const mockAds: Ad[] = [
     ownerEmail: "test@email.com",
   },
 ];
+
+jest.mock("react-router-dom", () => {
+  return {
+    ...jest.requireActual("react-router-dom"),
+    useNavigate: () => mockUseNavigate,
+  };
+});
 
 jest.mock("react-redux", () => {
   return {
@@ -50,6 +60,22 @@ describe("Given an UserAdsPage page", () => {
 
       expect(listItems).toHaveLength(1);
       expect(title).toBeInTheDocument();
+    });
+  });
+  describe("When it is clicked on an user ad", () => {
+    test("Then it should show a call the navigation method", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <UserAdsPage />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const listItems = screen.getAllByRole("listitem");
+      userEvent.click(listItems[0]);
+
+      expect(mockUseNavigate).toHaveBeenCalled();
     });
   });
 });

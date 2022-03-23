@@ -101,6 +101,7 @@ describe("Given a sneakersReducer function", () => {
           releaseDate: "april 1990",
           image: "image",
           averagePrice: "5.000€",
+          ads: [],
         },
         {
           id: "123",
@@ -110,6 +111,7 @@ describe("Given a sneakersReducer function", () => {
           releaseDate: "april 1990",
           image: "image",
           averagePrice: "5.000€",
+          ads: [],
         },
       ];
       const loadSneakersByParamAction: LoadSneakersAction = {
@@ -120,6 +122,41 @@ describe("Given a sneakersReducer function", () => {
       const newState = sneakersReducer(currentState, loadSneakersByParamAction);
 
       expect(newState).toEqual(sneakers);
+    });
+  });
+  describe("When it is called with a state of an array of sneakers and the cleanUpSneakersAction", () => {
+    test("Then it should return an empty new state", () => {
+      const currentState: Sneaker[] = [
+        {
+          id: "123",
+          brand: "Jordan",
+          style: "1",
+          colorway: "Chicago",
+          releaseDate: "april 1990",
+          image: "image",
+          averagePrice: "5.000€",
+          ads: [],
+        },
+        {
+          id: "123",
+          brand: "Jordan",
+          style: "1",
+          colorway: "Chicago",
+          releaseDate: "april 1990",
+          image: "image",
+          averagePrice: "5.000€",
+          ads: [],
+        },
+      ];
+      const expectedNewState: Sneaker[] = [];
+
+      const cleanUpSneakersAction = {
+        type: actionTypes.cleanUpSneakers,
+      };
+
+      const newState = sneakersReducer(currentState, cleanUpSneakersAction);
+
+      expect(newState).toEqual(expectedNewState);
     });
   });
 });
