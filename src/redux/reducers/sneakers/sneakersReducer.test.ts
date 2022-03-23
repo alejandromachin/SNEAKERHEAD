@@ -122,4 +122,37 @@ describe("Given a sneakersReducer function", () => {
       expect(newState).toEqual(sneakers);
     });
   });
+  describe("When it is called with a state of an array of sneakers and the cleanUpSneakersAction", () => {
+    test("Then it should return an empty new state", () => {
+      const currentState: Sneaker[] = [
+        {
+          id: "123",
+          brand: "Jordan",
+          style: "1",
+          colorway: "Chicago",
+          releaseDate: "april 1990",
+          image: "image",
+          averagePrice: "5.000€",
+        },
+        {
+          id: "123",
+          brand: "Jordan",
+          style: "1",
+          colorway: "Chicago",
+          releaseDate: "april 1990",
+          image: "image",
+          averagePrice: "5.000€",
+        },
+      ];
+      const expectedNewState: Sneaker[] = [];
+
+      const cleanUpSneakersAction = {
+        type: actionTypes.cleanUpSneakers,
+      };
+
+      const newState = sneakersReducer(currentState, cleanUpSneakersAction);
+
+      expect(newState).toEqual(expectedNewState);
+    });
+  });
 });

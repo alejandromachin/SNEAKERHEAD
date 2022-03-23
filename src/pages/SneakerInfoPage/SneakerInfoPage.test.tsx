@@ -14,6 +14,7 @@ jest.mock("react-router-dom", () => {
     useParams: () => mockUseParams,
   };
 });
+
 const mockFilter: number[] = [];
 const mockUser = { name: "test", id: "test" };
 const mockAds: Ad[] = [
@@ -98,6 +99,7 @@ const mockSneaker = {
   releaseDate: "april 1990",
   image: "image",
   averagePrice: "5.000€",
+  ads: ["test", "test", "test", "test"],
 };
 
 jest.mock("react-redux", () => {
@@ -117,7 +119,7 @@ Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: (query: string) => {
     return {
-      matches: false,
+      matches: true,
       media: query,
       onchange: null,
     };
@@ -137,13 +139,16 @@ describe("Given a SneakerInfoPage component", () => {
 
       const images = screen.getAllByRole("img");
       const buttonSell = screen.getByRole("button", { name: "SELL" });
-      const buttonLoad = screen.getByRole("button", { name: "LOAD MORE" });
+      const buttonLoad = screen.getByRole("button", {
+        name: "NO MORE ADS TO SHOW",
+      });
 
       expect(images).toHaveLength(5);
       expect(buttonSell).toBeInTheDocument();
       expect(buttonLoad).toBeInTheDocument();
     });
   });
+
   describe("When its button is clicked", () => {
     test("Then it should load 2 more ads", async () => {
       render(
@@ -154,7 +159,9 @@ describe("Given a SneakerInfoPage component", () => {
         </BrowserRouter>
       );
 
-      const buttonLoad = screen.getByRole("button", { name: "LOAD MORE" });
+      const buttonLoad = screen.getByRole("button", {
+        name: "NO MORE ADS TO SHOW",
+      });
 
       userEvent.click(buttonLoad);
 
