@@ -42,6 +42,14 @@ export const handlers = [
     req.url.searchParams.get("skip");
     return res(ctx.status(200), ctx.json([mockSneaker, mockSneaker]));
   }),
+  rest.get(
+    `${process.env.REACT_APP_URL}sneakers/search/test`,
+    (req, res, ctx) => {
+      req.url.searchParams.get("limit");
+      req.url.searchParams.get("skip");
+      return res(ctx.status(200), ctx.json([mockSneaker, mockSneaker]));
+    }
+  ),
   rest.get(`${process.env.REACT_APP_URL}ads/hotdeals/load`, (req, res, ctx) => {
     return res(ctx.status(200), ctx.json([mockAd, mockAd]));
   }),
@@ -92,18 +100,6 @@ export const handlers = [
       req.url.searchParams.get("limit");
       req.url.searchParams.get("skip");
       return res(ctx.status(200), ctx.json([mockSneaker, mockSneaker]));
-    }
-  ),
-  rest.get(
-    `${process.env.REACT_APP_URL}sneakers/search/all`,
-
-    (req, res, ctx) => {
-      req.url.searchParams.get("limit");
-      req.url.searchParams.get("skip");
-      return res(
-        ctx.status(200),
-        ctx.json({ data: [mockSneaker, mockSneaker] })
-      );
     }
   ),
 ];
