@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Button from "../../components/Button/Button";
@@ -21,13 +21,20 @@ import {
 const AdMoreInfoPage = (): JSX.Element => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const ad = useSelector((state: RootState) => state.ad);
   const user = useSelector((state: RootState) => state.user);
   const [showEditForm, setShowEditForm] = useState<boolean>(false);
   const [showContacInfo, setshowContacInfo] = useState<boolean>(false);
   const [isYourAd, setIsYourAd] = useState<boolean>(false);
-  console.log((ad as Ad).owner);
-  console.log(user.id);
+  const [isEdited, setIsEdited] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (isEdited) {
+      setShowEditForm(!showEditForm);
+      navigate(`/ads/${id}`);
+    }
+  }, [ad, isEdited]);
 
   useEffect(() => {
     if (user.id === (ad as Ad).owner) {
@@ -48,6 +55,10 @@ const AdMoreInfoPage = (): JSX.Element => {
   };
 
   const editForm = () => {
+    setIsEdited(true);
+  };
+
+  const editForm2 = () => {
     setShowEditForm(!showEditForm);
   };
   const contactInfo = () => {
@@ -55,7 +66,7 @@ const AdMoreInfoPage = (): JSX.Element => {
   };
 
   const isYourAdAction = () => {
-    isYourAd ? editForm() : contactInfo();
+    isYourAd ? editForm2() : contactInfo();
   };
 
   const isYourAdText = isYourAd ? "EDIT" : "CONTACT INFO";
@@ -93,7 +104,7 @@ const AdMoreInfoPage = (): JSX.Element => {
                 </DeleteButton>
               </FormContainer>
               <ButtonContainer>
-                <Button actionOnClick={editForm} text={"CANCEL"} />
+                <Button actionOnClick={editForm2} text={"CANCEL"} />
               </ButtonContainer>
             </>
           ) : (

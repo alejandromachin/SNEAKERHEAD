@@ -7,9 +7,14 @@ import { AdFormContainer, LabelContainer } from "./AdFormStyles";
 interface AdFormProps {
   userId: string;
   sneaker: Sneaker;
+  actionOnCreate: () => void;
 }
 
-const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
+const AdForm = ({
+  userId,
+  sneaker,
+  actionOnCreate,
+}: AdFormProps): JSX.Element => {
   const blankFields = {
     condition: "",
     image1: "",
@@ -62,7 +67,7 @@ const AdForm = ({ userId, sneaker }: AdFormProps): JSX.Element => {
     adDataFinal.append("box", adData.box);
     adDataFinal.append("owner", userId);
     adDataFinal.append("sneakerId", sneaker.id);
-
+    actionOnCreate();
     dispatch(createAdThunk(adDataFinal));
     resetForm();
   };
