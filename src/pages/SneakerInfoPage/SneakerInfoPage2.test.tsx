@@ -91,6 +91,7 @@ const mockAds: Ad[] = [
     ownerEmail: "test@email.com",
   },
 ];
+
 const mockSneaker = {
   id: "123",
   brand: "Jordan",
@@ -99,7 +100,7 @@ const mockSneaker = {
   releaseDate: "april 1990",
   image: "image",
   averagePrice: "5.000€",
-  ads: ["test", "test", "test", "test"],
+  ads: ["test", "test", "test"],
 };
 
 jest.mock("react-redux", () => {
@@ -127,29 +128,7 @@ Object.defineProperty(window, "matchMedia", {
 });
 
 describe("Given a SneakerInfoPage component", () => {
-  describe("When it is rendered with a sneaker with 4 ads", () => {
-    test("Then it should show 1 image of the sneaker, 4 images of the ads and a button to sell and a button to load more", async () => {
-      render(
-        <BrowserRouter>
-          <Provider store={store}>
-            <SneakerInfoPage />
-          </Provider>
-        </BrowserRouter>
-      );
-
-      const images = screen.getAllByRole("img");
-      const buttonSell = screen.getByRole("button", { name: "SELL" });
-      const buttonLoad = screen.getByRole("button", {
-        name: "NO MORE ADS TO SHOW",
-      });
-
-      expect(images).toHaveLength(5);
-      expect(buttonSell).toBeInTheDocument();
-      expect(buttonLoad).toBeInTheDocument();
-    });
-  });
-
-  describe("When its button is clicked", () => {
+  describe("When its button is clicked but it has more ads to load", () => {
     test("Then it should load 2 more ads", async () => {
       render(
         <BrowserRouter>
@@ -160,7 +139,7 @@ describe("Given a SneakerInfoPage component", () => {
       );
 
       const buttonLoad = screen.getByRole("button", {
-        name: "NO MORE ADS TO SHOW",
+        name: "LOAD MORE",
       });
 
       userEvent.click(buttonLoad);

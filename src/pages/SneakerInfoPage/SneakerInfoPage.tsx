@@ -59,7 +59,6 @@ const SneakerInfoPage = (): JSX.Element => {
     if (sneaker.ads) {
       if (sneaker.ads.length === ads.length) {
         console.log("hola");
-
         setNoMoreAds(true);
       }
     }
