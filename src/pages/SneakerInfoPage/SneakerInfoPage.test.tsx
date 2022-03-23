@@ -147,10 +147,10 @@ describe("Given a SneakerInfoPage component", () => {
       const images = screen.getAllByRole("img");
       const buttonSell = screen.getByRole("button", { name: "SELL" });
       const buttonLoad = screen.getByRole("button", {
-        name: "NO MORE ADS TO SHOW",
+        name: "LOAD MORE",
       });
 
-      expect(images).toHaveLength(5);
+      expect(images).toHaveLength(3);
       expect(buttonSell).toBeInTheDocument();
       expect(buttonLoad).toBeInTheDocument();
     });
@@ -167,7 +167,7 @@ describe("Given a SneakerInfoPage component", () => {
       );
 
       const buttonLoad = screen.getByRole("button", {
-        name: "NO MORE ADS TO SHOW",
+        name: "LOAD MORE",
       });
 
       userEvent.click(buttonLoad);
