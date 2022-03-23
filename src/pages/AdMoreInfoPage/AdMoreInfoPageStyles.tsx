@@ -67,7 +67,7 @@ export const FormContainer = styled.div`
   justify-content: center;
   height: 600px;
   @media (min-width: 600px) {
-    height: 700px;
+    height: 600px;
   }
 `;
 export const DeleteButton = styled.div`
