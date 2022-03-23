@@ -35,7 +35,11 @@ describe("Given a AdForm component", () => {
       };
       render(
         <Provider store={store}>
-          <AdForm sneaker={sneaker} userId={"userID"} />
+          <AdForm
+            sneaker={sneaker}
+            userId={"userID"}
+            actionOnCreate={() => {}}
+          />
         </Provider>
       );
 

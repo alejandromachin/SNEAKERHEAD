@@ -31,7 +31,8 @@ const AdMoreInfoPage = (): JSX.Element => {
 
   useEffect(() => {
     if (isEdited) {
-      navigate("/home");
+      setShowEditForm(!showEditForm);
+      navigate(`/ads/${id}`);
     }
   }, [ad, isEdited]);
 

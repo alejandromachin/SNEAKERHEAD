@@ -37,6 +37,7 @@ const SneakerInfoPage = (): JSX.Element => {
 
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const sneaker = useSelector((state: RootState) => state.sneaker);
   const user = useSelector((state: RootState) => state.user);
   const ads = useSelector((state: RootState) => state.ads);
@@ -46,6 +47,7 @@ const SneakerInfoPage = (): JSX.Element => {
   const [noMoreAds, setNoMoreAds] = useState<boolean>(false);
   const [filteredAds, setFilteredAds] = useState<Ad[]>([]);
   const [skip, setSkip] = useState(0);
+  const [isCreated, setIsCreated] = useState<boolean>(false);
 
   const loadMoreAds = () => {
     if (!noMoreAds) {
@@ -54,6 +56,13 @@ const SneakerInfoPage = (): JSX.Element => {
       dispatch(loadAllSneakerAdsThunk(id as string, limit, loadMore));
     }
   };
+
+  useEffect(() => {
+    if (isCreated) {
+      setShowSellForm(!showSellForm);
+      navigate(`/sneakers/${id}`);
+    }
+  }, [ads, isCreated]);
 
   useEffect(() => {
     if (sneaker.ads) {
@@ -82,6 +91,10 @@ const SneakerInfoPage = (): JSX.Element => {
 
   const sizeFilter = (size: number) => {
     dispatch(sizeFilterAction(size));
+  };
+
+  const actionOnCreate = () => {
+    setIsCreated(true);
   };
 
   const clearFilters = () => {
@@ -176,7 +189,11 @@ const SneakerInfoPage = (): JSX.Element => {
         </>
       )}
       {showSellForm && (
-        <AdForm userId={user.id as string} sneaker={sneaker as Sneaker} />
+        <AdForm
+          userId={user.id as string}
+          sneaker={sneaker as Sneaker}
+          actionOnCreate={actionOnCreate}
+        />
       )}
     </>
   );
