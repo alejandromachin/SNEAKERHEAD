@@ -20,6 +20,29 @@ interface AdData {
 interface AdsData {
   data: Ad[];
 }
+const errorToast = (error: any) => {
+  toast.error(`${error.response.data.message}`, {
+    duration: 1000,
+    style: {
+      position: "relative",
+      top: 530,
+      color: "#ff0000",
+      backgroundColor: "#d3e2ff",
+    },
+  });
+};
+
+const successToast = (message: string) => {
+  toast.success(message, {
+    duration: 1000,
+    style: {
+      position: "relative",
+      top: 530,
+      color: "#ff0000",
+      backgroundColor: "#d3e2ff",
+    },
+  });
+};
 
 export const loadAllSneakerAdsThunk =
   (id: string, limit: number, skip: number) =>
@@ -53,27 +76,11 @@ export const createAdThunk =
       })
       .then((response) => {
         (dispatch as Dispatch<AdAction>)(createAdAction(response.data));
-        toast.success("CREATED", {
-          duration: 1000,
-          style: {
-            position: "relative",
-            top: 530,
-            color: "#ff0000",
-            backgroundColor: "#d3e2ff",
-          },
-        });
+        successToast("CREATED");
       })
       .catch((error) => {
         (dispatch as Dispatch<ErrorAction>)(errorAction(error.response.data));
-        toast.error(`${error.response.data.message}`, {
-          duration: 1000,
-          style: {
-            position: "relative",
-            top: 530,
-            color: "#ff0000",
-            backgroundColor: "#d3e2ff",
-          },
-        });
+        errorToast(error);
       });
   };
 
@@ -88,27 +95,11 @@ export const deleteAdThunk =
         (dispatch as Dispatch<DeleteAdAction>)(
           deleteAdAction(response.data.id)
         );
-        toast.success("DELETED", {
-          duration: 1000,
-          style: {
-            position: "relative",
-            top: 530,
-            color: "#ff0000",
-            backgroundColor: "#d3e2ff",
-          },
-        });
+        successToast("DELETED");
       })
       .catch((error) => {
         (dispatch as Dispatch<ErrorAction>)(errorAction(error.response.data));
-        toast.error(`${error.response.data.message}`, {
-          duration: 1000,
-          style: {
-            position: "relative",
-            top: 530,
-            color: "#ff0000",
-            backgroundColor: "#d3e2ff",
-          },
-        });
+        errorToast(error);
       });
   };
 
@@ -125,27 +116,11 @@ export const editAdThunk =
       })
       .then((response) => {
         (dispatch as Dispatch<AdAction>)(editAdAction(response.data));
-        toast.success("EDITED", {
-          duration: 1000,
-          style: {
-            position: "relative",
-            top: 530,
-            color: "#ff0000",
-            backgroundColor: "#d3e2ff",
-          },
-        });
+        successToast("EDITED");
       })
       .catch((error) => {
         (dispatch as Dispatch<ErrorAction>)(errorAction(error.response.data));
-        toast.error(`${error.response.data.message}`, {
-          duration: 1000,
-          style: {
-            position: "relative",
-            top: 530,
-            color: "#ff0000",
-            backgroundColor: "#d3e2ff",
-          },
-        });
+        errorToast(error);
       });
   };
 
