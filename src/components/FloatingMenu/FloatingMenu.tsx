@@ -19,17 +19,21 @@ const FloatingMenu = (): JSX.Element => {
           Hello, {user.name ? user.name : "stranger"}
         </p>
         <ul>
-          <Link to={"/register"} onClick={closeMenu}>
-            <li className="FloatinMenu__Register">
+          <li className="FloatinMenu__Register">
+            <Link to={"/register"} onClick={closeMenu}>
               {user.name ? "" : "Register"}
-            </li>
-          </Link>
-          <Link to={"/home"} onClick={closeMenu}>
-            <li>Home</li>
-          </Link>
-          <Link to={"/sneakers"} onClick={closeMenu}>
-            <li>All sneakers</li>
-          </Link>
+            </Link>
+          </li>
+          <li>
+            <Link to={"/home"} onClick={closeMenu}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to={"/sneakers"} onClick={closeMenu}>
+              All sneakers
+            </Link>
+          </li>
         </ul>
       </FloatingMenuDiv>
     </>
