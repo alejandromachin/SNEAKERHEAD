@@ -13,7 +13,7 @@ export const SneakerInfoContainer = styled.div`
   }
   @media (min-width: 600px) {
     flex-direction: row;
-    height: 300px;
+    height: 250px;
   }
 `;
 
