@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { SellButton } from "../../components/Button/ButtonStyles";
 import AdForm from "../../components/AdForm/AdForm";
@@ -40,8 +40,8 @@ const SneakerInfoPage = (): JSX.Element => {
   const sneaker = useSelector((state: RootState) => state.sneaker);
   const user = useSelector((state: RootState) => state.user);
   const ads = useSelector((state: RootState) => state.ads);
-  const filter = useSelector((state: RootState) => state.filter);
 
+  const filter = useSelector((state: RootState) => state.filter);
   const [showSellForm, setShowSellForm] = useState<boolean>(false);
   const [noMoreAds, setNoMoreAds] = useState<boolean>(false);
   const [filteredAds, setFilteredAds] = useState<Ad[]>([]);
