@@ -71,25 +71,23 @@ export const FormContainer = styled.div`
   }
 `;
 export const DeleteButton = styled.div`
-  margin-top: 5px;
-
+  margin-top: 10px;
   & button {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 40px;
     background-color: #ff0000;
-    bottom: 0px;
-    left: 0px;
-    width: 100vw;
+
+    width: 100%;
     border: none;
     cursor: pointer;
     text-align: center;
     font-size: 25px;
     color: #d3e2ff;
     @media (min-width: 600px) {
-      margin-top: 50px;
       width: 34vw;
+      bottom: -100px;
     }
   }
 `;
