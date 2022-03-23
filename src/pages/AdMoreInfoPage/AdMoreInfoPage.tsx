@@ -99,10 +99,10 @@ const AdMoreInfoPage = (): JSX.Element => {
             <>
               <FormContainer>
                 <EditAdForm ad={ad as Ad} actionOnEdit={editForm} />
-                <DeleteButton>
-                  <Button actionOnClick={deleteAd} text={"DELETE"} />
-                </DeleteButton>
               </FormContainer>
+              <DeleteButton>
+                <Button actionOnClick={deleteAd} text={"DELETE"} />
+              </DeleteButton>
               <ButtonContainer>
                 <Button actionOnClick={editForm2} text={"CANCEL"} />
               </ButtonContainer>
