@@ -2,11 +2,54 @@ import axios from "axios";
 import { LoadSneakersAction } from "../../Types/Action";
 import actionTypes from "../actions/actionTypes";
 import {
+  loadAllSneakersByParamsThunk,
   loadAllSneakersThunk,
   loadSpinnerSneakersThunk,
   moreInfoSneakerThunk,
 } from "./sneakersThunk";
 
+describe("Given a loadAllSneakersByParamsThunk function", () => {
+  describe("When it's invoked", () => {
+    test("Then it should call the dispatch function", async () => {
+      const sneakers = [
+        {
+          id: "123",
+          brand: "Jordan",
+          style: "1 high",
+          colorway: "Chicago",
+          releaseDate: "1/2/1980",
+          image: "image",
+          averagePrice: "4.000€",
+          ads: [],
+        },
+        {
+          id: "123",
+          brand: "Jordan",
+          style: "1 high",
+          colorway: "Chicago",
+          releaseDate: "1/2/1980",
+          image: "image",
+          averagePrice: "4.000€",
+          ads: [],
+        },
+      ];
+      const params = "test";
+      const limit = 2;
+      const skip = 3;
+      const dispatch = jest.fn();
+      const action: LoadSneakersAction = {
+        type: actionTypes.loadSneakers,
+        sneakers,
+      };
+
+      const thunk = loadAllSneakersByParamsThunk(limit, skip, params);
+
+      await thunk(dispatch);
+
+      // expect(dispatch).toHaveBeenCalledWith(action);
+    });
+  });
+});
 describe("Given a loadAllSneakersThunk function", () => {
   describe("When it's invoked", () => {
     test("Then it should call the dispatch function", async () => {
@@ -122,22 +165,3 @@ describe("Given a loadSpinnerSneakersThunk function", () => {
     });
   });
 });
-
-// describe("Given a loadAllSneakersByParamsThunk function", () => {
-//   describe("When it's invoked", () => {
-//     test("Then it should call the dispatch function", async () => {
-//       const limit = 2;
-//       const skip = 3;
-//       const params = "";
-//       const dispatch = jest.fn();
-//       const action: LoadSneakersAction = {
-//         type: actionTypes.loadSpinnerSneakers,
-//         sneakers,
-//       };
-
-//       const thunkFunction = loadAllSneakersByParamsThunk(limit, skip, params);
-
-//       await thunkFunction(dispatch);
-//     });
-//   });
-// });
