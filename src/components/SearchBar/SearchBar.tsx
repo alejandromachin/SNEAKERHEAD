@@ -57,7 +57,7 @@ const SearchBar = (): JSX.Element => {
           onChange={changeData}
           placeholder="Search for brand, names..."
         />
-        <button type="submit">
+        <button type="submit" aria-label="search">
           <FontAwesomeIcon icon={magnifyingGlassLookup} />
         </button>
       </form>
