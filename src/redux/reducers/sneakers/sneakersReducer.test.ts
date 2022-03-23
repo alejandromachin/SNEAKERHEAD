@@ -1,3 +1,4 @@
+import { LoadSneakersAction } from "../../../Types/Action";
 import { Sneaker } from "../../../Types/Sneaker";
 import actionTypes from "../../actions/actionTypes";
 import sneakersReducer from "./sneakersReducer";
@@ -17,13 +18,13 @@ describe("Given a sneakersReducer function", () => {
       const currentState: Sneaker[] = [];
       const arrayOfSneakers = [
         {
-          Brand: "Jordan",
-          Model: "1",
-          Colorway: "Chicago",
+          id: "123",
+          brand: "Jordan",
+          style: "1",
+          colorway: "Chicago",
           releaseDate: "april 1990",
-          Image: "image",
-          AveragePrice: "5.000€",
-          Adds: "adds",
+          image: "image",
+          averagePrice: "5.000€",
         },
       ];
       const action = {
@@ -41,13 +42,13 @@ describe("Given a sneakersReducer function", () => {
       const currentState: Sneaker[] = [];
       const arrayOfSneakers = [
         {
-          Brand: "Jordan",
-          Model: "1",
-          Colorway: "Chicago",
+          id: "123",
+          brand: "Jordan",
+          style: "1",
+          colorway: "Chicago",
           releaseDate: "april 1990",
-          Image: "image",
-          AveragePrice: "5.000€",
-          Adds: "adds",
+          image: "image",
+          averagePrice: "5.000€",
         },
       ];
       const action = {
@@ -86,6 +87,39 @@ describe("Given a sneakersReducer function", () => {
       const newState = sneakersReducer(currentState, action);
 
       expect(newState).toEqual(currentState);
+    });
+  });
+  describe("When it is called with an empty state loadSneakersByParamAction with an array of sneakers", () => {
+    test("Then it should return the new state with the array of sneakers", () => {
+      const currentState: Sneaker[] = [];
+      const sneakers = [
+        {
+          id: "123",
+          brand: "Jordan",
+          style: "1",
+          colorway: "Chicago",
+          releaseDate: "april 1990",
+          image: "image",
+          averagePrice: "5.000€",
+        },
+        {
+          id: "123",
+          brand: "Jordan",
+          style: "1",
+          colorway: "Chicago",
+          releaseDate: "april 1990",
+          image: "image",
+          averagePrice: "5.000€",
+        },
+      ];
+      const loadSneakersByParamAction: LoadSneakersAction = {
+        type: actionTypes.loadSneakersByParam,
+        sneakers,
+      };
+
+      const newState = sneakersReducer(currentState, loadSneakersByParamAction);
+
+      expect(newState).toEqual(sneakers);
     });
   });
 });
