@@ -99,7 +99,7 @@ export const ContactInfoContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50vh;
+  width: 350px;
   height: 20vh;
   border-radius: 20px;
   border: 3px solid #000;

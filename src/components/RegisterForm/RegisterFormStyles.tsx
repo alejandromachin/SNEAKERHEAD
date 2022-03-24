@@ -69,6 +69,9 @@ export const RegisterFormContainer = styled.div`
       top: 247px;
       left: 310px;
       position: absolute;
+      @media (min-width: 600px) {
+        left: 910px;
+      }
     }
     & .active {
       color: #000;
