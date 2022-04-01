@@ -28,6 +28,7 @@ export const HotDealsContainer = styled.div`
     }
   }
   @media (min-width: 600px) {
+    flex-wrap: nowrap;
     width: 80vw;
     gap: 20px;
   }
@@ -51,6 +52,12 @@ export const HotDealsCard = styled.div`
   @media (min-width: 600px) {
     align-items: center;
     justify-content: center;
+    border: 2px solid #878585;
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+
+    &:hover {
+      border: 2px solid red;
+    }
   }
 `;
 export const HotDealsCardText = styled.div`
@@ -74,7 +81,7 @@ export const HotDealsCardText = styled.div`
     }
     & .HotDeals__colorway {
       margin: 0px;
-      font-size: 20px;
+      font-size: 18px;
     }
     & .HotDeals__price {
       margin-top: 5px;
