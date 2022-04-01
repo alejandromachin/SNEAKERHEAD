@@ -17,11 +17,12 @@ export const SliderContainer = styled.div`
     display: none;
   }
   .slide {
-    margin-top: 40px;
+    margin-top: 35px;
     padding-left: 5px;
     width: 140px;
     flex-shrink: 0;
     @media (min-width: 600px) {
+      margin-top: 40px;
       width: 160px;
       margin-right: 25px;
     }
