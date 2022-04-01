@@ -1,42 +1,11 @@
 import styled from "styled-components";
 import { Sneaker as sneakertype } from "../../Types/Sneaker";
 import Sneaker from "../Sneaker/Sneaker";
+import { SlideContainer, SliderContainer } from "./SneakerSliderStyles";
 
 interface SneakerSliderProps {
   sneakers: sneakertype[];
 }
-
-const SliderContainer = styled.div`
-  .slider {
-    width: 100vw;
-    height: 160px;
-    display: flex;
-    justify-content: space-between;
-    overflow-x: auto;
-    background-color: #d3e2ff;
-    scrollbar-width: none;
-    @media (min-width: 600px) {
-      width: 80vw;
-      height: 180px;
-    }
-  }
-  .slider::-webkit-scrollbar {
-    display: none;
-  }
-  .slide {
-    margin-top: 10px;
-    padding-left: 5px;
-    width: 140px;
-    flex-shrink: 0;
-    @media (min-width: 600px) {
-      width: 160px;
-      margin-right: 25px;
-    }
-  }
-  & img {
-    width: 140px;
-  }
-`;
 
 const SneakerSlider = ({ sneakers }: SneakerSliderProps): JSX.Element => {
   return (
@@ -44,7 +13,11 @@ const SneakerSlider = ({ sneakers }: SneakerSliderProps): JSX.Element => {
       <div className="slider">
         {sneakers.map((sneaker) => (
           <div className="slide" key={`${sneaker.style} ${sneaker.colorway}`}>
-            <Sneaker sneaker={sneaker} />
+            <SlideContainer className="container">
+              <div className="positioner">
+                <Sneaker sneaker={sneaker} />
+              </div>
+            </SlideContainer>
           </div>
         ))}
       </div>
