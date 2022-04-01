@@ -25,7 +25,6 @@ const SneakersResultsPage = (): JSX.Element => {
     : 6;
 
   const [skip, setSkip] = useState<number>(0);
-
   const numberOfPages: number = window.matchMedia("(min-width: 600px)").matches
     ? 2
     : 4;
@@ -49,6 +48,11 @@ const SneakersResultsPage = (): JSX.Element => {
     const cleanUp = () => {
       dispatch(cleanUpSneakersAction());
     };
+
+    if (params && sneakers.length === 0) {
+      dispatch(loadAllSneakersByParamsThunk(limit, skip, ""));
+    }
+
     return cleanUp;
   }, [dispatch]);
 
