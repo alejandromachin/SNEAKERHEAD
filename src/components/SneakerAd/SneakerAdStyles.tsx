@@ -5,11 +5,13 @@ export const SneakerAdContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40vw;
 
+  width: 40vw;
+  gap: 10px;
   & img {
     border: 2px solid #d3e2ff;
     width: 150px;
+    height: 150px;
   }
   @media (min-width: 600px) {
     width: 300px;
@@ -28,9 +30,6 @@ export const SneakerAdListText = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  background-color: #d3e2ff;
-  width: 304px;
-
   & p {
     margin: 0;
   }
@@ -38,6 +37,8 @@ export const SneakerAdListText = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    width: 304px;
+
     gap: 10px;
     & p {
       margin: 10px;
