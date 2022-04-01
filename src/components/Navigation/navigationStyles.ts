@@ -8,9 +8,9 @@ export const NavigationContainer = styled.div<NavigationProps>`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
   margin: 10px;
   width: 100%;
+  align-items: center;
 
   & .logo {
     display: none;
@@ -22,6 +22,7 @@ export const NavigationContainer = styled.div<NavigationProps>`
   @media (min-width: 600px) {
     width: 80vw;
     & .logo {
+      font-size: 35px;
       display: flex;
     }
   }
@@ -35,6 +36,7 @@ export const NavigationContainer = styled.div<NavigationProps>`
       border-bottom-left-radius: 2px;
       background-color: #f4f4f4;
       @media (min-width: 600px) {
+        height: 30px;
         width: 40vw;
       }
     }
@@ -45,6 +47,10 @@ export const NavigationContainer = styled.div<NavigationProps>`
       border-bottom-left-radius: 0px;
       border-top-right-radius: 2px;
       border-bottom-right-radius: 2px;
+      @media (min-width: 600px) {
+        height: 34px;
+        width: 34px;
+      }
     }
   }
   & .SearchLabel {
@@ -65,6 +71,7 @@ export const UserAreaContainer = styled.div<NavigationProps>`
   margin: 5px;
   margin-top: 0px;
   @media (min-width: 600px) {
+    font-size: 25px;
     width: 20vw;
   }
 `;

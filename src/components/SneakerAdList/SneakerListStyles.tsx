@@ -6,10 +6,12 @@ export const SneakerAdListContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   width: 90vw;
-
   margin-top: 20px;
   margin-bottom: 20px;
-
+  & .blank {
+    width: 90vw;
+    height: 40px;
+  }
   @media (min-width: 600px) {
     align-items: center;
     width: 80vw;

@@ -22,9 +22,8 @@ const Sneaker = ({ sneaker }: SneakerProps): JSX.Element => {
         <p className="sneaker_name">
           {sneaker.brand} {sneaker.style}
         </p>
-        <p>
-          {sneaker.colorway} | {sneaker.averagePrice}
-        </p>
+        <p>{sneaker.colorway}</p>
+        <p>{sneaker.averagePrice}</p>
       </SneakerCardText>
     </SneakerCard>
   );

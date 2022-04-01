@@ -8,11 +8,14 @@ interface SneakerAdListProps {
 
 const SneakerAdList = ({ ads }: SneakerAdListProps): JSX.Element => {
   return (
-    <SneakerAdListContainer>
-      {ads.map((ad) => (
-        <SneakerAd ad={ad} key={ad.id} />
-      ))}
-    </SneakerAdListContainer>
+    <>
+      <SneakerAdListContainer>
+        {ads.map((ad) => (
+          <SneakerAd ad={ad} key={ad.id} />
+        ))}
+        <span className="blank"></span>
+      </SneakerAdListContainer>
+    </>
   );
 };
 

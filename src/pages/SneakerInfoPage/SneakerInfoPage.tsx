@@ -33,7 +33,7 @@ const SneakerInfoPage = (): JSX.Element => {
     43.5, 44, 44.5, 45,
   ];
 
-  const limit = window.matchMedia("(min-width: 600px)").matches ? 4 : 2;
+  const limit = window.matchMedia("(min-width: 600px)").matches ? 5 : 2;
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -51,6 +51,14 @@ const SneakerInfoPage = (): JSX.Element => {
   const [visibleAds, setVisibleAds] = useState<number>(limit);
 
   const adsToShow = ads.slice(0, visibleAds);
+
+  useEffect(() => {
+    if (filter.length > 0 && ads.length > 0) {
+      setFilteredAds(
+        ads.filter((ad) => (filter as number[]).includes(ad.size))
+      );
+    }
+  }, [filter, ads]);
 
   useEffect(() => {
     if (isCreated) {
@@ -99,14 +107,6 @@ const SneakerInfoPage = (): JSX.Element => {
   const loadMore = (): void => {
     setVisibleAds((prevValue) => prevValue + limit);
   };
-
-  useEffect(() => {
-    if (filter.length > 0 && ads.length > 0) {
-      setFilteredAds(
-        ads.filter((ad) => (filter as number[]).includes(ad.size))
-      );
-    }
-  }, [filter, ads]);
 
   const buyAndSellButtonText = showSellForm ? "BUY" : "SELL";
   const loadMoreButtonText = noMoreAds ? "NO MORE ADS TO SHOW" : "LOAD MORE";

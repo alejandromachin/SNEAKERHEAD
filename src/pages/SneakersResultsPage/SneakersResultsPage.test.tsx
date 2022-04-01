@@ -54,7 +54,7 @@ describe("Given a SneakerResultsPage component", () => {
       const button = screen.getByRole("button", { name: /previous/i });
       userEvent.click(button);
 
-      expect(mockUseDispatch).toHaveBeenCalledTimes(2);
+      expect(mockUseDispatch).toHaveBeenCalledTimes(3);
     });
   });
 
