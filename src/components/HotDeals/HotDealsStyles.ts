@@ -72,16 +72,19 @@ export const HotDealsCardText = styled.div`
   flex-direction: column;
   padding: 5px;
   & h3 {
+    font-size: 24px;
     margin: 0px;
   }
   & .HotDeals__colorway {
     margin: 0px;
-    font-size: 10px;
+    font-size: 15px;
   }
   & .HotDeals__price {
-    font-size: 15px;
+    font-size: 20px;
+    margin: 5px;
     font-weight: bold;
   }
+
   @media (min-width: 600px) {
     & h3 {
       margin-top: 20px;

@@ -8,7 +8,9 @@ export const SliderContainer = styled.div`
     justify-content: space-between;
     overflow-x: auto;
     scrollbar-width: none;
+    gap: 10px;
     @media (min-width: 600px) {
+      gap: 0px;
       width: 80vw;
       height: 180px;
     }
@@ -38,8 +40,26 @@ export const SlideContainer = styled.div`
     border-radius: 10px;
     height: 120px;
 
+    & .sneaker_colorway {
+      font-size: 16px;
+    }
+    & .sneaker_price {
+      font-size: 18px;
+    }
+
+    & .positioner {
+      position: relative;
+      top: -30px;
+      right: 5px;
+    }
+    &.container:hover {
+      box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+      border: 1px solid #878585;
+    }
+
     @media (min-width: 600px) {
       height: 110px;
+
       & .sneaker_name {
         font-size: 15px;
       }
@@ -52,14 +72,5 @@ export const SlideContainer = styled.div`
         right: 24px;
       }
     }
-  }
-
-  & .positioner {
-    position: relative;
-    top: -30px;
-  }
-  &.container:hover {
-    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
-    border: 1px solid #878585;
   }
 `;

@@ -63,14 +63,18 @@ export const NavigationContainer = styled.div<NavigationProps>`
 `;
 
 export const UserAreaContainer = styled.div<NavigationProps>`
-  width: ${(props) => (props.isLogged ? "20vw" : "35vw")};
+  width: ${(props) => (props.isLogged ? "10vw" : "35vw")};
   display: flex;
   flex-direction: row;
-  justify-content: ${(props) => (props.isLogged ? "flex-end" : "space-around")};
+  justify-content: space-around;
   font-size: 18px;
   margin: 5px;
+  padding-right: ${(props) => (props.isLogged ? "10px" : "0px")};
   margin-top: 0px;
   @media (min-width: 600px) {
+    justify-content: ${(props) =>
+      props.isLogged ? "flex-end" : "space-around"};
+    padding-right: 0px;
     font-size: 25px;
     width: 20vw;
   }
