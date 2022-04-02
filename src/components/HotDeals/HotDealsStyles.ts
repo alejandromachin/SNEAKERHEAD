@@ -23,6 +23,7 @@ export const HotDealsContainer = styled.div`
 
   & .desktop {
     display: none;
+
     @media (min-width: 600px) {
       display: flex;
     }
@@ -37,10 +38,9 @@ export const HotDealsCard = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 380px;
+  width: 350px;
   height: 120px;
   background-color: #d3e2ff;
-
   cursor: pointer;
 
   & img {
