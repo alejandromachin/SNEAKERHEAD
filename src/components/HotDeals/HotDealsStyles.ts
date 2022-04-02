@@ -49,7 +49,8 @@ export const HotDealsCard = styled.div`
     border: 1px solid #fff;
   }
   @media (min-width: 600px) {
-    width: 350px;
+    width: 260px;
+    height: 100px;
     align-items: center;
     justify-content: center;
     border: 2px solid #878585;
@@ -57,6 +58,12 @@ export const HotDealsCard = styled.div`
 
     &:hover {
       border: 2px solid red;
+    }
+    & img {
+      margin: 5px;
+      height: 60px;
+      width: 40px;
+      border: 1px solid #fff;
     }
   }
 `;
@@ -81,11 +88,11 @@ export const HotDealsCardText = styled.div`
     }
     & .HotDeals__colorway {
       margin: 0px;
-      font-size: 15px;
+      font-size: 10px;
     }
     & .HotDeals__price {
       margin-top: 5px;
-      font-size: 25px;
+      font-size: 23px;
       font-weight: bold;
     }
   }
