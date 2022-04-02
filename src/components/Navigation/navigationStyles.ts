@@ -22,7 +22,7 @@ export const NavigationContainer = styled.div<NavigationProps>`
   @media (min-width: 600px) {
     width: 80vw;
     & .logo {
-      font-size: 35px;
+      font-size: 30px;
       display: flex;
     }
   }
@@ -66,7 +66,7 @@ export const UserAreaContainer = styled.div<NavigationProps>`
   width: ${(props) => (props.isLogged ? "20vw" : "35vw")};
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: ${(props) => (props.isLogged ? "flex-end" : "space-around")};
   font-size: 18px;
   margin: 5px;
   margin-top: 0px;

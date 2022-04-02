@@ -10,7 +10,7 @@ export const HomePageContainer = styled.div`
     text-shadow: 1px 0 #000, 1px 0 #000, 1px 0 #000, 1px 0 #000;
   }
   @media (min-width: 600px) {
-    width: 100%;
+    width: 80vw;
     height: 100vh;
   } ;
 `;
@@ -29,6 +29,6 @@ export const CarouselContainer = styled.div`
     width: 100%;
   }
   @media (min-width: 600px) {
-    width: 80.8%;
+    width: 100%;
   } ;
 `;
