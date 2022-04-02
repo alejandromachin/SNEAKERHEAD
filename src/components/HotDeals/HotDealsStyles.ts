@@ -23,7 +23,6 @@ export const HotDealsContainer = styled.div`
 
   & .desktop {
     display: none;
-
     @media (min-width: 600px) {
       display: flex;
     }
@@ -38,9 +37,10 @@ export const HotDealsCard = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 350px;
+  width: 48%;
   height: 120px;
   background-color: #d3e2ff;
+
   cursor: pointer;
 
   & img {
@@ -49,6 +49,7 @@ export const HotDealsCard = styled.div`
     border: 1px solid #fff;
   }
   @media (min-width: 600px) {
+    width: 350px;
     align-items: center;
     justify-content: center;
     border: 2px solid #878585;
@@ -80,11 +81,11 @@ export const HotDealsCardText = styled.div`
     }
     & .HotDeals__colorway {
       margin: 0px;
-      font-size: 16px;
+      font-size: 15px;
     }
     & .HotDeals__price {
       margin-top: 5px;
-      font-size: 30px;
+      font-size: 25px;
       font-weight: bold;
     }
   }
