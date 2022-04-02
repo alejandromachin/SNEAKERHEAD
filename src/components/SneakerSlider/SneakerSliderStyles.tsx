@@ -23,12 +23,12 @@ export const SliderContainer = styled.div`
     flex-shrink: 0;
     @media (min-width: 600px) {
       margin-top: 40px;
-      width: 160px;
+      width: 120px;
       margin-right: 25px;
     }
   }
   & img {
-    width: 140px;
+    width: 120px;
   }
 `;
 
@@ -37,8 +37,20 @@ export const SlideContainer = styled.div`
     background-color: #d3e2ff;
     border-radius: 10px;
     height: 120px;
+
     @media (min-width: 600px) {
-      height: 130px;
+      height: 110px;
+      & .sneaker_name {
+        font-size: 15px;
+      }
+      & .sneaker_colorway {
+        font-size: 14px;
+      }
+      & .positioner {
+        position: relative;
+        top: -30px;
+        right: 24px;
+      }
     }
   }
 
