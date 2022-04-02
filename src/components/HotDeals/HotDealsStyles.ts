@@ -28,7 +28,6 @@ export const HotDealsContainer = styled.div`
     }
   }
   @media (min-width: 600px) {
-    flex-wrap: nowrap;
     width: 80vw;
     gap: 20px;
   }
@@ -38,7 +37,7 @@ export const HotDealsCard = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 48%;
+  width: 400px;
   height: 120px;
   background-color: #d3e2ff;
 
@@ -81,7 +80,7 @@ export const HotDealsCardText = styled.div`
     }
     & .HotDeals__colorway {
       margin: 0px;
-      font-size: 18px;
+      font-size: 16px;
     }
     & .HotDeals__price {
       margin-top: 5px;
