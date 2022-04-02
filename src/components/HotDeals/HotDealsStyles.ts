@@ -37,7 +37,7 @@ export const HotDealsCard = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 400px;
+  width: 380px;
   height: 120px;
   background-color: #d3e2ff;
 
