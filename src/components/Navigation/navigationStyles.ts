@@ -30,7 +30,7 @@ export const NavigationContainer = styled.div<NavigationProps>`
   & form {
     & input {
       height: 20px;
-      width: ${(props) => (props.isLogged ? "50vw" : "40vw")};
+      width: ${(props) => (props.isLogged ? "50vw" : "30vw")};
       border: 1px solid #b2b1b1;
       border-top-left-radius: 2px;
       border-bottom-left-radius: 2px;
