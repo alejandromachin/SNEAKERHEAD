@@ -71,6 +71,7 @@ const HomePage = (): JSX.Element => {
           <HotDeals ads={ads} />
         </>
       )}
+      <span className="blank"></span>
     </HomePageContainer>
   );
 };
