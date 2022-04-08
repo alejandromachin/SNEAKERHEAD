@@ -13,3 +13,5 @@ Then, the three main scripts you will need from there on are:
 You can also find a list of the rest of the scripts in the package.json file.
 
 Thanks for your interest in this app.
+
+https://sneakerhead-coders.netlify.app
